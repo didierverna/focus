@@ -63,7 +63,10 @@ for a more human-readable guide to using @focus{}."
 
 ;; ASDF doesn't understand my version numnbering scheme. That will change
 ;; soon, but in the meantime, I have to provide my version number explicitly
-;; here.
+;; here (and so I need to load the system in order to get the VERSION
+;; function).
+(asdf:load-system :net.didierverna.focus)
+
 (if (and (second sb-ext:*posix-argv*)
 	 (string= (second sb-ext:*posix-argv*) "--web"))
     (declt:declt :net.didierverna.focus
@@ -71,7 +74,7 @@ for a more human-readable guide to using @focus{}."
 		 :texi-file "webreference.texi"
 		 :info-file "focus-webreference" ; but we don't care
 		 :introduction +introduction+
-		 :version (focus:version :long)
+		 :version (net.didierverna.focus:version :long)
 		 :license :bsd
 		 :copyright-date "2015")
     (declt:declt :net.didierverna.focus
@@ -79,7 +82,7 @@ for a more human-readable guide to using @focus{}."
 		 :texi-file "reference.texi"
 		 :info-file "focus-reference"
 		 :introduction +introduction+
-		 :version (focus:version :long)
+		 :version (net.didierverna.focus:version :long)
 		 :license :bsd
 		 :copyright-date "2015"
 		 :hyperlinks t))
