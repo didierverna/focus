@@ -21,7 +21,6 @@
 
 ;;; Commentary:
 
-;; Contents management by FCM version 0.1.
 
 
 ;;; Code:
@@ -29,32 +28,36 @@
 (in-package :cl-user)
 
 
-;; -------------------
-;; Package definition:
-;; -------------------
+;; ==========================================================================
+;; Package Management
+;; ==========================================================================
 
 (defpackage :net.didierverna.focus
   (:documentation "The FoCus package.")
   (:use :cl :net.didierverna.focus.setup)
-  (:shadow :*readtable*)
+  (:shadow :*readtable* :format :formatter)
   (:export
-    ;; From the :net.didierverna.focus.setup package:
-    :*release-major-level*
-    :*release-minor-level*
-    :*release-status*
-    :*release-status-level*
-    :*release-name*
-    :version
-    ;; From meta.lisp (this file):
-    :nickname-package))
-
+   ;; From the :net.didierverna.focus.setup package:
+   :*release-major-level*
+   :*release-minor-level*
+   :*release-status*
+   :*release-status-level*
+   :*release-name*
+   :version
+   ;; From meta.lisp (this file):
+   :nickname-package
+   ;; From src/table.lisp:
+   :make-format-table
+   :unregister-format-table
+   :in-format-table
+   :in-format-table*
+   :with-format-table
+   :with-format-table*
+   ;; From wrapper.lisp:
+   :format
+   :formatter))
 
 (in-package :net.didierverna.focus)
-
-
-;; -------------------
-;; External utilities:
-;; -------------------
 
 (defun nickname-package (&optional (nickname :focus))
   "Add NICKNAME (:FOCUS by default) to the :NET.DIDIERVERNA.FOCUS package."
@@ -64,16 +67,26 @@
 			  :test #'string-equal)))
 
 
-;; -------------------
-;; Internal utilities:
-;; -------------------
+
+;; ==========================================================================
+;; Readtable Management
+;; ==========================================================================
 
 (defvar *readtable* (copy-readtable)
   "The FoCus readtable.")
 
+(defmacro in-readtable (name)
+  "Set the current readtable to the value of NAME::*READTABLE*."
+  `(eval-when (:compile-toplevel :load-toplevel :execute)
+     (setf cl:*readtable*
+	   ;; #### NOTE: case portability
+	   (symbol-value (find-symbol (string :*readtable*) ,name)))))
 
+
+;; --------------------
 ;; String concatenation
 ;; --------------------
+
 (defun tilde-reader (stream char)
   "Read a series of ~\"string\" to be concatenated together."
   (declare (ignore char))
@@ -88,8 +101,11 @@
 
 (set-macro-character #\~ #'tilde-reader nil *readtable*)
 
+
+;; -----------------
 ;; Emacs indentation
 ;; -----------------
+
 (defun clindent (symbol indent)
   "Set SYMBOL's indentation to INDENT in (X)Emacs.
 This function sets SYMBOL's common-lisp-indent-function property.
@@ -120,6 +136,10 @@ See CLINDENT for more information."
 (set-dispatch-macro-character #\# #\i #'i-reader *readtable*)
 
 
+;; -----------
+;; Portability
+;; -----------
+
 ;; ECL, CLISP, Allegro and LispWorks do not like to see undefined reader
 ;; macros in expressions that belong to other compilers. For instance this
 ;; will break: #+ccl (#_ccl-only-function) It seems to be a correct behavior
@@ -136,12 +156,5 @@ See CLINDENT for more information."
     nil)
   (set-dispatch-macro-character #\# #\_ #'dummy-reader *readtable*)
   (set-dispatch-macro-character #\# #\$ #'dummy-reader *readtable*))
-
-(defmacro in-readtable (name)
-  "Set the current readtable to the value of NAME::*READTABLE*."
-  `(eval-when (:compile-toplevel :load-toplevel :execute)
-     (setf cl:*readtable*
-	   ;; #### NOTE: case portability
-	   (symbol-value (find-symbol (string :*readtable*) ,name)))))
 
 ;;; package.lisp ends here

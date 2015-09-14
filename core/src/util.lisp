@@ -1,4 +1,4 @@
-;;; net.didierverna.focus.asd --- ASDF system definition
+;;; util.lisp --- General utilities
 
 ;; Copyright (C) 2015 Didier Verna
 
@@ -25,19 +25,29 @@
 
 ;;; Code:
 
-(asdf:load-system :net.didierverna.focus.setup)
+(in-package :net.didierverna.focus)
+(in-readtable :net.didierverna.focus)
 
-(asdf:defsystem :net.didierverna.focus
-  :long-name "Format Customizations"
-  :description "Customizable FORMAT strings and directives"
-  :long-description "\
-"
-  :author "Didier Verna"
-  :mailto "didier@didierverna.net"
-  :homepage "http://www.lrde.epita.fr/~didier/software/lisp/misc.php#focus"
-  :source-control "https://github.com/didierverna/focus"
-  :license "BSD"
-  :version #.(net.didierverna.focus.setup:version :short)
-  :depends-on (:net.didierverna.focus.setup :net.didierverna.focus.core))
 
-;;; net.didierverna.focus.asd ends here
+;; ==========================================================================
+;; Utilities
+;; ==========================================================================
+
+(defun other-char (char)
+  "Return the other case version of CHAR if it exists."
+  (when (both-case-p char)
+    (if (upper-case-p char)
+	(char-downcase char)
+      (char-upcase char))))
+
+
+
+;; ==========================================================================
+;; Error management
+;; ==========================================================================
+
+(define-condition focus-error (error)
+  ()
+  (:documentation "A FoCus error."))
+
+;;; util.lisp ends here

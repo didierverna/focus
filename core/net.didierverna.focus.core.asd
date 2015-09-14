@@ -44,6 +44,10 @@ net.didierverna.focus system."
   :components ((:file "meta")
 	       (:module "src"
 		:serial t
-		:components ())))
+		:components ((:file "util")
+			     (:file "directive")
+			     (:file "table")
+			     (:file "string")
+			     (:file "wrapper")))))
 
 ;;; net.didierverna.focus.core.asd ends here
