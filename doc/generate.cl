@@ -32,6 +32,14 @@
 @t{FoCus}
 @end macro
 
+@macro Fmt
+@code{Format}
+@end macro
+
+@macro fmt
+@code{format}
+@end macro
+
 @macro cl
 Common-Lisp
 @end macro
@@ -40,7 +48,36 @@ Common-Lisp
 @i{etc.}
 @end macro
 
-@focus{}
+@Fmt{} is a powerful utility in the @cl{} standard. Format strings are
+written in what can be considered as a printing DSL (Domain Specific
+Language). However powerful that language is though, it suffers from two
+important limitations.
+
+@enumerate
+@item
+It is not modifiable: only a predefined set of standard directive
+characters can be used and it is not possible to alter their semantics.
+@item
+It is hardly extensible. The only embryonic extension mechanism
+available, the @code{/} directive, is extremely cumbersome to use. The
+called function must either reside in the @code{cl-user} package, or you
+must always use its fully qualified name in the format string, even if
+the corresponding code lies in the appropriate package. For instance,
+consider that there is a function called @code{my-format-function} in
+the package named @code{:my.long.package.name}. Every time you want to
+use this function, you need to write something like
+@verbatim
+(format t \"~/my.long.package.name:my-format-function/\" ...)
+@end verbatim
+which essentially makes the @code{/} directive unusable.
+@end enumerate
+
+@focus{} is a library designed to circumvent those limitations. It
+allows you to customize the @fmt{} DSL by adding new directive
+characters or modifying the standard ones. The semantics of these
+directive characters is specified in a so-called @dfn{format table}, a
+concept very close to that of readtables. @focus{} ultimately translates
+into regular @fmt{} calls.
 
 This is the @focus{} reference manual, and as such, it is not meant to be
 read. It may help you find sleep in case of insomnia though.
