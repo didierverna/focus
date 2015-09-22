@@ -31,7 +31,11 @@
   :long-name "Format Customizations"
   :description "Customizable FORMAT strings and directives"
   :long-description "\
-"
+FoCus is a wrapper around the standard FORMAT utility. It allows you to
+customize the FORMAT DSL by adding new directive characters or modifying the
+behavior of the standard ones. The associations between directive characters
+and their behavior are stored in so-called \"format tables\", a concept very
+close to readtables. FoCus ultimately translates into regular FORMAT calls."
   :author "Didier Verna"
   :mailto "didier@didierverna.net"
   :homepage "http://www.lrde.epita.fr/~didier/software/lisp/misc.php#focus"

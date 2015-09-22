@@ -31,7 +31,7 @@
   :long-name "Format Customizations, core library"
   :description "Customizable FORMAT strings and directives"
   :long-description "\
-Focus's core functionality. For a more complete description of Focus, see the
+FoCus's core functionality. For a more complete description of FoCus, see the
 net.didierverna.focus system."
   :author "Didier Verna"
   :mailto "didier@didierverna.net"
