@@ -53,6 +53,7 @@
    :in-format-table*
    :with-format-table
    :with-format-table*
+   :set-format-directive
    ;; From wrapper.lisp:
    :format
    :formatter))
