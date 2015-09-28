@@ -28,8 +28,8 @@
 (asdf:load-system :net.didierverna.focus.setup)
 
 (asdf:defsystem :net.didierverna.focus
-  :long-name "Format Customizations"
-  :description "Customizable FORMAT strings and directives"
+  :long-name "FORMAT Customizations"
+  :description "Customizable format strings and directives"
   :long-description "\
 FoCus is a wrapper around the standard FORMAT utility. It allows you to
 customize the FORMAT DSL by adding new directive characters or modifying the

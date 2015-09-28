@@ -28,8 +28,8 @@
 (asdf:load-system :net.didierverna.focus.setup)
 
 (asdf:defsystem :net.didierverna.focus.core
-  :long-name "Format Customizations, core library"
-  :description "Customizable FORMAT strings and directives"
+  :long-name "FORMAT Customizations, core library"
+  :description "Customizable format strings and directives"
   :long-description "\
 FoCus's core functionality. For a more complete description of FoCus, see the
 net.didierverna.focus system."

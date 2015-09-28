@@ -27,7 +27,7 @@
 ;;; Code:
 
 (asdf:defsystem :net.didierverna.focus.setup
-  :long-name "Format Customizations, setup library"
+  :long-name "FORMAT Customizations, setup library"
   :description "FoCus's preload setup library"
   :long-description "\
 FoCus's setup library provides support for various preload configuration

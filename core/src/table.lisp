@@ -1,4 +1,4 @@
-;;; table.lisp --- FORMAT tables management
+;;; table.lisp --- Format tables management
 
 ;; Copyright (C) 2015 Didier Verna
 
@@ -36,7 +36,7 @@
 (defstruct (format-table
 	    (:constructor %make-format-table)
 	    (:conc-name table-))
-  "Structure for FORMAT tables.
+  "Structure for format tables.
 This structure holds its name and mappings from characters to directives."
   (name nil)
   (mappings (make-hash-table) :type hash-table))
@@ -55,7 +55,7 @@ This structure holds its name and mappings from characters to directives."
 ;; ==========================================================================
 
 (defvar *format-tables* (make-hash-table)
-  "The collection of all named FORMAT tables.")
+  "The collection of all named format tables.")
 
 
 (define-condition format-table-lookup-error (focus-error)
@@ -79,7 +79,7 @@ This structure holds its name and mappings from characters to directives."
 
 (defun find-format-table (table &optional (errorp t))
   "Find a registered TABLE.
-If TABLE already is a FORMAT table, just return it.
+If TABLE already is a format table, just return it.
 Otherwise, TABLE should be a symbol naming a registered table.
 
 If a table is not found and ERRORP is non-nil (the default), signal an error.
@@ -133,7 +133,7 @@ TABLE may be either a named format table, or a table name."
 ;; ==========================================================================
 
 (defun make-format-table (&key name (initially :standard) (make-current t))
-  "Create and return a new FORMAT table.
+  "Create and return a new format table.
 - NAME must be a symbol. If non-nil, the table is automatically registered.
   Otherwise, the table is considered to be anonymous and you must retain a
   reference to it yourself.
@@ -165,12 +165,12 @@ TABLE may be either a named format table, or a table name."
 (defvar *format-table* (make-format-table :name 'default
 					  ;; no need to set it twice ;-)
 					  :make-current nil)
-  "The current FORMAT table.
+  "The current format table.
 This variable behaves as *READTABLE* and *PACKAGE* with respect to LOAD and
 COMPILE-FILE.")
 
 (defmacro in-format-table (name)
-  "Set the current FORMAT table to NAMEd table."
+  "Set the current format table to NAMEd table."
   `(eval-when (:compile-toplevel :load-toplevel :execute)
      (setq *format-table* (find-format-table ',name))))
 
@@ -199,13 +199,13 @@ COMPILE-FILE.")
   ((table :documentation "The format table related to the error."
 	  :initarg :table
 	  :reader table))
-  (:documentation "An error related to a FORMAT table."))
+  (:documentation "An error related to a format table."))
 
 (define-condition format-table-directive-error (format-table-error)
   ((character :documentation "The directive character."
 	      :initarg :directive
 	      :reader directive))
-  (:documentation "A FORMAT table directive error."))
+  (:documentation "A format table directive error."))
 
 (define-condition existing-directive (format-table-directive-error)
   ()

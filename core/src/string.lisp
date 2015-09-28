@@ -1,4 +1,4 @@
-;;; string.lisp --- FORMAT strings management
+;;; string.lisp --- Format strings management
 
 ;; Copyright (C) 2015 Didier Verna
 
@@ -34,14 +34,14 @@
 ;; ==========================================================================
 
 (define-condition format-string-error (focus-error)
-  ((format-string :documentation "The FORMAT string related to the error."
+  ((format-string :documentation "The format string related to the error."
 		  :initarg :format-string
 		  :reader format-string)
    (offset :documentation "The offset in the string where the error occurs."
 	   :initform nil
 	   :initarg :offset
 	   :reader offset))
-  (:documentation "A FORMAT string error."))
+  (:documentation "A format string error."))
 
 (define-condition missing-directive (format-string-error)
   ()
@@ -210,7 +210,7 @@ actually involves a translation."
 	    remainder)))
 
 (defun string-translation (string &optional (table *format-table*))
-  "Return the translation of FORMAT STRING into a standard one.
+  "Return the translation of format STRING into a standard one.
 The translation is done according to format TABLE (the current format table by
 default)."
   (apply #'concatenate

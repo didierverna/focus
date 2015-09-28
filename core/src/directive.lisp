@@ -1,4 +1,4 @@
-;;; directive.lisp --- FORMAT directives management
+;;; directive.lisp --- Format directives management
 
 ;; Copyright (C) 2015 Didier Verna
 
@@ -29,7 +29,7 @@
 (in-readtable :net.didierverna.focus)
 
 
-(defstruct format-directive "Base structure for FORMAT directives.")
+(defstruct format-directive "Base structure for format directives.")
 
 
 ;; ==========================================================================
