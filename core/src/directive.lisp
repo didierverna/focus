@@ -29,7 +29,7 @@
 (in-readtable :net.didierverna.focus)
 
 
-(defstruct directive "Base structure for FORMAT directives.")
+(defstruct format-directive "Base structure for FORMAT directives.")
 
 
 ;; ==========================================================================
@@ -37,7 +37,7 @@
 ;; ==========================================================================
 
 (defstruct (standard-directive
-	    (:include directive)
+	    (:include format-directive)
 	    (:conc-name directive-))
   "Base structure for standard directives.
 This structure holds the (upcase) directive character."
@@ -110,7 +110,7 @@ Throw an INVALID-STANDARD-DIRECTIVE-CHARACTER otherwise."
 ;; ==========================================================================
 
 (defstruct (function-directive
-	    (:include directive)
+	    (:include format-directive)
 	    (:conc-name directive-))
   "Structure for user-defined function directives.
 This structure holds the associated function name (a symbol)."
