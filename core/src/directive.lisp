@@ -82,23 +82,25 @@ This structure holds the corresponding (upcase) opening character."
 		 '(#\> #\] #\} #\))))
   "The list of standard format directives.")
 
-(define-condition invalid-standard-directive (focus-error)
-  ((character :documentation "The directive character."
-	      :initarg :directive
-	      :reader directive))
+(define-condition invalid-standard-directive-character (focus-error)
+  ((character :documentation "The invalid character."
+	      :initarg :character
+	      ;; The lack of polymorphism on standard functions sucks.
+	      :reader invalid-character))
   (:report (lambda (error stream)
 	     (format stream "~~~A is not a standard directive character."
-	       (directive error))))
-  (:documentation "An invalid standard directive error."))
+		     (invalid-character error))))
+  (:documentation "An invalid standard directive character error."))
 
 (defun find-standard-directive
-    (char &aux (char (char-upcase char))
-	       (directive (find char +standard-directives+
-			   :test #'char=
-			   :key #'directive-character)))
-  "Return the standard directive corresponding to CHAR."
+    (character &aux (character (char-upcase character))
+		    (directive (find character +standard-directives+
+				     :test #'char=
+				     :key #'directive-character)))
+  "Return the standard directive corresponding to CHARACTER.
+Throw an INVALID-STANDARD-DIRECTIVE-CHARACTER otherwise."
   (unless directive
-    (error 'invalid-standard-directive :directive char))
+    (error 'invalid-standard-directive-character :character character))
   directive)
 
 
