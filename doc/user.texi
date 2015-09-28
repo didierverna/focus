@@ -234,6 +234,7 @@ This is the @focus{} User Manual for @focus{} version @value{VERSION}.
 * Copying::             The BSD license
 * Introduction::        FoCus at a glance
 * Installation::        Library and documentation
+* Quick Start::         For the brave and the impatient
 * Usage::               All the details
 * Advanced Usage::      And then some
 * Conclusion::          That's all folks
@@ -318,13 +319,15 @@ This is the @focus{} user manual. @focus{} also comes with a
 @end ifnothtml
 @end ifnotinfo
 
+@ref{Quick Start} provides a very short example in order to give an
+overview of what's coming next.
 
 
 
 @c ====================================================================
 @c Installation
 @c ====================================================================
-@node Installation, Usage, Introduction, Top
+@node Installation, Quick Start, Introduction, Top
 @chapter Installation
 
 @xref{Supported Platforms}, for information on portability or
@@ -374,9 +377,193 @@ Type @command{make uninstall} to uninstall the library.
 
 
 @c ====================================================================
+@c Quick Start
+@c ====================================================================
+@node Quick Start, Usage, Installation, Top
+@chapter Quick Start
+In this chapter, we assume that you have properly installed @focus{}
+(@pxref{Installation}), and we build a short example to get you started.
+
+Suppose you're writing a ``quotation'' library which outputs a lot of
+quotations, enclosed in (back)quotes like this: @samp{it's raining cats
+and dogs}. If you're doing this very often, a pattern will quickly
+arise: @verb{|(format t "`~A'" quotation)|}, which you could abstract
+away with a custom formatting function called @code{quotation-formatter}
+for instance.
+
+The problem, of course, is that writing this
+@verbatim
+(format t "~/quotation:quotation-formatter/" quotation)
+@end verbatim
+is longer than doing it the quick'n dirty way, which is quite
+frustrating. That's where @focus{} comes to the rescue. What if you had
+a new @fmt{} directive, say, @code{`}, that would do the quotation of its
+argument? This is what we are going to do now.
+
+@menu
+* Full Source::         The complete source code
+* Explanation::         Step-by-step code walking
+@end menu
+
+
+@c -----------
+@c Full Source
+@c -----------
+@page
+@node Full Source, Explanation, Quick Start, Quick Start
+@section Full Source
+The complete source code is given below. You can just cut'n paste it in
+a @sc{repl} and it will (should) work. It is also contained in a file
+called @file{demos/quickstart.lisp} in the distribution. You can try it
+out with, @eg{}, @samp{sbcl --script} in a terminal.
+
+@cartouche
+@verbatim
+(in-package :cl-user)
+
+(require "asdf")
+(asdf:load-system :net.didierverna.focus)
+(net.didierverna.focus:nickname-package)
+
+
+(defpackage :quotation
+  (:use :cl)
+  (:export :quotation))
+
+(in-package :quotation)
+
+(defun quotation-formatter (stream argument colonp atsignp &rest arguments)
+  (declare (ignore colonp atsignp arguments))
+  (write-char #\` stream)
+  (write-string argument stream)
+  (write-char #\' stream))
+
+(focus:make-format-table :name :quotation)
+(focus:set-format-directive #\`
+  :function 'quotation-formatter :table :quotation)
+
+(defun quotation (who quotation)
+  (focus:with-format-table :quotation
+    (focus:format t "As ~A would say: ~`.~%" who quotation)))
+
+
+(in-package :cl-user)
+
+(quotation:quotation "Bugs Bunny" "Errr, what's up Doc?")
+@end verbatim
+@end cartouche
+
+
+@c -----------
+@c Explanation
+@c -----------
+@node Explanation, , Full Source, Quick Start
+@section Explanation
+Let's examine this program step-by-step now.
+
+@sysindex{net.didierverna.focus}@c
+@pkgindex{net.didierverna.focus}@c
+First, we put ourselves in the @cl{} user package, and load @focus{} from
+its ASDF system @samp{net.didierverna.focus}. @focus{} lives in a
+package also named @samp{net.didierverna.focus}, that we nickname
+immediately.
+
+@cartouche
+@verbatim
+(in-package :cl-user)
+
+(require "asdf")
+(asdf:load-system :net.didierverna.focus)
+(net.didierverna.focus:nickname-package)
+@end verbatim
+@end cartouche
+
+Nicknaming the package is convenient when you're not @code{:use}'ing it
+(which is not recommended anyway) and you find its name too
+long. @focus{} provides a function for doing this automatically.
+
+@cindex Package, nicknames
+@defun nickname-package &optional NICKNAME
+Add @var{NICKNAME} (@code{:focus} by default) to the
+@code{:NET.DIDIERVERNA.FOCUS} package.
+@end defun
+
+Next, we create our own @code{:quotation} package (don't do that for
+real!), and provide a @code{quotation-formatter} function that will
+write its string argument between a pair of (back)quotes. Note that this
+is the kind of function that you would use in the standard @code{/}
+format directive.
+@cartouche
+@verbatim
+(defpackage :quotation
+  (:use :cl)
+  (:export :quotation))
+
+(in-package :quotation)
+
+(defun quotation-formatter (stream argument colonp atsignp &rest arguments)
+  (declare (ignore colonp atsignp arguments))
+  (write-char #\` stream)
+  (write-string argument stream)
+  (write-char #\' stream))
+@end verbatim
+@end cartouche
+
+@cindex Format Table
+The interesting part comes now. @focus{} uses so-called @dfn{format
+tables} to store the mappings between directive characters and their
+behavior. Much like what a readtable does with macro characters. Below,
+we create a new format table named @code{:quotation} and install a new
+(non-standard) format directive inside it. By default, new format tables
+inherit the standard @fmt{} behavior. Here, we just add a new directive
+character, @code{`} (backquote) and map it to the
+@code{quotation-formatter} function.
+
+@findex make-format-table
+@findex set-format-directive
+@cartouche
+@verbatim
+(focus:make-format-table :name :quotation)
+(focus:set-format-directive #\`
+  :function 'quotation-formatter :table :quotation)
+@end verbatim
+@end cartouche
+
+@cindex Current Format Table
+@cindex Format Table, current
+Now, let's create a silly @code{quotation} function for printing
+someone's quote. @focus{} provides its own @code{format} function which
+wraps around the standard one. This function works exactly like the
+original @fmt{}, except that it uses the so-called @dfn{current format
+table} to interpret your custom format string. One way of making sure
+that the current format table is the appropriate one is to use the macro
+@code{with-format-table}.
+
+@findex with-format-table
+@findex format
+@cartouche
+@verbatim
+(defun quotation (who quotation)
+  (focus:with-format-table :quotation
+    (focus:format t "As ~A would say: ~`.~%" who quotation)))
+@end verbatim
+@end cartouche
+
+Finally, let's try it!
+@cartouche
+@verbatim
+(in-package :cl-user)
+
+(quotation:quotation "Bugs Bunny" "What's Up Doc?")
+@end verbatim
+@end cartouche
+
+
+
+@c ====================================================================
 @c Usage
 @c ====================================================================
-@node Usage, Advanced Usage, Installation, Top
+@node Usage, Advanced Usage, Quick Start, Top
 @chapter Usage
 
 @pkgindex{net.didierverna.focus}
