@@ -33,7 +33,7 @@
 ;; Utilities
 ;; ==========================================================================
 
-(defun other-char (char)
+(defun other-case (char)
   "Return the other case version of CHAR if it exists."
   (when (both-case-p char)
     (if (upper-case-p char)

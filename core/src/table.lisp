@@ -239,7 +239,7 @@ The operation to perform is as follows:
   by STANDARD character. Case does not matter.
 - Otherwise, remove CHAR directive."
   (let ((mappings (table-mappings table))
-	(other-char (when both-case (other-char char))))
+	(other-char (when both-case (other-case char))))
     (cond ((or function standard)
 	   (when (and (gethash char mappings) (not force))
 	     (error 'existing-directive :directive char :table table))
