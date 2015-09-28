@@ -221,7 +221,8 @@ COMPILE-FILE.")
 
 
 (defun set-format-directive
-    (char &key standard function (both-case t) force (table *format-table*)
+    (char &key standard function-name
+	       (both-case t) force (table *format-table*)
 	  &aux (table (find-format-table table)))
   "Set a CHAR directive in TABLE.
 - TABLE (the current format table by default) may be a table or a table name.
@@ -230,20 +231,25 @@ COMPILE-FILE.")
   is non-nil.
 
 The operation to perform is as follows:
-- If FUNCTION is provided, associate CHAR with FUNCTION name.
+- If FUNCTION-NAME is provided, associate CHAR with it.
 - If STANDARD is provided, associate CHAR with the standard directive denoted
   by STANDARD character. Case does not matter.
 - Otherwise, remove CHAR directive."
   (let ((mappings (table-mappings table))
 	(other-char (when both-case (other-case char))))
-    (cond ((or function standard)
+    (cond ((or function-name standard)
 	   (when (and (gethash char mappings) (not force))
 	     (error 'existing-directive :directive char :table table))
 	   (when (and other-char (gethash other-char mappings) (not force))
 	     (error 'existing-directive :directive other-char :table table))
-	   (let ((directive (if function
-				(make-function-directive :function function)
-			      (find-standard-directive standard))))
+	   (let ((directive (if function-name
+				(make-function-directive
+				 ;; #### NOTE: one could think of checking
+				 ;; that there is indeed a function by that
+				 ;; name here, but let's just allow the
+				 ;; programmer to define it afterwards.
+				 :function-name function-name)
+				(find-standard-directive standard))))
 	     (setf (gethash char mappings) directive)
 	     (when other-char
 	       (setf (gethash other-char mappings) directive))))

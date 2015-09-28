@@ -182,10 +182,10 @@ Return two values:
 		 :delimiter character)))))
   (:method (string start (directive function-directive))
     "Method for function directives."
-    (let ((function (directive-function directive)))
+    (let ((function-name (directive-function-name directive)))
       (values (format nil "/~A:~A/"
-		(package-name (symbol-package function))
-		(symbol-name function))
+		(package-name (symbol-package function-name))
+		(symbol-name function-name))
 	      (1+ start)))))
 
 (defun directive-translation

@@ -114,7 +114,7 @@ Throw a NONSTANDARD-DIRECTIVE-CHARACTER error otherwise."
 	    (:include format-directive)
 	    (:conc-name directive-))
   "Structure for user-defined function directives.
-This structure holds the associated function name (a symbol)."
-  (function nil :type symbol))
+This structure holds the associated function name."
+  (function-name nil :type symbol))
 
 ;;; directive.lisp ends here
