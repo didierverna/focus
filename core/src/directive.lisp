@@ -82,15 +82,16 @@ This structure holds the corresponding (upcase) opening character."
 		 '(#\> #\] #\} #\))))
   "The list of standard format directives.")
 
-(define-condition invalid-standard-directive-character (focus-error)
-  ((character :documentation "The invalid character."
+(define-condition nonstandard-directive-character (focus-error)
+  ((character :documentation "The character."
 	      :initarg :character
-	      ;; The lack of polymorphism on standard functions sucks.
-	      :reader invalid-character))
+	      ;; The lack of polymorphism on standard functions sucks. I want
+	      ;; to use just CHARACTER here.
+	      :reader nonstandard-directive-character))
   (:report (lambda (error stream)
-	     (format stream "~~~A is not a standard directive character."
-		     (invalid-character error))))
-  (:documentation "An invalid standard directive character error."))
+	     (format stream "#\~A is not a standard directive character."
+		     (nonstandard-directive-character error))))
+  (:documentation "A nonstandard directive character error."))
 
 (defun find-standard-directive
     (character &aux (character (char-upcase character))
@@ -98,9 +99,9 @@ This structure holds the corresponding (upcase) opening character."
 				     :test #'char=
 				     :key #'directive-character)))
   "Return the standard directive corresponding to CHARACTER.
-Throw an INVALID-STANDARD-DIRECTIVE-CHARACTER otherwise."
+Throw a NONSTANDARD-DIRECTIVE-CHARACTER error otherwise."
   (unless directive
-    (error 'invalid-standard-directive-character :character character))
+    (error 'nonstandard-directive-character :character character))
   directive)
 
 
