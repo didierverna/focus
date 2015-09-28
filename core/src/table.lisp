@@ -48,6 +48,12 @@ This structure holds its name and mappings from characters to directives."
 	(print-unreadable-object (table str :type t :identity t)
 	  (princ "(ANONYMOUS)" str)))))
 
+(define-condition format-table-error (focus-error)
+  ((table :documentation "The format table."
+	  :initarg :table
+	  :reader table))
+  (:documentation "An format table error."))
+
 
 
 ;; ==========================================================================
@@ -56,7 +62,6 @@ This structure holds its name and mappings from characters to directives."
 
 (defvar *format-tables* (make-hash-table)
   "The collection of all named format tables.")
-
 
 (define-condition format-table-lookup-error (focus-error)
   ((name :documentation "The table name."
@@ -90,11 +95,8 @@ Otherwise, just return nil."
       (or the-table
 	  (and errorp (error 'missing-table :name table))))))
 
-
-(define-condition format-table-registration (focus-error)
-  ((table :documentation "The table."
-	  :initarg :table
-	  :reader table))
+(define-condition format-table-registration (format-table-error)
+  ()
   (:report (lambda (error stream)
 	     (format stream
 		 "Table ~A cannot be (un)registered because it is anonymous."
@@ -194,12 +196,6 @@ COMPILE-FILE.")
 ;; ==========================================================================
 ;; Table Contents Management
 ;; ==========================================================================
-
-(define-condition format-table-error (focus-error)
-  ((table :documentation "The format table related to the error."
-	  :initarg :table
-	  :reader table))
-  (:documentation "An error related to a format table."))
 
 (define-condition format-table-directive-error (format-table-error)
   ((character :documentation "The directive character."
