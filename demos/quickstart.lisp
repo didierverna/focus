@@ -44,13 +44,13 @@
   (write-string argument stream)
   (write-char #\' stream))
 
-(focus:make-format-table :name :quotation)
-(focus:set-format-directive #\`
-  :function 'quotation-formatter :table :quotation)
+(let ((table (focus:make-format-table)))
+  (focus:with-format-table table
+    (focus:set-format-directive #\` :function-name 'quotation-formatter))
 
-(defun quotation (who quotation)
-  (focus:with-format-table :quotation
-    (focus:format t "As ~A would say: ~`.~%" who quotation)))
+  (defun quotation (who quotation)
+    (focus:with-format-table table
+      (focus:format t "As ~A would say: ~`.~%" who quotation))))
 
 
 (in-package :cl-user)
