@@ -48,11 +48,10 @@
    :nickname-package
    ;; From src/table.lisp:
    :make-format-table
+   :register-format-table
    :unregister-format-table
-   :in-format-table
-   :in-format-table*
+   ;; :in-format-table
    :with-format-table
-   :with-format-table*
    :set-format-directive
    ;; From wrapper.lisp:
    :format
