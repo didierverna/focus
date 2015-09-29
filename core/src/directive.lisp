@@ -89,8 +89,8 @@ This structure holds the corresponding (upcase) opening character."
 	      ;; to use just CHARACTER here.
 	      :reader nonstandard-directive-character))
   (:report (lambda (error stream)
-	     (format stream "#\~A is not a standard directive character."
-		     (nonstandard-directive-character error))))
+	     (cl:format stream "#\~A is not a standard directive character."
+		(nonstandard-directive-character error))))
   (:documentation "A nonstandard directive character error."))
 
 (defun find-standard-directive

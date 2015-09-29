@@ -46,7 +46,7 @@
 (define-condition missing-directive (format-string-error)
   ()
   (:report (lambda (error stream)
-	     (format stream
+	     (cl:format stream
 		 "Missing directive character:~%  => ~S~%  => ~V@T^"
 	       (format-string error)
 	       (1+ (offset error)))))
@@ -55,7 +55,7 @@
 (define-condition spurious-parameter (format-string-error)
   ()
   (:report (lambda (error stream)
-	     (format stream "~
+	     (cl:format stream "~
 Spurious parameter found after ':' or '@' modifier:~%  => ~S~%  => ~V@T^"
 	       (format-string error)
 	       (1+ (offset error)))))
@@ -66,7 +66,7 @@ Spurious parameter found after ':' or '@' modifier:~%  => ~S~%  => ~V@T^"
 	     :initarg :modifier
 	     :reader modifier))
   (:report (lambda (error stream)
-	     (format stream "Spurious '~A' modifier:~%  => ~S~%  => ~V@T^"
+	     (cl:format stream "Spurious '~A' modifier:~%  => ~S~%  => ~V@T^"
 	       (modifier error)
 	       (format-string error)
 	       (1+ (offset error)))))
@@ -77,7 +77,7 @@ Spurious parameter found after ':' or '@' modifier:~%  => ~S~%  => ~V@T^"
 	      :initarg :delimiter
 	      :reader delimiter))
   (:report (lambda (error stream)
-	     (format stream
+	     (cl:format stream
 		 "Missing matching '~A' delimiter:~%  => ~S~%  => ~V@T^"
 	       (delimiter error)
 	       (format-string error)
@@ -171,7 +171,7 @@ Return two values:
     (let ((character (schar string start)))
       (let ((closing-character (position character string :start (1+ start))))
 	(if closing-character
-	    (values (format nil "~C~A~C"
+	    (values (cl:format nil "~C~A~C"
 		      (directive-character directive)
 		      (subseq string (1+ start) closing-character)
 		      (directive-character directive))
@@ -183,7 +183,7 @@ Return two values:
   (:method (string start (directive function-directive))
     "Method for function directives."
     (let ((function-name (directive-function-name directive)))
-      (values (format nil "/~A:~A/"
+      (values (cl:format nil "/~A:~A/"
 		(package-name (symbol-package function-name))
 		(symbol-name function-name))
 	      (1+ start)))))
