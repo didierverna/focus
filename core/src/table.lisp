@@ -37,22 +37,14 @@
 	    (:constructor %make-format-table)
 	    (:conc-name table-))
   "Structure for format tables.
-This structure holds its name and mappings from characters to directives."
-  (name nil)
+This structure holds the MAPPINGS from characters to directives."
   (mappings (make-hash-table) :type hash-table))
-
-(defun table-id (table)
-  "Return TABLE's name or an identification string if anonymous."
-  (or (table-name table)
-      (with-output-to-string (str)
-	(print-unreadable-object (table str :type t :identity t)
-	  (princ "(ANONYMOUS)" str)))))
 
 (define-condition format-table-error (focus-error)
   ((table :documentation "The format table."
 	  :initarg :table
 	  :reader table))
-  (:documentation "An format table error."))
+  (:documentation "A format table error."))
 
 
 
@@ -60,73 +52,66 @@ This structure holds its name and mappings from characters to directives."
 ;; Table Lookup and (un)Registration
 ;; ==========================================================================
 
-(defvar *format-tables* (make-hash-table)
-  "The collection of all named format tables.")
-
-(define-condition format-table-lookup-error (focus-error)
-  ((name :documentation "The table name."
+(define-condition table-lookup-error (focus-error)
+  ((name :documentation "The looked up name."
 	 :initarg :name
 	 :reader name))
   (:documentation "A format table lookup error."))
 
-(define-condition existing-table (format-table-lookup-error)
+(define-condition missing-table (table-lookup-error)
   ()
   (:report (lambda (error stream)
-	     (format stream "Table ~S already exists." (name error))))
-  (:documentation "An existing table error."))
+	     (cl:format stream "\
+There is no format table registered under the name `~A'." (name error))))
+  (:documentation "A missing format table error."))
 
-(define-condition missing-table (format-table-lookup-error)
+(define-condition table-collision (table-lookup-error)
   ()
   (:report (lambda (error stream)
-	     (format stream "Table ~S not found." (name error))))
-  (:documentation "A missing table error."))
+	     (cl:format stream "\
+A format table is already registered under the name `~A'." (name error))))
+  (:documentation "A table collision error."))
 
 
-(defun find-format-table (table &optional (errorp t))
-  "Find a registered TABLE.
-If TABLE already is a format table, just return it.
-Otherwise, TABLE should be a symbol naming a registered table.
+(let ((format-tables (make-hash-table)))
+  (defun lookup-table
+      (name &optional (errorp t) &aux (table (gethash name format-tables)))
+    "Look for a format table registered under NAME.
+ERRORP (the default) means to throw a TABLE-NOT-REGISTERED error if no such
+table is found. Otherwise, just return nil."
+    (or table (when errorp (error 'missing-table :name name))))
 
-If a table is not found and ERRORP is non-nil (the default), signal an error.
-Otherwise, just return nil."
-  (if (format-table-p table)
-      table
-    (let ((the-table (gethash table *format-tables*)))
-      (or the-table
-	  (and errorp (error 'missing-table :name table))))))
+  (defun table-name (table)
+    "Find TABLE's name if registered, return nil otherwise."
+    (loop :for key :being :the :hash-keys :in format-tables
+	    :using (:hash-value value)
+	  :when (eq table value)
+	    :do (return key)))
 
-(define-condition format-table-registration (format-table-error)
-  ()
-  (:report (lambda (error stream)
-	     (format stream
-		 "Table ~A cannot be (un)registered because it is anonymous."
-	       (table-id (table error)))))
-  (:documentation "A table (un)registration error."))
+  (defun register-format-table (table name &optional force)
+    "Register TABLE under NAME and return it.
+FORCE means overwrite an already existing registration under that
+name. Otherwise (the default), throw a TABLE-ALREADY-REGISTERED error."
+    (when (and (lookup-table name nil) (not force))
+      (error 'table-collision :name name))
+    (setf (gethash name format-tables) table))
+
+  (defun unregister-format-table (name)
+    "Unregister NAMEd table."
+    (remhash name format-tables)))
 
 
-(defun do-register-format-table (table)
-  "Register named TABLE."
-  (setf (gethash (table-name table) *format-tables*) table))
+(defun find-table (table-or-name)
+  "Return its table argument directly, or look it up by name."
+  (if (format-table-p table-or-name)
+      table-or-name
+      (lookup-table table-or-name)))
 
-(defun register-format-table (table &aux (name (table-name table)))
-  "Register TABLE.
-TABLE must have a name."
-  (unless name
-    (error 'format-table-registration :table table))
-  (do-register-format-table table))
-
-(defun do-unregister-format-table (name)
-  "Unregister NAMEd table."
-  (remhash name *format-tables*))
-
-(defun unregister-format-table (table &aux (name (if (format-table-p table)
-						     (table-name table)
-						   table)))
-  "Unregister TABLE.
-TABLE may be either a named format table, or a table name."
-  (unless name
-    (error 'format-table-registration :table table))
-  (do-unregister-format-table name))
+(defmethod print-object ((table format-table) stream
+			 &aux (name (or (table-name table) "(UNREGISTERED)")))
+  "Add format TABLE's name, if registered, to its printed representation."
+  (print-unreadable-object (table stream :type t :identity t)
+    (princ name stream)))
 
 
 
@@ -134,29 +119,30 @@ TABLE may be either a named format table, or a table name."
 ;; Table Creation
 ;; ==========================================================================
 
-(defun make-format-table (&key name (initially :standard) (make-current t))
+(defun make-format-table (&optional (initially :standard)
+			  &aux (table (%make-format-table))
+			       (mappings (table-mappings table)))
   "Create and return a new format table.
-- NAME must be a symbol. If non-nil, the table is automatically registered.
-  Otherwise, the table is considered to be anonymous and you must retain a
-  reference to it yourself.
-- The table may be INITIALLY :standard (default) or :blank.
-- If MAKE-CURRENT, make the new table current."
-  (when (and name (find-format-table name nil))
-    (error 'existing-table :name name))
-  (let* ((table (%make-format-table :name name))
-	 (mappings (table-mappings table)))
-    (when (eq initially :standard)
-      (dolist (directive +standard-directives+)
-	(let ((char (directive-character directive)))
-	  (setf (gethash char mappings) directive)
-	  (when (both-case-p char)
-	    (setf (gethash (char-downcase char) mappings) directive)))))
-    (when name
-      (do-register-format-table table))
-    (when make-current
-      ;; forward-use of *FORMAT-TABLE*
-      (setq *format-table* table))
-    table))
+The table may be INITIALLY :standard, :standard-upcase, :standard-downcase
+or :blank."
+  (ecase initially
+    (:standard
+     (dolist (directive +standard-directives+)
+       (let ((char (directive-character directive)))
+	 (setf (gethash char mappings) directive)
+	 (when (both-case-p char)
+	   (setf (gethash (char-downcase char) mappings) directive)))))
+    (:standard-upcase
+     (dolist (directive +standard-directives+)
+       (setf (gethash (directive-character directive) mappings) directive)))
+    (:standard-downcase
+     (dolist (directive +standard-directives+)
+       (let ((char (directive-character directive)))
+	 (when (both-case-p char)
+	   (setq char (char-downcase char)))
+	 (setf (gethash char mappings) directive))))
+    (:blank))
+  table)
 
 
 
@@ -164,31 +150,19 @@ TABLE may be either a named format table, or a table name."
 ;; Current Table Management
 ;; ==========================================================================
 
-(defvar *format-table* (make-format-table :name 'default
-					  ;; no need to set it twice ;-)
-					  :make-current nil)
-  "The current format table.
-This variable behaves as *READTABLE* and *PACKAGE* with respect to LOAD and
-COMPILE-FILE.")
+(defvar *format-table* nil
+  "The current format table.")
 
-(defmacro in-format-table (name)
-  "Set the current format table to NAMEd table."
+#|
+(defmacro in-format-table (table-or-name)
+  "Set the current format table to TABLE-OR-NAME."
   `(eval-when (:compile-toplevel :load-toplevel :execute)
-     (setq *format-table* (find-format-table ',name))))
+     (setq *format-table* (find-table ,table-or-name))))
+|#
 
-(defmacro in-format-table* (table)
-  "Set the current format table to TABLE."
-  `(eval-when (:compile-toplevel :load-toplevel :execute)
-     (setq *format-table* ,table)))
-
-(defmacro with-format-table (name &body body)
-  "Execute BODY with current format table bound to NAMEd table."
-  `(let ((*format-table* (find-format-table ,name)))
-     ,@body))
-
-(defmacro with-format-table* (table &body body)
-  "Execute BODY with current format table bound to TABLE."
-  `(let ((*format-table* ,table))
+(defmacro with-format-table (table-or-name &body body)
+  "Execute BODY with the current format table bound to TABLE-OR-NAME."
+  `(let ((*format-table* (find-table ,table-or-name)))
      ,@body))
 
 
@@ -197,51 +171,59 @@ COMPILE-FILE.")
 ;; Table Contents Management
 ;; ==========================================================================
 
-(define-condition format-table-directive-error (format-table-error)
+(define-condition table-directive-error (format-table-error)
   ((character :documentation "The directive character."
-	      :initarg :directive
-	      :reader directive))
-  (:documentation "A format table directive error."))
+	      :initarg :character
+	      ;; The lack of polymorphism on standard functions sucks. I want
+	      ;; to use just CHARACTER here.
+	      :reader table-character))
+  (:documentation "A table directive error."))
 
-(define-condition existing-directive (format-table-directive-error)
+(define-condition table-directive-collision (table-directive-error)
   ()
   (:report (lambda (error stream)
-	     (format stream "Directive ~~~A already exists in table ~A."
-	       (directive error)
-	       (table-id (table error)))))
-  (:documentation "An existing directive error."))
+	     (cl:format stream "Directive ~~~A already exists in table ~A."
+	       (table-character error)
+	       (table error))))
+  (:documentation "A table directive collision error."))
 
-(define-condition unknown-directive (format-table-directive-error)
+#| Unused right now. We could warn the user about an attempt to remove a
+   missing directive tho.
+(define-condition missing-table-directive (table-directive-error)
   ()
   (:report (lambda (error stream)
-	     (format stream "Directive ~~~A is unknown in table ~A."
-	       (directive error)
-	       (table-id (table error)))))
-  (:documentation "An unknown directive error."))
+	     (cl:format stream "There is no ~~~A directive in table ~A."
+	       (table-character error)
+	       (table error))))
+  (:documentation "A missing table directive error."))
+|#
 
-
+;; #### FIXME: should abstract the hashtable manipulation with
+;; TABLE-DIRECTIVE and such.
 (defun set-format-directive
     (char &key standard function-name
-	       (both-case t) force (table *format-table*)
-	  &aux (table (find-format-table table)))
-  "Set a CHAR directive in TABLE.
+	       (both-case t) force ((:table table-or-name) *format-table*)
+	  &aux (table (find-table table-or-name)))
+  "Set a ~CHAR directive in TABLE.
 - TABLE (the current format table by default) may be a table or a table name.
 - When BOTH-CASE (the default), operate on both case versions of CHAR.
-- Attempting to override an existing directive signals an error, unless FORCE
-  is non-nil.
+- Attempting to override an existing directive throws a DIRECTIVE-COLLISION
+  error, unless FORCE is non-nil.
 
 The operation to perform is as follows:
 - If FUNCTION-NAME is provided, associate CHAR with it.
 - If STANDARD is provided, associate CHAR with the standard directive denoted
-  by STANDARD character. Case does not matter.
-- Otherwise, remove CHAR directive."
+  by STANDARD character (case does not matter).
+- Otherwise, remove the ~CHAR directive from TABLE."
   (let ((mappings (table-mappings table))
 	(other-char (when both-case (other-case char))))
     (cond ((or function-name standard)
 	   (when (and (gethash char mappings) (not force))
-	     (error 'existing-directive :directive char :table table))
+	     (error 'table-directive-collision
+	       :table table :table-character char))
 	   (when (and other-char (gethash other-char mappings) (not force))
-	     (error 'existing-directive :directive other-char :table table))
+	     (error 'table-directive-collision
+	       :table table :table-character other-char))
 	   (let ((directive (if function-name
 				(make-function-directive
 				 ;; #### NOTE: one could think of checking
