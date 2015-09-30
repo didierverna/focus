@@ -162,8 +162,13 @@ name. Otherwise (the default), throw a TABLE-ALREADY-REGISTERED error."
 	       (table error))))
   (:documentation "A table directive collision error."))
 
+(defpackage :net.didierverna.focus.user-functions
+  (:documentation "The FoCus user functions package.
+This package is used to store anonymous user functions (as provided to
+SET-FORMAT-DIRECTIVE) under gentemp'ed names."))
+
 (defun set-format-directive
-    (char &key standard function-name
+    (char &key standard ((:function function-or-name))
 	       (both-case t) force ((:table table-or-name) *format-table*)
 	  &aux (table (find-table table-or-name)))
   "Set a ~CHAR directive in TABLE.
@@ -173,13 +178,14 @@ name. Otherwise (the default), throw a TABLE-ALREADY-REGISTERED error."
   error, unless FORCE is non-nil.
 
 The operation to perform is as follows:
-- If FUNCTION-NAME is provided, associate CHAR with it.
+- If FUNCTION is provided (either a function or a function name), associate
+  CHAR with it.
 - If STANDARD is provided, associate CHAR with the standard directive denoted
   by STANDARD character (case does not matter).
 - Otherwise, remove the ~CHAR directive from TABLE."
   (let ((mappings (table-mappings table))
 	(other-char (when both-case (other-case char))))
-    (cond ((or function-name standard)
+    (cond ((or function-or-name standard)
 	   (when (and (gethash char mappings) (not force))
 	     (error 'table-directive-collision
 	       :table table :table-character char))
@@ -187,12 +193,20 @@ The operation to perform is as follows:
 	     (error 'table-directive-collision
 	       :table table :table-character other-char))
 	   ;; #### NOTE: to be pedantic, we could enforce mutual exclusion of
-	   ;; :STANDARD and :FUNCTION-NAME. Instead, we simply give precedence
-	   ;; to the latter.
-	   (let ((directive (if function-name
-				(make-function-directive
-				 :function-name function-name)
-				(find-standard-directive standard))))
+	   ;; :STANDARD and :FUNCTION. Instead, we simply give precedence to
+	   ;; the latter.
+	   (let ((directive
+		   (cond ((functionp function-or-name)
+			  (let ((name
+				  (gentemp "USER-FUNCTION"
+					   (find-package :net.didierverna.focus.user-functions))))
+			    (setf (symbol-function name) function-or-name)
+			    (make-function-directive :function-name name)))
+			 ((and function-or-name (symbolp function-or-name))
+			  (make-function-directive
+			   :function-name function-or-name))
+			 (t
+			  (find-standard-directive standard)))))
 	     (setf (gethash char mappings) directive)
 	     (when other-char
 	       (setf (gethash other-char mappings) directive))))
@@ -200,6 +214,16 @@ The operation to perform is as follows:
 	   ;; #### NOTE: to be pedantic, we could check that there's actually
 	   ;; a directive mapped to that name, before removal. This would add
 	   ;; a second sub-condition to TABLE-DIRECTIVE-ERROR.
+	   (let ((directive (gethash char mappings)))
+	     (when (and (function-directive-p directive)
+			(eq (symbol-package
+			     (directive-function-name directive))
+			    (find-package
+			     :net.didierverna.focus.user-functions)))
+	       (fmakunbound (directive-function-name directive))
+	       (unintern (directive-function-name directive)
+			 (symbol-package
+			  (directive-function-name directive)))))
 	   (remhash char mappings)
 	   (when other-char
 	     (remhash other-char mappings))))))

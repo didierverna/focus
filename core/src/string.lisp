@@ -191,7 +191,7 @@ Return two values:
   (:method (string position (directive function-directive))
     "Method for function directives."
     (let ((function-name (directive-function-name directive)))
-      (values (cl:format nil "/~A:~A/"
+      (values (cl:format nil "/~A::~A/"
 		(package-name (symbol-package function-name))
 		(symbol-name function-name))
 	      (1+ position)))))
