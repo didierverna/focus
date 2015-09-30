@@ -82,7 +82,13 @@ This structure holds the corresponding (upcase) opening character."
 		 '(#\> #\] #\} #\))))
   "The list of standard format directives.")
 
-(define-condition nonstandard-directive-character (focus-error)
+;; #### NOTE: this is pedantic since we only have one sub-condition...
+(define-condition standard-directive-lookup-error (focus-error)
+  ()
+  (:documentation "A standard directive lookup error."))
+
+(define-condition nonstandard-directive-character
+    (standard-directive-lookup-error)
   ((character :documentation "The character."
 	      :initarg :character
 	      ;; The lack of polymorphism on standard functions sucks. I want
