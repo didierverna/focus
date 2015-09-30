@@ -62,14 +62,14 @@ This structure holds the MAPPINGS from characters to directives."
   ()
   (:report (lambda (error stream)
 	     (cl:format stream "\
-There is no format table registered under the name `~A'." (name error))))
+~A: no format table registered under that name." (name error))))
   (:documentation "A missing format table error."))
 
 (define-condition table-collision (table-lookup-error)
   ()
   (:report (lambda (error stream)
-	     (cl:format stream "\
-A format table is already registered under the name `~A'." (name error))))
+	     (cl:format stream "~A: table name already in use."
+			(name error))))
   (:documentation "A table collision error."))
 
 
@@ -182,7 +182,7 @@ or :blank."
 (define-condition table-directive-collision (table-directive-error)
   ()
   (:report (lambda (error stream)
-	     (cl:format stream "Directive ~~~A already exists in table ~A."
+	     (cl:format stream "~~~A: directive already exists in table ~A."
 	       (table-character error)
 	       (table error))))
   (:documentation "A table directive collision error."))
