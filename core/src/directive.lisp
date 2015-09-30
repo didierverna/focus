@@ -29,7 +29,12 @@
 (in-readtable :net.didierverna.focus)
 
 
+;; ==========================================================================
+;; Directive Data Structure
+;; ==========================================================================
+
 (defstruct format-directive "Base structure for format directives.")
+
 
 
 ;; ==========================================================================
@@ -81,6 +86,11 @@ This structure holds the corresponding (upcase) opening character."
 		 '(#\< #\[ #\{ #\()
 		 '(#\> #\] #\} #\))))
   "The list of standard format directives.")
+
+
+;; -------------------------
+;; Standard directive lookup
+;; -------------------------
 
 ;; #### NOTE: this is pedantic since we only have one sub-condition...
 (define-condition standard-directive-lookup-error (focus-error)

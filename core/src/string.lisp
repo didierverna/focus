@@ -29,10 +29,6 @@
 (in-readtable :net.didierverna.focus)
 
 
-;; ==========================================================================
-;; String Translation
-;; ==========================================================================
-
 (define-condition format-string-error (focus-error)
   ((string :documentation "The format string."
 	   :initarg :string
@@ -45,6 +41,12 @@
 	     ;; Same here. I'd have preferred to use POSITION...
 	     :reader string-position))
   (:documentation "A format string error."))
+
+
+
+;; ==========================================================================
+;; Directive Parsing
+;; ==========================================================================
 
 (define-condition missing-string-directive (format-string-error)
   ()
@@ -75,34 +77,6 @@ Spurious parameter found after ':' or '@' modifier:~%  => ~S~%  => ~V@T^"
 	       (1+ (string-position error)))))
   (:documentation "A spurious modifier error."))
 
-(define-condition missing-delimiter (format-string-error)
-  ((delimiter :documentation "The delimiter character."
-	      :initarg :delimiter
-	      :reader delimiter))
-  (:report (lambda (error stream)
-	     (cl:format stream
-		 "Missing matching '~A' delimiter:~%  => ~S~%  => ~V@T^"
-	       (delimiter error)
-	       (format-string error)
-	       (1+ (string-position error)))))
-  (:documentation "A missing delimiter error."))
-
-(define-condition missing-table-directive (format-string-error)
-  ((table :documentation "The format table."
-	  :initarg :table
-	  :reader table))
-  (:report (lambda (error stream)
-	     (cl:format stream
-	       "No such directive in table ~A.~%  => ~S~%  => ~V@T^"
-	       (table error)
-	       (format-string error)
-	       (1+ (string-position error)))))
-  (:documentation "A missing table directive error."))
-
-
-(defun next-directive-position (string start)
-  "Return the next directive position in STRING from START, or nil."
-  (position #\~ string :start start))
 
 (defun directive-body-position (string start)
   "Return a STRING's directive body position from START.
@@ -166,6 +140,24 @@ parses the directive arguments in order to skip them."
 		    (t
 		     (return index))))))
 
+
+
+;; ==========================================================================
+;; Directive Translation
+;; ==========================================================================
+
+(define-condition missing-delimiter (format-string-error)
+  ((delimiter :documentation "The delimiter character."
+	      :initarg :delimiter
+	      :reader delimiter))
+  (:report (lambda (error stream)
+	     (cl:format stream
+		 "Missing matching '~A' delimiter:~%  => ~S~%  => ~V@T^"
+	       (delimiter error)
+	       (format-string error)
+	       (1+ (string-position error)))))
+  (:documentation "A missing delimiter error."))
+
 (defgeneric standard-directive-body (string position directive)
   (:documentation
    "Translate a STRING directive's body into a standard one.
@@ -204,6 +196,19 @@ Return two values:
 		(symbol-name function-name))
 	      (1+ position)))))
 
+
+(define-condition missing-table-directive (format-string-error)
+  ((table :documentation "The format table."
+	  :initarg :table
+	  :reader table))
+  (:report (lambda (error stream)
+	     (cl:format stream
+	       "No such directive in table ~A.~%  => ~S~%  => ~V@T^"
+	       (table error)
+	       (format-string error)
+	       (1+ (string-position error)))))
+  (:documentation "A missing table directive error."))
+
 (defun standard-directive
     (string position table
      &aux (body-position (directive-body-position string position))
@@ -229,6 +234,16 @@ actually involves a translation."
     (values (concatenate 'string (subseq string position body-position)
 			 translation)
 	    remainder)))
+
+
+
+;; ==========================================================================
+;; String Translation
+;; ==========================================================================
+
+(defun next-directive-position (string start)
+  "Return the next directive position in STRING from START, or nil."
+  (position #\~ string :start start))
 
 (defun standard-format-string (string &optional (table *format-table*))
   "Return the translation of format STRING into a standard one.

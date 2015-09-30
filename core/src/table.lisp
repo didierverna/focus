@@ -46,6 +46,38 @@ This structure holds the MAPPINGS from characters to directives."
 	  :reader table))
   (:documentation "A format table error."))
 
+(defmethod print-object ((table format-table) stream
+			 &aux (name (or (table-name table) ;; forward decl.
+					"(UNREGISTERED)")))
+  "Add format TABLE's name, if registered, to its printed representation."
+  (print-unreadable-object (table stream :type t :identity t)
+    (princ name stream)))
+
+(defun make-format-table (&optional (initially :standard)
+			  &aux (table (%make-format-table))
+			       (mappings (table-mappings table)))
+  "Create and return a new format table.
+The table may be INITIALLY :standard, :standard-upcase, :standard-downcase
+or :blank."
+  (ecase initially
+    (:standard
+     (dolist (directive +standard-directives+)
+       (let ((char (directive-character directive)))
+	 (setf (gethash char mappings) directive)
+	 (when (both-case-p char)
+	   (setf (gethash (char-downcase char) mappings) directive)))))
+    (:standard-upcase
+     (dolist (directive +standard-directives+)
+       (setf (gethash (directive-character directive) mappings) directive)))
+    (:standard-downcase
+     (dolist (directive +standard-directives+)
+       (let ((char (directive-character directive)))
+	 (when (both-case-p char)
+	   (setq char (char-downcase char)))
+	 (setf (gethash char mappings) directive))))
+    (:blank))
+  table)
+
 
 
 ;; ==========================================================================
@@ -107,70 +139,13 @@ name. Otherwise (the default), throw a TABLE-ALREADY-REGISTERED error."
       table-or-name
       (lookup-table table-or-name)))
 
-(defmethod print-object ((table format-table) stream
-			 &aux (name (or (table-name table) "(UNREGISTERED)")))
-  "Add format TABLE's name, if registered, to its printed representation."
-  (print-unreadable-object (table stream :type t :identity t)
-    (princ name stream)))
-
-
-
-;; ==========================================================================
-;; Table Creation
-;; ==========================================================================
-
-(defun make-format-table (&optional (initially :standard)
-			  &aux (table (%make-format-table))
-			       (mappings (table-mappings table)))
-  "Create and return a new format table.
-The table may be INITIALLY :standard, :standard-upcase, :standard-downcase
-or :blank."
-  (ecase initially
-    (:standard
-     (dolist (directive +standard-directives+)
-       (let ((char (directive-character directive)))
-	 (setf (gethash char mappings) directive)
-	 (when (both-case-p char)
-	   (setf (gethash (char-downcase char) mappings) directive)))))
-    (:standard-upcase
-     (dolist (directive +standard-directives+)
-       (setf (gethash (directive-character directive) mappings) directive)))
-    (:standard-downcase
-     (dolist (directive +standard-directives+)
-       (let ((char (directive-character directive)))
-	 (when (both-case-p char)
-	   (setq char (char-downcase char)))
-	 (setf (gethash char mappings) directive))))
-    (:blank))
-  table)
-
-
-
-;; ==========================================================================
-;; Current Table Management
-;; ==========================================================================
-
-(defvar *format-table* nil
-  "The current format table.")
-
-#|
-(defmacro in-format-table (table-or-name)
-  "Set the current format table to TABLE-OR-NAME."
-  `(eval-when (:compile-toplevel :load-toplevel :execute)
-     (setq *format-table* (find-table ,table-or-name))))
-|#
-
-(defmacro with-format-table (table-or-name &body body)
-  "Execute BODY with the current format table bound to TABLE-OR-NAME."
-  `(let ((*format-table* (find-table ,table-or-name)))
-     ,@body))
-
 
 
 ;; ==========================================================================
 ;; Table Contents Management
 ;; ==========================================================================
 
+;; #### NOTE: this is pedantic since we only have one sub-condition...
 (define-condition table-directive-error (format-table-error)
   ((character :documentation "The directive character."
 	      :initarg :character
@@ -187,8 +162,6 @@ or :blank."
 	       (table error))))
   (:documentation "A table directive collision error."))
 
-;; #### FIXME: should abstract the hashtable manipulation with
-;; TABLE-DIRECTIVE and such.
 (defun set-format-directive
     (char &key standard function-name
 	       (both-case t) force ((:table table-or-name) *format-table*)
@@ -213,20 +186,43 @@ The operation to perform is as follows:
 	   (when (and other-char (gethash other-char mappings) (not force))
 	     (error 'table-directive-collision
 	       :table table :table-character other-char))
+	   ;; #### NOTE: to be pedantic, we could enforce mutual exclusion of
+	   ;; :STANDARD and :FUNCTION-NAME. Instead, we simply give precedence
+	   ;; to the latter.
 	   (let ((directive (if function-name
 				(make-function-directive
-				 ;; #### NOTE: one could think of checking
-				 ;; that there is indeed a function by that
-				 ;; name here, but let's just allow the
-				 ;; programmer to define it afterwards.
 				 :function-name function-name)
 				(find-standard-directive standard))))
 	     (setf (gethash char mappings) directive)
 	     (when other-char
 	       (setf (gethash other-char mappings) directive))))
 	  (t
+	   ;; #### NOTE: to be pedantic, we could check that there's actually
+	   ;; a directive mapped to that name, before removal. This would add
+	   ;; a second sub-condition to TABLE-DIRECTIVE-ERROR.
 	   (remhash char mappings)
 	   (when other-char
 	     (remhash other-char mappings))))))
+
+
+
+;; ==========================================================================
+;; Current Table Management
+;; ==========================================================================
+
+(defvar *format-table* nil
+  "The current format table.")
+
+#|
+(defmacro in-format-table (table-or-name)
+  "Set the current format table to TABLE-OR-NAME."
+  `(eval-when (:compile-toplevel :load-toplevel :execute)
+     (setq *format-table* (find-table ,table-or-name))))
+|#
+
+(defmacro with-format-table (table-or-name &body body)
+  "Execute BODY with the current format table bound to TABLE-OR-NAME."
+  `(let ((*format-table* (find-table ,table-or-name)))
+     ,@body))
 
 ;;; table.lisp ends here
