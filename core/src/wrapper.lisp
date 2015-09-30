@@ -29,17 +29,17 @@
 (in-readtable :net.didierverna.focus)
 
 
-(defun format (destination control-string &rest args)
+(defun format (destination format-control &rest args)
   "Wrapper around the standard FORMAT function.
-When CONTROL-STRING is a string, it is interpreted according to the current
+When FORMAT-CONTROL is a string, it is interpreted according to the current
 format table."
-  (when (stringp control-string)
-    (setq control-string (string-translation control-string)))
-  (apply #'cl:format destination control-string args))
+  (when (stringp format-control)
+    (setq format-control (standard-format-string format-control)))
+  (apply #'cl:format destination format-control args))
 
-(defmacro formatter (control-string)
+(defmacro formatter (format-string)
   "Wrapper around the standard FORMATTER macro.
-CONTROL-STRING is interpreted according to the current format table."
-  `(formatter (string-translation ,control-string)))
+FORMAT-STRING is interpreted according to the current format table."
+  `(formatter (standard-format-string ,format-string)))
 
 ;;; wrapper.lisp ends here

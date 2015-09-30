@@ -88,12 +88,12 @@ Spurious parameter found after ':' or '@' modifier:~%  => ~S~%  => ~V@T^"
   (:documentation "A missing delimiter error."))
 
 
-(defun directive-index (string start)
-  "Return the next directive index in STRING from START, or nil."
+(defun next-directive-position (string start)
+  "Return the next directive position in STRING from START, or nil."
   (position #\~ string :start start))
 
-(defun directive-body-index (string start)
-  "Return the next directive body index in STRING from START.
+(defun directive-body-position (string start)
+  "Return a STRING's directive body position from START.
 START is the position of the tilde character, so this function essentially
 parses the directive arguments in order to skip them."
   (loop :with end := (length string)
@@ -154,81 +154,85 @@ parses the directive arguments in order to skip them."
 		    (t
 		     (return index))))))
 
-(defgeneric directive-body-translation (string start directive )
+(defgeneric standard-directive-body (string position directive)
   (:documentation
-   "Translate the next directive body in STRING into a standard one.
-- START is the position of the directive's body (past the ~ character and the
-  potential arguments).
+   "Translate a STRING directive's body into a standard one.
+- POSITION is the position of the directive's body (i.e., past the ~ character
+  and the potential arguments).
 - The translation is done according to DIRECTIVE.
 
 Return two values:
 - the translated directive's body as a string,
-- the index of STRING's remainder.")
-  (:method (string start (directive standard-directive))
+- the STRING's remainder index.")
+  (:method (string position (directive standard-directive))
     "Method for one-character and grouping standard directives."
     (declare (ignore string))
     (values (make-string 1 :initial-element (directive-character directive))
-	    (1+ start)))
-  (:method (string start (directive standard-delimiting-directive))
+	    (1+ position)))
+  (:method (string position (directive standard-delimiting-directive))
     "Method for the / standard directive."
-    (let ((character (schar string start)))
-      (let ((closing-character (position character string :start (1+ start))))
+    (let ((character (schar string position)))
+      (let ((closing-character (position character string
+				  :start (1+ position))))
 	(if closing-character
 	    (values (cl:format nil "~C~A~C"
 		      (directive-character directive)
-		      (subseq string (1+ start) closing-character)
+		      (subseq string (1+ position) closing-character)
 		      (directive-character directive))
 		    (1+ closing-character))
 	  (error 'missing-delimiter
 		 :string string
-		 :position start
+		 :position position
 		 :delimiter character)))))
-  (:method (string start (directive function-directive))
+  (:method (string position (directive function-directive))
     "Method for function directives."
     (let ((function-name (directive-function-name directive)))
       (values (cl:format nil "/~A:~A/"
 		(package-name (symbol-package function-name))
 		(symbol-name function-name))
-	      (1+ start)))))
+	      (1+ position)))))
 
-(defun directive-translation
-    (string start table
-     &aux (index (directive-body-index string start))
-	  (directive (gethash (schar string index) (table-mappings table))))
-"Translate the next directive in STRING into a standard one.
-- START is the position of the ~ character.
+(defun standard-directive
+    (string position table
+     &aux (body-position (directive-body-position string position))
+	  (directive (gethash (schar string body-position)
+			      (table-mappings table))))
+"Translate a STRING directive into a standard one.
+- POSITION is the position of the ~ character.
 - The translation is done according to format TABLE.
 
 Return two values:
 - the translated directive as a string,
-- the index of STRING's remainder.
+- the STRING's remainder index.
 
 Note that the directive arguments are copied as-is. Only the directive's body
 actually involves a translation."
   (unless directive
-    (error 'unknown-directive :directive (schar string index) :table table))
+    (error 'unknown-directive
+       :directive (schar string body-position) :table table))
   (multiple-value-bind (translation remainder)
-      (directive-body-translation string index directive)
-    (values (concatenate 'string (subseq string start index) translation)
+      (standard-directive-body string body-position directive)
+    (values (concatenate 'string (subseq string position body-position)
+			 translation)
 	    remainder)))
 
-(defun string-translation (string &optional (table *format-table*))
+(defun standard-format-string (string &optional (table *format-table*))
   "Return the translation of format STRING into a standard one.
-The translation is done according to format TABLE (the current format table by
-default)."
+The translation is done according to format TABLE (the current table by
+  default)."
   (apply #'concatenate
     'string
     (loop :with position := 0
 	  :and end := (length string)
 	  :and directive := nil
 	  :while (< position end)
-	  :for next := (or (directive-index string position) end)
+	  :for next := (or (next-directive-position string position) end)
 	  :if (> next position)
 	    :collect (subseq string position next)
 	    :and :do (setq position next)
 	  :else
 	    :do (multiple-value-setq (directive position)
-		  (directive-translation string position table))
+		  (standard-directive string position table))
 	    :and :collect directive)))
 
 ;;; string.lisp ends here
