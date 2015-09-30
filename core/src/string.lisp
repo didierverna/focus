@@ -34,22 +34,25 @@
 ;; ==========================================================================
 
 (define-condition format-string-error (focus-error)
-  ((format-string :documentation "The format string related to the error."
-		  :initarg :format-string
-		  :reader format-string)
-   (offset :documentation "The offset in the string where the error occurs."
-	   :initform nil
-	   :initarg :offset
-	   :reader offset))
+  ((string :documentation "The format string."
+	   :initarg :string
+	   ;; The lack of polymorphism on standard functions sucks. I want
+	   ;; to use just STRING here.
+	   :reader format-string)
+   (position :documentation "The position at which the error occurs."
+	     :initform nil
+	     :initarg :position
+	     ;; Same here. I'd have preferred to use POSITION...
+	     :reader string-position))
   (:documentation "A format string error."))
 
-(define-condition missing-directive (format-string-error)
+(define-condition missing-string-directive (format-string-error)
   ()
   (:report (lambda (error stream)
 	     (cl:format stream
 		 "Missing directive character:~%  => ~S~%  => ~V@T^"
 	       (format-string error)
-	       (1+ (offset error)))))
+	       (1+ (string-position error)))))
   (:documentation "A missing directive error."))
 
 (define-condition spurious-parameter (format-string-error)
@@ -58,7 +61,7 @@
 	     (cl:format stream "~
 Spurious parameter found after ':' or '@' modifier:~%  => ~S~%  => ~V@T^"
 	       (format-string error)
-	       (1+ (offset error)))))
+	       (1+ (string-position error)))))
   (:documentation "A spurious parameter error."))
 
 (define-condition spurious-modifier (format-string-error)
@@ -69,7 +72,7 @@ Spurious parameter found after ':' or '@' modifier:~%  => ~S~%  => ~V@T^"
 	     (cl:format stream "Spurious '~A' modifier:~%  => ~S~%  => ~V@T^"
 	       (modifier error)
 	       (format-string error)
-	       (1+ (offset error)))))
+	       (1+ (string-position error)))))
   (:documentation "A spurious modifier error."))
 
 (define-condition missing-delimiter (format-string-error)
@@ -81,7 +84,7 @@ Spurious parameter found after ':' or '@' modifier:~%  => ~S~%  => ~V@T^"
 		 "Missing matching '~A' delimiter:~%  => ~S~%  => ~V@T^"
 	       (delimiter error)
 	       (format-string error)
-	       (1+ (offset error)))))
+	       (1+ (string-position error)))))
   (:documentation "A missing delimiter error."))
 
 
@@ -99,15 +102,15 @@ parses the directive arguments in order to skip them."
 	:and atsignp := nil
 	:for char := (if (< index end)
 			 (schar string index)
-		       (error 'missing-directive
-			      :format-string string
-			      :offset start))
+		       (error 'missing-string-directive
+			      :string string
+			      :position start))
 	:when (and (or colonp atsignp)
 		   (or (char<= #\0 char #\9)
 		       (member char '(#\- #\+ #\v #\V #\# #\' #\,))))
 	  :do (error 'spurious-parameter
-		     :format-string string
-		     :offset index)
+		     :string string
+		     :position index)
 	:do (flet ((skip-comma (&optional (advance t))
 		     (when advance (incf index))
 		     (when (and (< index end)
@@ -126,25 +129,25 @@ parses the directive arguments in order to skip them."
 		    ((char= char #\')
 		     (incf index)
 		     (when (= index end)
-		       (error 'missing-directive
-			      :format-string string
-			      :offset start))
+		       (error 'missing-string-directive
+			      :string string
+			      :position start))
 		     (skip-comma))
 		    ((char= char #\,)
 		     (incf index))
 		    ((char= char #\:)
 		     (if colonp
 			 (error 'spurious-modifier
-				:format-string string
-				:offset index
+				:string string
+				:position index
 				:modifier #\:)
 		       (setf colonp t))
 		     (incf index))
 		    ((char= char #\@)
 		     (if atsignp
 			 (error 'spurious-modifier
-				:format-string string
-				:offset index
+				:string string
+				:position index
 				:modifier #\@)
 		       (setf atsignp t))
 		     (incf index))
@@ -177,8 +180,8 @@ Return two values:
 		      (directive-character directive))
 		    (1+ closing-character))
 	  (error 'missing-delimiter
-		 :format-string string
-		 :offset start
+		 :string string
+		 :position start
 		 :delimiter character)))))
   (:method (string start (directive function-directive))
     "Method for function directives."
