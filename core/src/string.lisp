@@ -87,6 +87,18 @@ Spurious parameter found after ':' or '@' modifier:~%  => ~S~%  => ~V@T^"
 	       (1+ (string-position error)))))
   (:documentation "A missing delimiter error."))
 
+(define-condition missing-table-directive (format-string-error)
+  ((table :documentation "The format table."
+	  :initarg :table
+	  :reader table))
+  (:report (lambda (error stream)
+	     (cl:format stream
+	       "No such directive in table ~A.~%  => ~S~%  => ~V@T^"
+	       (table error)
+	       (format-string error)
+	       (1+ (string-position error)))))
+  (:documentation "A missing table directive error."))
+
 
 (defun next-directive-position (string start)
   "Return the next directive position in STRING from START, or nil."
@@ -208,8 +220,10 @@ Return two values:
 Note that the directive arguments are copied as-is. Only the directive's body
 actually involves a translation."
   (unless directive
-    (error 'unknown-directive
-       :directive (schar string body-position) :table table))
+    (error 'missing-table-directive
+	   :string string
+	   :position position
+	   :table table))
   (multiple-value-bind (translation remainder)
       (standard-directive-body string body-position directive)
     (values (concatenate 'string (subseq string position body-position)

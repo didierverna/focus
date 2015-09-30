@@ -187,17 +187,6 @@ or :blank."
 	       (table error))))
   (:documentation "A table directive collision error."))
 
-#| Unused right now. We could warn the user about an attempt to remove a
-   missing directive tho.
-(define-condition missing-table-directive (table-directive-error)
-  ()
-  (:report (lambda (error stream)
-	     (cl:format stream "There is no ~~~A directive in table ~A."
-	       (table-character error)
-	       (table error))))
-  (:documentation "A missing table directive error."))
-|#
-
 ;; #### FIXME: should abstract the hashtable manipulation with
 ;; TABLE-DIRECTIVE and such.
 (defun set-format-directive
