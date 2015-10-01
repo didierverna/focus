@@ -209,10 +209,10 @@ The operation to perform is as follows:
     (cond ((or function-or-name standard)
 	   (when (and (gethash char mappings) (not force))
 	     (error 'table-directive-collision
-	       :table table :table-character char))
+	       :table table :character char))
 	   (when (and other-char (gethash other-char mappings) (not force))
 	     (error 'table-directive-collision
-	       :table table :table-character other-char))
+	       :table table :character other-char))
 	   ;; #### NOTE: to be pedantic, we could enforce mutual exclusion of
 	   ;; :STANDARD and :FUNCTION. Instead, we simply give precedence to
 	   ;; the latter.
