@@ -46,7 +46,7 @@
 
 (let ((table (focus:make-format-table)))
   (focus:with-format-table table
-    (focus:set-format-directive #\` :function-name 'quotation-formatter))
+    (focus:set-format-directive #\` :function 'quotation-formatter))
 
   (defun quotation (who quotation)
     (focus:with-format-table table

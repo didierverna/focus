@@ -440,7 +440,7 @@ out with, @eg{}, @samp{sbcl --script} in a terminal.
 
 (let ((table (focus:make-format-table)))
   (focus:with-format-table table
-    (focus:set-format-directive #\` :function-name 'quotation-formatter))
+    (focus:set-format-directive #\` :function 'quotation-formatter))
 
   (defun quotation (who quotation)
     (focus:with-format-table table
@@ -529,7 +529,7 @@ current format table is the appropriate one is to use the macro
 @cartouche
 @verbatim
   (focus:with-format-table table
-    (focus:set-format-directive #\` :function-name 'quotation-formatter))
+    (focus:set-format-directive #\` :function 'quotation-formatter))
 @end verbatim
 @end cartouche
 
