@@ -47,6 +47,7 @@
    ;; From meta.lisp (this file):
    :nickname-package
    ;; From src/table.lisp:
+   :*format-table*
    :make-format-table
    :register-format-table
    :unregister-format-table
