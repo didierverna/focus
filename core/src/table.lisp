@@ -30,6 +30,27 @@
 
 
 ;; ==========================================================================
+;; Current Table Management
+;; ==========================================================================
+
+(defvar *format-table* nil
+  "The current format table.")
+
+#|
+(defmacro in-format-table (table-or-name)
+  "Set the current format table to TABLE-OR-NAME."
+  `(eval-when (:compile-toplevel :load-toplevel :execute)
+     (setq *format-table* (find-table ,table-or-name))))
+|#
+
+(defmacro with-format-table (table-or-name &body body)
+  "Execute BODY with the current format table bound to TABLE-OR-NAME."
+  `(let ((*format-table* (find-table ,table-or-name)))
+     ,@body))
+
+
+
+;; ==========================================================================
 ;; Table Data Structure
 ;; ==========================================================================
 
@@ -227,26 +248,5 @@ The operation to perform is as follows:
 	   (remhash char mappings)
 	   (when other-char
 	     (remhash other-char mappings))))))
-
-
-
-;; ==========================================================================
-;; Current Table Management
-;; ==========================================================================
-
-(defvar *format-table* nil
-  "The current format table.")
-
-#|
-(defmacro in-format-table (table-or-name)
-  "Set the current format table to TABLE-OR-NAME."
-  `(eval-when (:compile-toplevel :load-toplevel :execute)
-     (setq *format-table* (find-table ,table-or-name))))
-|#
-
-(defmacro with-format-table (table-or-name &body body)
-  "Execute BODY with the current format table bound to TABLE-OR-NAME."
-  `(let ((*format-table* (find-table ,table-or-name)))
-     ,@body))
 
 ;;; table.lisp ends here
