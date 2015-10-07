@@ -78,8 +78,8 @@ This structure holds the MAPPINGS from characters to directives."
 			  &aux (table (%make-format-table))
 			       (mappings (table-mappings table)))
   "Create and return a new format table.
-The table may be INITIALLY :standard, :standard-upcase, :standard-downcase
-or :blank."
+The table may be INITIALLY :standard (the default), :standard-upcase,
+:standard-downcase or :blank."
   (ecase initially
     (:standard
      (dolist (directive +standard-directives+)
