@@ -564,15 +564,73 @@ Finally, let's try it!
 @c ====================================================================
 @node Usage, Advanced Usage, Quick Start, Top
 @chapter Usage
+Just when you thought format strings were unreadable, it's going to get
+a whole lot crazier. With @focus{}, you can not only create your own
+cryptic format directives, but you can also completely mess up the
+standard ones, which is where the fun really begins.
 
 @pkgindex{net.didierverna.focus}
-@focus{} itself resides in a package called @t{net.didierverna.focus}. You
-can automatically nickname this package with the following function.
+First of all, @focus{} itself resides in a package called
+@t{net.didierverna.focus}. You can automatically nickname this package
+with the following function.
 @cindex Package, nicknames
 @defun nickname-package [NICKNAME]
 Add @var{NICKNAME} (@code{:focus} by default) to the
 @code{:net.didierverna.focus} package.
 @end defun
+
+Using @focus{} involves three steps: creating format tables, filling
+them with format directives and actually using them in calls to @fmt{}
+or @fmter{}.
+
+@menu
+* Creating Format Tables::      Where your custom directives are stored
+* Modifying Format Tables::     Adding, changing or removing directives
+* Using Format Tables::         Actually formatting things
+@end menu
+
+
+@c ----------------------
+@c Creating Format Tables
+@c ----------------------
+@node Creating Format Tables, Modifying Format Tables, Usage, Usage
+@section Creating Format Tables
+@cindex Format Table
+In order to use custom format strings, you first need to create a
+so-called @dfn{format table}. A format table stores mappings between
+format directives (represented by their directive characters) and their
+intended meaning. In essence, a format table is very similar to a
+readtable: it describes how @focus{} is to interpret your custom format
+strings in order to translate them into standard ones.
+
+Creating a format table is done by calling the function
+@code{make-format-table}.
+@defun make-format-table &optional (INITIALLY :standard)
+Create and return a new format table.@*
+The table may be @var{INITIALLY} @code{:standard} (the default),
+@code{:standard-upcase}, @code{:standard-downcase} or @code{:blank}.
+@end defun
+
+The optional argument @var{INITIALLY} is pretty much self-explanatory. A
+value of @code{:standard} creates a format table behaving exactly like
+standard @fmt{}. @code{:standard-downcase} and @code{:standard-upcase}
+do the same, except that when applicable, only the downcase
+(respectively upcase) directive characters are added. Finally, a
+@code{:blank} format table does not contain any directive at all.
+
+
+@c -----------------------
+@c Modifying Format Tables
+@c -----------------------
+@node Modifying Format Tables, Using Format Tables, Creating Format Tables, Usage
+@section Modifying Format Tables
+
+
+@c -------------------
+@c Using Format Tables
+@c -------------------
+@node Using Format Tables, , Modifying Format Tables, Usage
+@section Using Format Tables
 
 
 
