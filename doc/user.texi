@@ -574,7 +574,8 @@ First of all, @focus{} itself resides in a package called
 @t{net.didierverna.focus}. You can automatically nickname this package
 with the following function.
 @cindex Package, nicknames
-@defun nickname-package [NICKNAME]
+@defun nickname-package &optional NICKNAME
+@foindex{nickname-package, nickname}@c
 Add @var{NICKNAME} (@code{:focus} by default) to the
 @code{:net.didierverna.focus} package.
 @end defun
