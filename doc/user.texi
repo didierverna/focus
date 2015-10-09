@@ -606,6 +606,7 @@ strings in order to translate them into standard ones.
 
 Creating a format table is done by calling the function
 @code{make-format-table}.
+@foindex{make-format-table, initially}@c
 @defun make-format-table &optional (INITIALLY :standard)
 Create and return a new format table.@*
 The table may be @var{INITIALLY} @code{:standard} (the default),
