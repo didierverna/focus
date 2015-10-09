@@ -142,7 +142,7 @@ table is found. Otherwise, just return nil."
 	    :do (return key)))
 
   (defun register-format-table (table name &optional force)
-    "Register TABLE under NAME and return it.
+    "Register TABLE under NAME (a symbol) and return it.
 FORCE means overwrite an already existing registration under that
 name. Otherwise (the default), throw a TABLE-ALREADY-REGISTERED error."
     (when (and (lookup-table name nil) (not force))
