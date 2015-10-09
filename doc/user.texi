@@ -158,6 +158,12 @@ Common Lisp
 @tpindex @r{System, }\name\
 @end macro
 
+@c Errors
+@macro errindex{name}
+@tpindex \name\
+@tpindex @r{Error, }\name\
+@end macro
+
 
 
 @c ====================================================================
@@ -586,6 +592,7 @@ or @fmter{}.
 
 @menu
 * Creating Format Tables::      Where your custom directives are stored
+* Referring to Format Tables::  Format table designators
 * Modifying Format Tables::     Adding, changing or removing directives
 * Using Format Tables::         Actually formatting things
 @end menu
@@ -594,7 +601,7 @@ or @fmter{}.
 @c ----------------------
 @c Creating Format Tables
 @c ----------------------
-@node Creating Format Tables, Modifying Format Tables, Usage, Usage
+@node Creating Format Tables, Referring to Format Tables, Usage, Usage
 @section Creating Format Tables
 @cindex Format Table
 In order to use custom format strings, you first need to create a
@@ -621,10 +628,87 @@ do the same, except that when applicable, only the downcase
 @code{:blank} format table does not contain any directive at all.
 
 
+@c --------------------------
+@c Referring to Format Tables
+@c --------------------------
+@node Referring to Format Tables, Modifying Format Tables, Creating Format Tables, Usage
+@section Referring to Format Tables
+@cindex Format Table Designator
+@cindex Designator, format table
+Whether it is to modify them or to actually use them, the rest of the
+library needs to refer to format tables in one way or another. You refer
+to a specific format table by using a so-called @dfn{format table
+designator}. Format table designators can be of various forms.
+
+@findex make-format-table
+@cindex Format Table Registration
+@cindex Registration, format table
+@cindex Current Format Table
+@cindex Format Table, current
+First of all, it is possible to use a table object directly (as returned
+by @code{make-format-table}). You may also refer to a format table by
+name, if you have @emph{registered} it (@pxref{Table Registration}) and
+finally, if you don't specify anything, the so-called @dfn{current
+format table} is used (@pxref{Current Format Table}).
+
+@menu
+* Table Registration::          Naming format tables
+* Current Format Table::        The default format table
+@end menu
+
+@node Table Registration, Current Format Table, Referring to Format Tables, Referring to Format Tables
+@subsection Table Registration
+@cindex Format Table Registration
+@cindex Registration, format table
+@findex register-format-table
+@findex unregister-format-table
+If you plan to manipulate several format tables in the same application,
+you may want to give them names. This process is called
+@dfn{registration}. You can register a format table with the
+@code{register-format-table} function. The opposite (un-naming a table,
+if you prefer) is done with the @code{unregister-format-table} function.
+
+@defun register-format-table TABLE NAME &optional FORCE
+@foindex{register-format-table, force}@c
+@errindex{table-already-registered}@c
+Register @var{TABLE} under @var{NAME} (a symbol) and return it.@*
+@var{FORCE} means overwrite an already existing registration under that
+name. Otherwise (the default), throw a @code{table-already-registered}
+error.
+@end defun
+
+@defun unregister-format-table NAME
+Unregister @var{NAME}d table.
+@end defun
+
+
+@node Current Format Table, , Table Registration, Referring to Format Tables
+@subsection Current Format Table
+@cindex Current Format Table
+@cindex Format Table, current
+@vindex *format-table*
+Unless otherwise specified, @focus{} uses a so-called @dfn{current
+format table} every time it needs one. This table is stored in the
+global variable @code{*format-table*}, which you are free to use
+directly.
+
+@focus{} also provides a couple of macros to manipulate the current
+format table in a very idiomatic way.
+
+@defmac with-format-table TABLE-OR-NAME &body BODY
+Execute @var{BODY} with the current format table bound to
+@var{TABLE-OR-NAME}.
+@end defmac
+@cindex Format Table Designator
+@cindex Designator, format table
+@var{TABLE-OR-NAME} is of course a table designator: either a table
+object directly, or the name of a previously registered table.
+
+
 @c -----------------------
 @c Modifying Format Tables
 @c -----------------------
-@node Modifying Format Tables, Using Format Tables, Creating Format Tables, Usage
+@node Modifying Format Tables, Using Format Tables, Referring to Format Tables, Usage
 @section Modifying Format Tables
 
 
