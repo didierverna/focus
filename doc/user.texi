@@ -609,23 +609,21 @@ so-called @dfn{format table}. A format table stores mappings between
 format directives (represented by their directive characters) and their
 intended meaning. In essence, a format table is very similar to a
 readtable: it describes how @focus{} is to interpret your custom format
-strings in order to translate them into standard ones.
+strings in order to translate them into standard ones.  Creating a
+format table is done by calling the function @code{make-format-table}.
 
-Creating a format table is done by calling the function
-@code{make-format-table}.
 @foindex{make-format-table, initially}@c
 @defun make-format-table &optional (INITIALLY :standard)
 Create and return a new format table.@*
-The table may be @var{INITIALLY} @code{:standard} (the default),
-@code{:standard-upcase}, @code{:standard-downcase} or @code{:blank}.
 @end defun
 
-The optional argument @var{INITIALLY} is pretty much self-explanatory. A
-value of @code{:standard} creates a format table behaving exactly like
-standard @fmt{}. @code{:standard-downcase} and @code{:standard-upcase}
-do the same, except that when applicable, only the downcase
-(respectively upcase) directive characters are added. Finally, a
-@code{:blank} format table does not contain any directive at all.
+The optional argument @var{INITIALLY} lets you decide what you want the
+table to look like when it's created. A value of @code{:standard}
+creates a format table behaving exactly like standard
+@fmt{}. @code{:standard-downcase} and @code{:standard-upcase} do the
+same, except that when applicable, only the downcase (respectively
+upcase) directive characters are added. Finally, a @code{:blank} format
+table does not contain any directive at all.
 
 
 @c --------------------------
@@ -671,11 +669,11 @@ if you prefer) is done with the @code{unregister-format-table} function.
 @defun register-format-table TABLE NAME &optional FORCE
 @foindex{register-format-table, force}@c
 @errindex{table-already-registered}@c
-Register @var{TABLE} under @var{NAME} (a symbol) and return it.@*
-@var{FORCE} means overwrite an already existing registration under that
-name. Otherwise (the default), throw a @code{table-already-registered}
-error.
+Register @var{TABLE} under @var{NAME} (a symbol) and return it.
 @end defun
+If a table is already registered under that name, @focus{} throws a
+@code{table-already-registered} error, unless the optional @var{FORCE}
+argument is non-nil.
 
 @defun unregister-format-table NAME
 Unregister @var{NAME}d table.
