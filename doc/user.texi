@@ -708,6 +708,138 @@ object directly, or the name of a previously registered table.
 @c -----------------------
 @node Modifying Format Tables, Using Format Tables, Referring to Format Tables, Usage
 @section Modifying Format Tables
+Customizing the contents of your format tables involves a single
+function: @code{set-format-directive}.
+
+@defun set-format-directive CHAR @
+&key STANDARD FUNCTION (BOTH-CASE t) FORCE (TABLE *format-table*)
+Set a ~@var{CHAR} directive in @var{TABLE}.
+@end defun
+
+@menu
+* Directive Characters::        You can (re)define all of them
+* Casing::                      Case matters to XFormat
+* Directive Definition::        What they should do
+* Directive Removal::           What they should not do anymore
+* Format Table Target::         Which table to modify
+@end menu
+
+@node Directive Characters, Casing, Modifying Format Tables, Modifying Format Tables
+@subsection Directive Characters
+@var{CHAR} is the character for which you want to create a new directive
+(@code{#\`} in the Quick Start example). Note that @focus{} allows you to
+modify standard directives as well as creating new ones. This means that
+you can create a completely new directive, freely override a standard
+directive with a new meaning, alias a standard directive to a new
+character, anything you want.
+
+@fkindex{set-format-directive,force}
+As a safety precaution however, @focus{} checks that the directive you're
+creating does not already exist in the table. If so, it will signal an
+error, unless you explicitely pass a non-@code{nil} value to the
+@code{:force} keyword.
+
+@node Casing, Directive Definition, Directive Characters, Modifying Format Tables
+@subsection Casing
+In the @cl{} standard, the case of a directive character is ignored.
+Case @emph{does} matter to @focus{} however. A format table contains
+separate entries for upcase and downcase characters. For example, when a
+new format table is populated with standard directives, identical
+definitions are stored for both @code{#\s} and @code{#\S}.
+
+By default, the behavior of @code{set-format-directive} conforms to that
+of the standard: when you set a new directive character that has both an
+upcase and a downcase version, both versions get the definition.
+
+@fkindex{set-format-directive,both-case}
+You can change this by passing a @code{nil} value to the
+@code{:both-case} keyword, hence distinguishing between case versions.
+As an example of using this feature, consider the case@footnote{so to
+speak@dots{}} where you find yourself short of directive characters.
+What you can do is retain the standard meaning for all the upcase
+versions and define new custom directives for the downcase ones. Or the
+other way around. yOu gEt tHe iDeA.
+
+@node Directive Definition, Directive Removal, Casing, Modifying Format Tables
+@subsection Directive Definition
+There are currently two ways to define new directives in @focus{}: you
+can either alias a standard directive, or associate a custom formatter
+function with a directive character.
+
+@menu
+* Standard Directives:: Standard behavior
+* Custom Formatters::   User-defined behavior
+@end menu
+
+@node Standard Directives, Custom Formatters, Directive Definition, Directive Definition
+@subsubsection Standard Directives
+@fkindex{set-format-directive,standard}
+@fkindex{make-format-table,initially}
+In order to alias a standard directive, use the @code{:standard} keyword
+with the corresponding character as value. For instance, calling
+@samp{(set-format-directive #\Y :standard #\S)} will result in making
+@code{~Y} (and @code{~y}) have the same meaning as the standard @code{~S}
+directive. By the way, this is how a newly created format table is made
+@code{:initially} @code{:standard}: for every standard directive
+character @code{#\c}, a call to @samp{(set-format-directive #\c :standard
+#\c)} is issued.
+
+@cindex Simple Directive
+@cindex Directives, Simple
+@cindex Grouping Directive
+@cindex Directives, Grouping
+@cindex Delimiting Directive
+@cindex Directives, Delimiting
+One thing about aliasing standard directives is worth mentioning here.
+@focus{} is aware of the syntactic specificities of the standard
+directives. More precisely, we can split standard directives in three
+categories: @emph{simple} directives like @code{~S}, @emph{grouping}
+directives like @code{~@{~@}} which use a couple of characters
+and @emph{delimiting} directives in which there is only one guy: the
+@code{~/} directive.
+
+@focus{} does nothing special about simple and grouping directives. In
+particular, you can very well alias only one of the two characters of a
+standard grouping directive (see, it's pretty easy to completely mess up
+the standard set of directives). Or, to put it differently, creating a
+new grouping directive couple would involve @emph{two} calls to
+@code{set-format-directive}.
+
+On the other hand, @focus{} understands when you alias the @code{~/}
+directive, and expects your custom format strings to be syntactically
+correct. For instance, if you alias @code{~!} to @code{~/}, then your format
+strings should look like this: @code{"~!foo:bar!"}. It is @emph{not}
+possible to match a @code{#\/} with a @code{#\!}, in any order.
+
+@node Custom Formatters, , Standard Directives, Directive Definition
+@subsubsection Custom Formatters
+@cindex Custom Formatter
+@fkindex{set-format-directive,function}
+In order to associate a directive character with a custom formatter
+function, use the @code{:function} keyword and provide it with a
+function name (this is what we did in the Quick Start example). Such
+custom directives are eventually translated into standard @code{~/}
+directives.
+
+@node Directive Removal, Format Table Target, Directive Definition, Modifying Format Tables
+@subsection Directive Removal
+In order to remove a directive from a format table, simply call
+@code{set-format-directive} without providing a definition. For
+instance, a call to @samp{(set-format-directive #\s)} will remove the
+definition for both @code{~s} and @code{~S}.
+
+@node Format Table Target, , Directive Removal, Modifying Format Tables
+@subsection Format Table Targets
+@fkindex{set-format-directive,table}
+The last point we need to address is the table to which the
+modifications apply. This format table ``target'' can be specified via
+the @code{:table} keyword.
+@vindex *format-table*
+@findex make-format-table
+By default, the target is @code{*format-table*} (FIXME: ref). Otherwise,
+you may use a @emph{table designator}, that is, either a format table
+name () or a format table object (returned by
+a call to @code{make-format-table}).
 
 
 @c -------------------
