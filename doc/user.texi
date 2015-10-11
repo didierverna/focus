@@ -292,7 +292,7 @@ It is not modifiable: only a predefined set of standard directive
 characters can be used and it is not possible to alter their semantics.
 @item
 It is hardly extensible. The only embryonic extension mechanism
-available, the @code{/} directive, is extremely cumbersome to use. The
+available, the @code{~/} directive, is extremely cumbersome to use. The
 called function must either reside in the @code{cl-user} package, or you
 must always use its fully qualified name in the format string, even if
 the corresponding code lies in the appropriate package. For instance,
