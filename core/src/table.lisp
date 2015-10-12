@@ -144,7 +144,7 @@ table is found. Otherwise, just return nil."
   (defun register-format-table (table name &optional force)
     "Register TABLE under NAME (a symbol) and return it.
 FORCE means overwrite an already existing registration under that
-name. Otherwise (the default), throw a TABLE-ALREADY-REGISTERED error."
+name. Otherwise (the default), throw a TABLE-COLLISION error."
     (when (and (lookup-table name nil) (not force))
       (error 'table-collision :name name))
     (setf (gethash name format-tables) table))
@@ -195,8 +195,8 @@ SET-FORMAT-DIRECTIVE) under gentemp'ed names."))
   "Set a ~CHAR directive in TABLE.
 - TABLE (the current format table by default) may be a table or a table name.
 - When BOTH-CASE (the default), operate on both case versions of CHAR.
-- Attempting to override an existing directive throws a DIRECTIVE-COLLISION
-  error, unless FORCE is non-nil.
+- Attempting to override an existing directive throws a
+  TABLE-DIRECTIVE-COLLISION error, unless FORCE is non-nil.
 
 The operation to perform is as follows:
 - If FUNCTION is provided (either a function or a function name), associate
