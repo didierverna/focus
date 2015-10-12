@@ -865,6 +865,20 @@ definition for both @code{~s} and @code{~S} (but then again, see
 @c -------------------
 @node Using Format Tables, , Modifying Format Tables, Usage
 @section Using Format Tables
+@focus{} provides its own version of @fmt{}.
+@defun format DESTINATION FORMAT-CONTROL &rest ARGS
+Wrapper around the standard @fmt{} function.
+@end defun
+
+@pkgindex{net.didierverna.focus}@c
+Although shadowing is the work of the devil, you could even think of
+replacing all your own calls to standard @fmt{} with the @focus{}
+version, either by @code{:use}'ing the @code{net.didierverna.focus}
+package directly (yuck!), or by importing its version of @fmt{}.
+
+@focus{}'s @fmt{} wraps around the standard one. When
+@var{FORMAT-CONTROL} is a format string, it is translated into a
+standard one according to the current format table. That's it.
 
 
 
