@@ -460,10 +460,10 @@ out with, @eg{}, @samp{sbcl --script} in a terminal.
 @section Explanation
 Let's examine this program step-by-step now.
 
-@sysindex{net.didierverna.focus}
-@pkgindex{net.didierverna.focus}
 @cindex Package, nicknames
 @findex nickname-package
+@sysindex{net.didierverna.focus}@c
+@pkgindex{net.didierverna.focus}@c
 First, we put ourselves in the @cl{} user package, and load @focus{}
 from its ASDF system @samp{net.didierverna.focus}. @focus{} lives in a
 package also named @samp{net.didierverna.focus}, that we nickname to
@@ -568,7 +568,7 @@ a whole lot crazier. With @focus{}, you can not only create your own
 cryptic format directives, but you can also completely mess up the
 standard ones, which is where the fun really begins.
 
-@pkgindex{net.didierverna.focus}
+@pkgindex{net.didierverna.focus}@c
 First of all, @focus{} itself resides in a package called
 @t{net.didierverna.focus}. You can automatically nickname this package
 with the following function.
@@ -610,13 +610,15 @@ format table is done by calling the function @code{make-format-table}.
 Create and return a new format table.@*
 @end defun
 
+@cindex Directive Casing
+@cindex Casing, directive
 The optional argument @var{INITIALLY} lets you decide what you want the
 table to look like when it's created. A value of @code{:standard}
 creates a format table behaving exactly like standard
 @fmt{}. @code{:standard-downcase} and @code{:standard-upcase} do the
 same, except that when applicable, only the downcase (respectively
-upcase) directive characters are added. Finally, a @code{:blank} format
-table does not contain any directive at all.
+upcase) directive characters are added (See also @ref{Casing}). Finally,
+a @code{:blank} format table does not contain any directive at all.
 
 
 @c --------------------------
@@ -634,11 +636,11 @@ library needs to refer to format tables in one way or another. You refer
 to a specific format table by using a so-called @dfn{format table
 designator}. Format table designators can be of various forms.
 
-@findex make-format-table
 @cindex Format Table Registration
 @cindex Registration, format table
 @cindex Current Format Table
 @cindex Format Table, current
+@findex make-format-table
 First of all, it is possible to use a table object directly (as returned
 by @code{make-format-table}). You may also refer to a format table by
 name, if you have @emph{registered} it (@pxref{Table Registration}) and
@@ -663,13 +665,13 @@ you may want to give them names. This process is called
 if you prefer) is done with the @code{unregister-format-table} function.
 
 @defun register-format-table TABLE NAME &optional FORCE
-@foindex{register-format-table, force}@c
-@errindex{table-already-registered}@c
 Register @var{TABLE} under @var{NAME} (a symbol) and return it.
 @end defun
+@foindex{register-format-table,force}@c
+@errindex{table-collison}@c
 If a table is already registered under that name, @focus{} throws a
-@code{table-already-registered} error, unless the optional @var{FORCE}
-argument is non-nil.
+@code{table-collision} error, unless the optional @var{FORCE} argument
+is non-@code{nil}.
 
 @defun unregister-format-table NAME
 Unregister @var{NAME}d table.
