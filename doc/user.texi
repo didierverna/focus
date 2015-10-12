@@ -534,11 +534,11 @@ current format table is the appropriate one is to use the macro
 
 @findex format
 Now, let's create a silly @code{quotation} function for printing
-someone's quote. @focus{} provides its own @code{format} function which
-wraps around the standard one. This function works exactly like the
-original @fmt{}, except that it uses the current format table to
-interpret your custom format string, so again, we need to make sure that
-the proper table is used when the function is called.
+someone's quote. @focus{} provides its own @fmt{} function which wraps
+around the standard one. This function works exactly like the original
+@fmt{}, except that it uses the current format table to interpret your
+custom format string, so again, we need to make sure that the proper
+table is used when the function is called.
 @cartouche
 @verbatim
   (defun quotation (who quotation)
