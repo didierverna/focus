@@ -1,0 +1,4 @@
+* It should be easy to implement user-defined delimiting directives: translate
+  them to custom formatters with the addition of an argument (or a lexical
+  closure) containing the string between the delimiters. Not sure what could
+  be the use for this though.
