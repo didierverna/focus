@@ -592,7 +592,7 @@ or @fmter{}.
 
 @menu
 * Creating Format Tables::      Where your custom directives are stored
-* Referring to Format Tables::  Format table designators
+* Referring to Format Tables::  Interlude: format table designators
 * Modifying Format Tables::     Adding, changing or removing directives
 * Using Format Tables::         Actually formatting things
 @end menu
@@ -630,7 +630,10 @@ table does not contain any directive at all.
 @c Referring to Format Tables
 @c --------------------------
 @node Referring to Format Tables, Modifying Format Tables, Creating Format Tables, Usage
-@section Referring to Format Tables
+@section Interlude: Referring to Format Tables
+Gosh, that was a lot to digest, I know. Sorry. Let's pause for a moment
+and catch our breath.
+
 @cindex Format Table Designator
 @cindex Designator, format table
 Whether it is to modify them or to actually use them, the rest of the
