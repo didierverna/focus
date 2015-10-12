@@ -245,6 +245,7 @@ actually involves a translation."
   "Return the next directive position in STRING from START, or nil."
   (position #\~ string :start start))
 
+;; #### NOTE: the TABLE optional argument is currently unused.
 (defun standard-format-string (string &optional (table *format-table*))
   "Return the translation of format STRING into a standard one.
 The translation is done according to format TABLE (the current table by

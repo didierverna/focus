@@ -40,6 +40,6 @@ format table."
 (defmacro formatter (format-string)
   "Wrapper around the standard FORMATTER macro.
 FORMAT-STRING is interpreted according to the current format table."
-  `(formatter (standard-format-string ,format-string)))
+  `(cl:formatter (standard-format-string ,format-string)))
 
 ;;; wrapper.lisp ends here
