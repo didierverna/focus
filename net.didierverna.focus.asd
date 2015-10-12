@@ -25,7 +25,7 @@
 
 ;;; Code:
 
-(asdf:load-system :net.didierverna.focus.setup)
+(asdf:load-system :net.didierverna.focus.setup/flv)
 
 (asdf:defsystem :net.didierverna.focus
   :long-name "FORMAT Customizations"
@@ -42,6 +42,9 @@ ultimately translates into regular FORMAT calls."
   :source-control "https://github.com/didierverna/focus"
   :license "BSD"
   :version #.(net.didierverna.focus.setup:version :short)
-  :depends-on (:net.didierverna.focus.setup :net.didierverna.focus.core))
+  :depends-on (:net.didierverna.focus.setup
+	       :net.didierverna.focus.core
+	       (:feature :net.didierverna.focus.flv
+		:net.didierverna.focus.flv)))
 
 ;;; net.didierverna.focus.asd ends here

@@ -40,4 +40,23 @@ net.didierverna.focus system."
   :license "BSD"
   :components ((:file "setup")))
 
+(asdf:defsystem :net.didierverna.focus.setup/flv
+  :long-name "FORMAT Customizations, file-local variables setup"
+  :description "\
+FoCus support for automatic configuration of file-local variables support"
+  :long-description "\
+This is a virtual subsystem or FoCus (no actual code). Its purpose is only to
+autodetect file-local variables support and update FoCus's preload
+configuration on load. For a more complete description of FoCus, see the
+net.didierverna.focus system."
+  :author "Didier Verna <didier@didierverna.net>"
+  :mailto "didier@didierverna.net"
+  :homepage "http://www.lrde.epita.fr/~didier/software/lisp/focus.php"
+  :source-control "https://github.com/didierverna/focus"
+  :license "BSD"
+  :depends-on (:net.didierverna.focus.setup)
+  :perform (load-op (o c)
+	     (declare (ignore o c))
+	     (call-function "net.didierverna.focus.setup:setup-flv")))
+
 ;;; net.didierverna.focus.setup.asd ends here

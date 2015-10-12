@@ -34,7 +34,8 @@
    :*release-status-level* :*release-name*
    :version
    :configuration
-   :configure))
+   :configure
+   :setup-flv))
 
 (in-package :net.didierverna.focus.setup)
 
@@ -144,5 +145,32 @@ See section A.1 of the user manual for more information.")
   "Set KEY to VALUE in the current FoCus configuration."
   (setf (getf *configuration* key) value))
 
+
+;; -------------------
+;; System requirements
+;; -------------------
+
+(defun restrict-because (reason)
+  "Put FoCus in restricted mode because of REASON."
+  (format *error-output* "~
+*******************************************************************
+* WARNING: ~A.~66T*
+* FoCus will be loaded without support for file-local variables.  *
+* See sections 2 and A.1 of the user manual for more information. *
+*******************************************************************"
+    reason)
+  (configure :restricted t))
+
+(defun setup-flv ()
+  "Autodetect support for file-local variables.
+Update FoCus configuration and *FEATURES* accordingly."
+  (unless (configuration :restricted)
+    (handler-case (asdf:load-system :net.didierverna.asdf-flv)
+      (error ()
+	(restrict-because
+	 "unable to load system :NET.DIDIERVERNA.ASDF-FLV"))))
+  (if (configuration :restricted)
+      (setq *features* (delete  :net.didierverna.focus.flv *features*))
+      (pushnew :net.didierverna.focus.flv *features*)))
 
 ;;; setup.lisp ends here
