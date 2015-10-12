@@ -709,60 +709,74 @@ object directly, or the name of a previously registered table.
 Customizing the contents of your format tables involves a single
 function: @code{set-format-directive}.
 
+@vindex *format-table*
 @defun set-format-directive CHAR @
 &key STANDARD FUNCTION (BOTH-CASE t) FORCE (TABLE *format-table*)
 Set a ~@var{CHAR} directive in @var{TABLE}.
 @end defun
+
+@cindex Current Format Table
+@cindex Format Table, current
+@cindex Format Table Designator
+@cindex Designator, format table
+@fkindex{set-format-directive,table}@c
+@var{TABLE} is the format table to modify. It defaults to the current
+format table, and may otherwise be specified by passing a table
+designator as value to the @code{:table} keyword argument.
 
 @menu
 * Directive Characters::        You can (re)define all of them
 * Casing::                      Case matters to XFormat
 * Directive Definition::        What they should do
 * Directive Removal::           What they should not do anymore
-* Format Table Target::         Which table to modify
 @end menu
 
 @node Directive Characters, Casing, Modifying Format Tables, Modifying Format Tables
 @subsection Directive Characters
 @var{CHAR} is the character for which you want to create a new directive
-(@code{#\`} in the Quick Start example). Note that @focus{} allows you to
-modify standard directives as well as creating new ones. This means that
-you can create a completely new directive, freely override a standard
-directive with a new meaning, alias a standard directive to a new
-character, anything you want.
+(@ref{Quick Start} used @code{#\`} as an example). Note that @focus{}
+allows you to modify standard directives as well as creating new
+ones. This means that you can create a completely new directive, freely
+override a standard directive with a new meaning, alias a standard
+directive to a new character, anything you want.
 
-@fkindex{set-format-directive,force}
-As a safety precaution however, @focus{} checks that the directive you're
-creating does not already exist in the table. If so, it will signal an
-error, unless you explicitely pass a non-@code{nil} value to the
-@code{:force} keyword.
+@fkindex{set-format-directive,force}@c
+@errindex{table-directive-collision}@c
+If such a directive is already set in @var{TABLE}, @focus{} throws a
+@code{table-directive-collision} error, unless you explicitely pass a
+non-@code{nil} value to the @code{:force} keyword argument.
 
 @node Casing, Directive Definition, Directive Characters, Modifying Format Tables
 @subsection Casing
-In the @cl{} standard, the case of a directive character is ignored.
-Case @emph{does} matter to @focus{} however. A format table contains
-separate entries for upcase and downcase characters. For example, when a
-new format table is populated with standard directives, identical
-definitions are stored for both @code{#\s} and @code{#\S}.
+@cindex Directive Casing
+@cindex Casing, directive
+@findex make-format-table
+@foindex{make-format-table,initially}@c
+In the @cl{} standard, the case of a directive character is ignored. On
+the contrary, case @emph{does} matter to @focus{}. A format table
+contains separate entries for upcase and downcase characters (when
+applicable of course). By the way, this begins as soon as you create a
+new table (@pxref{Creating Format Tables} and remember the optional
+@var{INITIALLY} argument to @code{make-format-table}).
 
 By default, the behavior of @code{set-format-directive} conforms to that
-of the standard: when you set a new directive character that has both an
-upcase and a downcase version, both versions get the definition.
+of the standard however: when you set a new directive character that has
+both an upcase and a downcase version, both versions get the definition.
 
-@fkindex{set-format-directive,both-case}
-You can change this by passing a @code{nil} value to the
-@code{:both-case} keyword, hence distinguishing between case versions.
-As an example of using this feature, consider the case@footnote{so to
-speak@dots{}} where you find yourself short of directive characters.
-What you can do is retain the standard meaning for all the upcase
-versions and define new custom directives for the downcase ones. Or the
-other way around. yOu gEt tHe iDeA.
+@fkindex{set-format-directive,both-case}@c
+You can change this behavior by passing a @code{nil} value to the
+@code{:both-case} keyword argument, hence distinguishing between case
+versions. As an example, consider the case@footnote{so to speak@dots{}}
+where you find yourself short of directive characters. What you can do
+is retain the standard meaning for all the upcase versions and define
+new custom directives for the downcase ones. Or the other way
+around. yOu gEt tHe iDeA.
 
 @node Directive Definition, Directive Removal, Casing, Modifying Format Tables
 @subsection Directive Definition
 There are currently two ways to define new directives in @focus{}: you
-can either alias a standard directive, or associate a custom formatter
-function with a directive character.
+can either assign them the meaning of a standard directive, or associate
+them with a custom formatter.
 
 @menu
 * Standard Directives:: Standard behavior
@@ -771,23 +785,25 @@ function with a directive character.
 
 @node Standard Directives, Custom Formatters, Directive Definition, Directive Definition
 @subsubsection Standard Directives
-@fkindex{set-format-directive,standard}
-@fkindex{make-format-table,initially}
-In order to alias a standard directive, use the @code{:standard} keyword
+@cindex Standard Directive
+@cindex Directive, standard
+@fkindex{set-format-directive,standard}@c
+@foindex{make-format-table,initially}@c
+In order to use a standard directive, use the @code{:standard} keyword
 with the corresponding character as value. For instance, calling
 @samp{(set-format-directive #\Y :standard #\S)} will result in making
-@code{~Y} (and @code{~y}) have the same meaning as the standard @code{~S}
-directive. By the way, this is how a newly created format table is made
-@code{:initially} @code{:standard}: for every standard directive
-character @code{#\c}, a call to @samp{(set-format-directive #\c :standard
-#\c)} is issued.
+@code{~Y} (and @code{~y} by default, see @ref{Casing}) have the same
+meaning as the standard @code{~S} directive. By the way, this is how a
+newly created format table is made @code{:initially} @code{:standard}:
+for every standard directive character @code{#\c}, a call to
+@samp{(set-format-directive #\c :standard #\c)} is issued.
 
 @cindex Simple Directive
-@cindex Directives, Simple
+@cindex Directive, simple
 @cindex Grouping Directive
-@cindex Directives, Grouping
+@cindex Directive, grouping
 @cindex Delimiting Directive
-@cindex Directives, Delimiting
+@cindex Directive, delimiting
 One thing about aliasing standard directives is worth mentioning here.
 @focus{} is aware of the syntactic specificities of the standard
 directives. More precisely, we can split standard directives in three
@@ -801,7 +817,11 @@ particular, you can very well alias only one of the two characters of a
 standard grouping directive (see, it's pretty easy to completely mess up
 the standard set of directives). Or, to put it differently, creating a
 new grouping directive couple would involve @emph{two} calls to
-@code{set-format-directive}.
+@code{set-format-directive}, for example like this:
+@verbatim
+(set-format-directive #\` :standard #\{)
+(set-format-directive #\' :standard #\})
+@end verbatim
 
 On the other hand, @focus{} understands when you alias the @code{~/}
 directive, and expects your custom format strings to be syntactically
@@ -812,32 +832,32 @@ possible to match a @code{#\/} with a @code{#\!}, in any order.
 @node Custom Formatters, , Standard Directives, Directive Definition
 @subsubsection Custom Formatters
 @cindex Custom Formatter
-@fkindex{set-format-directive,function}
+@cindex Formatter, custom
+@cindex Function Designator
+@cindex Designator, function
+@fkindex{set-format-directive,standard}@c
+@fkindex{set-format-directive,function}@c
 In order to associate a directive character with a custom formatter
-function, use the @code{:function} keyword and provide it with a
-function name (this is what we did in the Quick Start example). Such
-custom directives are eventually translated into standard @code{~/}
-directives.
+function, use the @code{:function} keyword instead of the
+@code{:standard} one (@pxref{Quick Start} for an example). It is
+expected that you provide a @dfn{function designator} as a value, that
+is, a function name, object, or even a lambda expression.
 
-@node Directive Removal, Format Table Target, Directive Definition, Modifying Format Tables
+The function in question must comply with the regular formatter
+protocol, as such custom directives are eventually translated into
+standard @code{~/} ones.
+
+@node Directive Removal, , Directive Definition, Modifying Format Tables
 @subsection Directive Removal
+@findex set-format-directive
+@fkindex{set-format-directive,standard}@c
+@fkindex{set-format-directive,function}@c
 In order to remove a directive from a format table, simply call
-@code{set-format-directive} without providing a definition. For
+@code{set-format-directive} without any definition, that is, without
+using the @code{:standard} or @code{:function} keyword arguments. For
 instance, a call to @samp{(set-format-directive #\s)} will remove the
-definition for both @code{~s} and @code{~S}.
-
-@node Format Table Target, , Directive Removal, Modifying Format Tables
-@subsection Format Table Targets
-@fkindex{set-format-directive,table}
-The last point we need to address is the table to which the
-modifications apply. This format table ``target'' can be specified via
-the @code{:table} keyword.
-@vindex *format-table*
-@findex make-format-table
-By default, the target is @code{*format-table*} (FIXME: ref). Otherwise,
-you may use a @emph{table designator}, that is, either a format table
-name () or a format table object (returned by
-a call to @code{make-format-table}).
+definition for both @code{~s} and @code{~S} (but then again, see
+@ref{Casing}) from the current format table.
 
 
 @c -------------------
