@@ -103,7 +103,6 @@ Common Lisp
 
 @c Configuration options
 @macro coindex{name}
-@vindex net.didierverna.focus.configuration
 @cindex Configuration Option, @t{:\name\}
 @cindex @t{:\name\}
 @end macro
