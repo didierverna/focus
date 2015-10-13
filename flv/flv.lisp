@@ -32,7 +32,7 @@
 (net.didierverna.asdf-flv:make-variable-file-local '*format-table*)
 
 (defmacro in-format-table (table-or-name)
-  "Set the current format table to TABLE-OR-NAME.
+  "Set the current format table to TABLE-OR-NAME in the current file.
 This macro behaves like IN-PACKAGE or IN-READTABLE."
   `(eval-when (:compile-toplevel :load-toplevel :execute)
      (setq *format-table* (find-table ,table-or-name))))
