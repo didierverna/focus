@@ -107,6 +107,12 @@ Common Lisp
 @cindex @t{:\name\}
 @end macro
 
+@c Features
+@macro featindex{name}
+@cindex Feature, @t{:\name\}
+@cindex @t{:\name\}
+@end macro
+
 
 @c Functions index
 @c ---------------
@@ -344,6 +350,10 @@ in the ASDF 3 source registry and type this at the REPL:
 @verbatim
 (asdf:load-system :net.didierverna.focus)
 @end verbatim
+@sysindex{net.didierverna.focus.core}
+Alternatively, if you just want to use the core library without the
+extensions (@pxref{Technical Notes}), you can also just load the
+@samp{net.didierverna.focus.core} system.
 
 In addition to the bare Lisp library, the @focus{} distribution offers
 documentation in the form of 2 different manuals. If you want to benefit
@@ -700,6 +710,39 @@ Execute @var{BODY} with the current format table bound to
 @var{TABLE-OR-NAME} is of course a table designator: either a table
 object directly, or the name of a previously registered table.
 
+@featindex{net.didierverna.focus.flv}
+If possible (@pxref{Optional Features}) @focus{} also defines a macro
+called @code{in-format-table}. You may check for the availability of
+this macro by testing the presence of the feature
+@code{:net.didierverna.focus.flv}.
+@defmac in-format-table TABLE-OR-NAME
+Set the current format table to @var{TABLE-OR-NAME} in the current file.
+@end defmac
+@cindex Format Table Designator
+@cindex Designator, format table
+@var{TABLE-OR-NAME} is again a table designator: either a table
+object directly, or the name of a previously registered table.
+
+This macro is meant to be used in a way similar to @code{in-package} or
+@code{in-readtable}. It actually works the same way and lets you write
+highliy idiomatic code like this:
+@cartouche
+@verbatim
+(in-package      :my.library.name)
+(in-format-table :my.library.name)
+@end verbatim
+@end cartouche
+
+Remember however that there is a big difference between these two calls.
+In the case of @code{in-package}, the keyword is a @emph{string
+designator}. Your package really is named @code{"MY.LIBRARY.NAME"}. In
+the case of @code{in-format-table}, your table really is named after the
+symbol @code{MY.LIBRARY.NAME} interned into the @code{KEYWORD} package.
+
+Finally, note that using @code{in-format-table} requires that the format
+table in question be available at compile-time.
+@c #### FIXME: ref future section.
+
 
 @c -----------------------
 @c Modifying Format Tables
@@ -990,11 +1033,12 @@ Now, go my friend. Go obfuscate your Lisp printing code!
 @appendix Technical Notes
 
 This chapter contains important information about the library's
-configuration and portability concerns.
+configuration and optional features.
 
 @menu
-* Configuration::               Pre-loading parameters
-* Supported Platforms::         Systems, compilers and dependencies
+* Configuration::       Pre-loading parameters
+* Optional Features::   Additional bells and whistles
+* Supported Platforms:: Systems, compilers and dependencies
 @end menu
 
 
@@ -1043,7 +1087,60 @@ for this to work, the Slime variable
 your (X)Emacs session. If you're interested to know how this process
 works, I have described it in the following blog entry:
 @uref{http://www.didierverna.net/blog/index.php?post/2011/07/20/One-more-indentation-hack}.
+@item :restricted
+@coindex{restricted}@c
+@cindex Restricted Mode
+@sysindex{net.didierverna.focus.core}
+Some features of @focus{} require external functionality that may not be
+available in all contexts. Normally, @focus{} should autodetect this and
+switch to so-called @emph{restricted mode} at build-time
+(@pxref{Optional Features}). If @focus{} has failed to autodetect the
+problem (in which case I would like to know), or if for some reason, you
+explicitly want to disable those features, you may set the
+@code{:restricted} configuration option to @code{t}. Another way to do
+it, without even bothering with configuration is to just use the
+@samp{net.didierverna.focus.core} system instead of the regular one.
 @end table
+
+
+@c -----------------
+@c Optional Features
+@c -----------------
+@node Optional Features, Supported Platforms, Configuration, Technical Notes
+@section Optional Features
+@cindex Current Format Table
+@cindex Format Table, current
+@vindex *format-table*
+@vindex *package*
+@vindex *readtable*
+As seen in @ref{Current Format Table}, the current format table is
+stored in the variable @code{*format-table*}. In many regards, this
+variable looks very much like @code{*package*} or @code{*readtable*} and
+we sure would like it to behave in the same way, notably with respect to
+@code{load} and @code{compile-file}.
+
+@cindex File-Local Variable
+@cindex Variable, file-local
+Standard @cl{} doesn't allow this, but fortunately, there is one
+workaround. ASDF has an extension called
+@url{http://www.lrde.epita.fr/~didier/software/lisp/misc.php#asdf-flv,
+@samp{asdf-flv}}, also written by me, which essentially allows one to
+define any number of @dfn{file-local} variables, behaving like
+@code{*package*} or @code{*readtable*} with respect to @code{load} and
+@code{compile-file}.
+
+@featindex{net.didierverna.focus.flv}
+Normally, @focus{} automatically detects the availability of this
+extension, and if applicable, makes the variable @code{*format-table*}
+file-local and defines the @code{in-format-table} macro. It also puts
+@code{:net.didierverna.focus.flv} on @code{*features*} so that you may
+conditionalize your code accordingly.
+
+@sysindex{net.didierverna.focus.flv}
+@focus{} can be used without this extension, but if you want to make it
+a strong requirement, you may load the system
+@samp{net.didierverna.focus.flv} instead of the regular one. Loading it
+will fail if @code{asdf-flv} isn't available.
 
 
 @c ----------------------
@@ -1057,6 +1154,9 @@ compiler-specific requirement, so portability problems should be
 regarded as bugs, and reported to @email{didier@@didierverna.net, me}
 (please). This includes potential problems using either the standard or
 modern version of Allegro @cl{}.
+
+@focus{} optionally depends on @samp{asdf-flv} for providing the
+@code{in-format-table} macro (@pxref{Optional Features}).
 
 
 

@@ -9,6 +9,9 @@ online documentation.  FoCus is also available via Quicklisp.
    In order to install and load the bare Lisp library, unpack it
 somewhere in the ASDF 3 source registry and type this at the REPL:
 (asdf:load-system :net.didierverna.focus)
+   Alternatively, if you just want to use the core library without the
+extensions (*note Technical Notes::), you can also just load the
+‘net.didierverna.focus.core’ system.
 
    In addition to the bare Lisp library, the FoCus distribution offers
 documentation in the form of 2 different manuals.  If you want to
@@ -66,9 +69,19 @@ specific options with the following function.
      (X)Emacs session.  If you’re interested to know how this process
      works, I have described it in the following blog entry:
      <http://www.didierverna.net/blog/index.php?post/2011/07/20/One-more-indentation-hack>.
+:restricted
+     Some features of FoCus require external functionality that may not
+     be available in all contexts.  Normally, FoCus should autodetect
+     this and switch to so-called _restricted mode_ at build-time (*note
+     Optional Features::).  If FoCus has failed to autodetect the
+     problem (in which case I would like to know), or if for some
+     reason, you explicitly want to disable those features, you may set
+     the ‘:restricted’ configuration option to ‘t’.  Another way to do
+     it, without even bothering with configuration is to just use the
+     ‘net.didierverna.focus.core’ system instead of the regular one.
 
 
-A.2 Supported Platforms
+A.3 Supported Platforms
 =======================
 
 FoCus is an ASDF 3 library.  It doesn’t have any system, platform or
@@ -76,4 +89,7 @@ compiler-specific requirement, so portability problems should be
 regarded as bugs, and reported to me <didier@didierverna.net> (please).
 This includes potential problems using either the standard or modern
 version of Allegro Common Lisp.
+
+   FoCus optionally depends on ‘asdf-flv’ for providing the
+‘in-format-table’ macro (*note Optional Features::).
 
