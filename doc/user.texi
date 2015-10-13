@@ -322,7 +322,8 @@ This is the @focus{} user manual. @focus{} also comes with a
 @end ifnotinfo
 
 @ref{Quick Start} provides a very short example in order to give an
-overview of what's coming next.
+overview of what's coming next. @ref{Usage} explains in detail how to
+use the library.
 
 
 
