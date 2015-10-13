@@ -33,15 +33,11 @@
 ;; Current Table Management
 ;; ==========================================================================
 
+;; #### NOTE: the macro IN-FORMAT-TABLE is located in the FLV extension
+;; #### library.
+
 (defvar *format-table* nil
   "The current format table.")
-
-#|
-(defmacro in-format-table (table-or-name)
-  "Set the current format table to TABLE-OR-NAME."
-  `(eval-when (:compile-toplevel :load-toplevel :execute)
-     (setq *format-table* (find-table ,table-or-name))))
-|#
 
 (defmacro with-format-table (table-or-name &body body)
   "Execute BODY with the current format table bound to TABLE-OR-NAME."
