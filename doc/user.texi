@@ -243,7 +243,7 @@ This is the @focus{} User Manual for @focus{} version @value{VERSION}.
 * Installation::        Library and documentation
 * Quick Start::         For the brave and the impatient
 * Usage::               All the details
-* Advanced Usage::      And then some
+* Miscellaneous::      And then some
 * Conclusion::          That's all folks
 * Technical Notes::     Configuration, platforms and portability
 * Indexes::             Concepts, functions, variables and data types
@@ -571,7 +571,7 @@ Finally, let's try it!
 @c ====================================================================
 @c Usage
 @c ====================================================================
-@node Usage, Advanced Usage, Quick Start, Top
+@node Usage, Miscellaneous, Quick Start, Top
 @chapter Usage
 Just when you thought format strings were unreadable, it's going to get
 a whole lot crazier. With @focus{}, you can not only create your own
@@ -926,10 +926,10 @@ standard one according to the current format table. That's it.
 
 
 @c ====================================================================
-@c Advanced Usage
+@c Miscellaneous
 @c ====================================================================
-@node Advanced Usage, Conclusion, Usage, Top
-@chapter Advanced Usage
+@node Miscellaneous, Conclusion, Usage, Top
+@chapter Miscellaneous
 
 This section contains information about different features that are
 present in @focus{} because of design decisions, but that I expect to be
@@ -943,7 +943,7 @@ used only rarely, if at all.
 @c -----------------
 @c Version Numbering
 @c -----------------
-@node Version Numbering, , , Advanced Usage
+@node Version Numbering, , , Miscellaneous
 @section Version Numbering
 
 As @focus{} evolves over time, you might one day feel the need for
@@ -1015,7 +1015,7 @@ the output: 1.3 "Ju Wasa".
 @c ====================================================================
 @c Conclusion
 @c ====================================================================
-@node Conclusion, Technical Notes, Advanced Usage, Top
+@node Conclusion, Technical Notes, Miscellaneous, Top
 @chapter Conclusion
 
 So that's it I guess. You know all about @focus{} now. The next step is
