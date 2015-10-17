@@ -30,12 +30,15 @@
 (in-readtable :net.didierverna.focus)
 
 (net.didierverna.asdf-flv:make-variable-file-local '*format-table*)
+(net.didierverna.asdf-flv:make-variable-file-local '*compile*)
 
 (defmacro in-format-table (table-or-name)
   "Set the current format table to TABLE-OR-NAME in the current file.
-This macro behaves like IN-PACKAGE or IN-READTABLE."
+This macro behaves like IN-PACKAGE or IN-READTABLE and also sets *COMPILE* to
+t, so as to enable compile-time behavior in FoCus."
   `(eval-when (:compile-toplevel :load-toplevel :execute)
-     (setq *format-table* (find-table ,table-or-name))))
+     (setq *format-table* (find-table ,table-or-name)
+	   *compile*      t)))
 
 (export 'in-format-table)
 

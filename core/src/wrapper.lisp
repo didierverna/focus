@@ -29,13 +29,22 @@
 (in-readtable :net.didierverna.focus)
 
 
-(defun format (destination format-control &rest args)
+(defvar *compile* nil
+  "Whether to compile to standard format calls.
+If non-nil, the translation to standard format strings occurs at
+compile-time (hence, the current format table must also be known at
+compile-time). Otherwise (the default), the translation occurs at run-time.")
+
+(defmacro format (destination format-control &rest args)
   "Wrapper around the standard FORMAT function.
 When FORMAT-CONTROL is a string, it is interpreted according to the current
-format table."
-  (when (stringp format-control)
-    (setq format-control (standard-format-string format-control)))
-  (apply #'cl:format destination format-control args))
+format table. Such translation may occur at compile or run time, according to
+the value of *COMPILE*."
+  `(cl:format ,destination
+	      ,(if *compile*
+		   (standard-format-string format-control)
+		   `(standard-format-string ,format-control))
+	      ,@args))
 
 (defmacro formatter (format-string)
   "Wrapper around the standard FORMATTER macro.

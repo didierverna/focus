@@ -246,23 +246,29 @@ actually involves a translation."
   (position #\~ string :start start))
 
 ;; #### NOTE: the TABLE optional argument is currently unused.
-(defun standard-format-string (string &optional (table *format-table*))
-  "Return the translation of format STRING into a standard one.
-The translation is done according to format TABLE (the current table by
-  default)."
-  (apply #'concatenate
-    'string
-    (loop :with position := 0
-	  :and end := (length string)
-	  :and directive := nil
-	  :while (< position end)
-	  :for next := (or (next-directive-position string position) end)
-	  :if (> next position)
-	    :collect (subseq string position next)
-	    :and :do (setq position next)
-	  :else
-	    :do (multiple-value-setq (directive position)
-		  (standard-directive string position table))
-	    :and :collect directive)))
+(defun standard-format-string
+    (format-control &optional (table *format-table*))
+  "Return the translation of FORMAT-CONTROL into a standard one.
+When FORMAT-CONTROL is a string, the translation is done according to format
+TABLE (the current table by default). Otherwise, FORMAT-CONTROL is returned
+as-is."
+  (if (stringp format-control)
+      (apply #'concatenate
+	     'string
+	     (loop :with position := 0
+		   :and end := (length format-control)
+		   :and directive := nil
+		   :while (< position end)
+		   :for next := (or (next-directive-position format-control
+							     position)
+				    end)
+		   :if (> next position)
+		     :collect (subseq format-control position next)
+		     :and :do (setq position next)
+		   :else
+		     :do (multiple-value-setq (directive position)
+			   (standard-directive format-control position table))
+		     :and :collect directive))
+      format-control))
 
 ;;; string.lisp ends here
