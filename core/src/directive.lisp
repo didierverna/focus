@@ -67,10 +67,7 @@ This structure holds the corresponding (upcase) closing character."
 This structure holds the corresponding (upcase) opening character."
   (opening-character nil :type character :read-only t))
 
-;; #### FIXME: using MAKE-LOAD-FORM would be cleaner, but more
-;; complicated. I'm breaking the conventions here, just to point out that
-;; +STANDARD-DIRECTIVES+ really is a constant.
-(defvar +standard-directives+
+(defparameter *standard-directives*
   (nconc (mapcar (lambda (character)
 		   (make-standard-directive :character character))
 		 '(#\C #\% #\& #\| #\~ #\R #\D #\B #\O #\X #\F #\E #\G #\$ #\A
@@ -111,7 +108,7 @@ This structure holds the corresponding (upcase) opening character."
 
 (defun find-standard-directive
     (character &aux (character (char-upcase character))
-		    (directive (find character +standard-directives+
+		    (directive (find character *standard-directives*
 				     :test #'char=
 				     :key #'directive-character)))
   "Return the standard directive corresponding to CHARACTER.

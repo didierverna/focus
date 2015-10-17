@@ -78,16 +78,16 @@ The table may be INITIALLY :standard (the default), :standard-upcase,
 :standard-downcase or :blank."
   (ecase initially
     (:standard
-     (dolist (directive +standard-directives+)
+     (dolist (directive *standard-directives*)
        (let ((char (directive-character directive)))
 	 (setf (gethash char mappings) directive)
 	 (when (both-case-p char)
 	   (setf (gethash (char-downcase char) mappings) directive)))))
     (:standard-upcase
-     (dolist (directive +standard-directives+)
+     (dolist (directive *standard-directives*)
        (setf (gethash (directive-character directive) mappings) directive)))
     (:standard-downcase
-     (dolist (directive +standard-directives+)
+     (dolist (directive *standard-directives*)
        (let ((char (directive-character directive)))
 	 (when (both-case-p char)
 	   (setq char (char-downcase char)))
