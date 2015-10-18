@@ -104,7 +104,7 @@ Common Lisp
 @c Configuration options
 @macro coindex{name}
 @cindex Configuration Option, @t{:\name\}
-@cindex @t{:\name\}
+@cindex @t{:\name\}, configuration option
 @end macro
 
 @c Features
