@@ -430,8 +430,9 @@ argument? This is what we are going to do now.
 @section Full Source
 The complete source code is given below. You can just cut'n paste it in
 a @sc{repl} and it will (should) work. It is also contained in a file
-called @file{demos/quickstart.lisp} in the distribution. You can try it
-out with, @eg{}, @samp{sbcl --script} in a terminal.
+called @file{demos/quickstart.lisp} in the distribution (along with
+other demo programs). You can try it out with, @eg{}, @samp{sbcl
+--script} in a terminal.
 
 @cartouche
 @verbatim
@@ -605,6 +606,7 @@ or @fmter{}.
 * Referring to Format Tables::  Interlude: format table designators
 * Modifying Format Tables::     Adding, changing or removing directives
 * Using Format Tables::         Actually formatting things
+* Compile or Run Time::         When FoCus acts
 @end menu
 
 
@@ -717,11 +719,11 @@ Execute @var{BODY} with the current format table bound to
 @var{TABLE-OR-NAME} is of course a table designator: either a table
 object directly, or the name of a previously registered table.
 
-@featindex{net.didierverna.focus.flv}
-If possible (@pxref{Optional Features}) @focus{} also defines a macro
-called @code{in-format-table}. You may check for the availability of
-this macro by testing the presence of the feature
-@code{:net.didierverna.focus.flv}.
+@extindex{flv}
+When the @code{flv} extension is available (@pxref{Optional Features})
+@focus{} also defines a macro called @code{in-format-table}. You may
+check for the availability of this macro by testing the presence of the
+feature @code{:net.didierverna.focus.flv}.
 @defmac in-format-table TABLE-OR-NAME
 Set the current format table to @var{TABLE-OR-NAME} in the current file.
 @end defmac
@@ -747,8 +749,8 @@ the case of @code{in-format-table}, your table really is named after the
 symbol @code{MY.LIBRARY.NAME} interned into the @code{KEYWORD} package.
 
 Finally, note that using @code{in-format-table} requires that the format
-table in question be available at compile-time.
-@c #### FIXME: ref future section.
+table in question be available at compile-time (@pxref{Compile or Run
+Time}).
 
 
 @c -----------------------
@@ -913,22 +915,59 @@ definition for both @code{~s} and @code{~S} (but then again, see
 @c -------------------
 @c Using Format Tables
 @c -------------------
-@node Using Format Tables, , Modifying Format Tables, Usage
+@node Using Format Tables, Compile or Run Time, Modifying Format Tables, Usage
 @section Using Format Tables
 @focus{} provides its own version of @fmt{}.
-@defun format DESTINATION FORMAT-CONTROL &rest ARGS
+@defmac format DESTINATION FORMAT-CONTROL &rest ARGS
 Wrapper around the standard @fmt{} function.
-@end defun
-
-@pkgindex{net.didierverna.focus}@c
-Although shadowing is the work of the devil, you could even think of
-replacing all your own calls to standard @fmt{} with the @focus{}
-version, either by @code{:use}'ing the @code{net.didierverna.focus}
-package directly (yuck!), or by importing its version of @fmt{}.
+@end defmac
 
 @focus{}'s @fmt{} wraps around the standard one. When
 @var{FORMAT-CONTROL} is a format string, it is translated into a
 standard one according to the current format table. That's it.
+
+The reason why @focus{}'s @fmt{} is a macro will be explained in
+@ref{Compile or Run Time}.
+
+
+@c -------------------
+@c Compile or Run Time
+@c -------------------
+@node Compile or Run Time, , Using Format Tables, Usage
+@section Compile or Run Time
+@cindex Current Format Table
+@cindex Format Table, current
+Normally, @focus{} behaves dynamically, meaning that the translation to
+standard @fmt{} calls occurs at run-time. This is the default behavior
+because it allows for maximum flexibility@dots{} and weirdness,
+admitedly, as the same call to @focus{}'s @fmt{} may behave differently
+if the current format table has changed in the meantime. The drawback of
+this approach, however, is that it induces a run-time overhead, which
+may become undesirable in format-intensive applications.
+
+@vindex *compile*
+One way around this is to have your format table known at compile-time
+and instruct @focus{} to perform a compile-time translation
+instead. This way, all dynamic trace of @focus{} will disappear from
+your application. This can be done by setting the @code{*compile*} flag
+to a non-nil value (at compile-time of course!). By the way, this also
+explains why @fmt{} is a macro instead of a regular function in
+@focus{}.
+
+@extindex{flv}
+@findex in-format-table
+When the @code{flv} extension is available (@pxref{Optional Features}),
+this variable is automatically made file-local, and
+@code{in-format-table} sets it to @code{t}, so that you don't have
+anything to do to switch to compile-time behavior. The
+@file{demos/quotation} library in the distribution provides an example
+of using @focus{} in such a way.
+
+Finally, when compile-time behavior is switched on, you may also use
+@focus{}'s wrapper around the @code{formatter} macro.
+@defmac formatter FORMAT-STRING
+Wrapper around the standard FORMATTER macro.
+@end defmac
 
 
 
