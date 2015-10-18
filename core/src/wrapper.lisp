@@ -48,7 +48,8 @@ the value of *COMPILE*."
 
 (defmacro formatter (format-string)
   "Wrapper around the standard FORMATTER macro.
-FORMAT-STRING is interpreted according to the current format table."
+FORMAT-STRING is interpreted according to the current (compile-time) format
+table."
   `(cl:formatter (standard-format-string ,format-string)))
 
 ;;; wrapper.lisp ends here
