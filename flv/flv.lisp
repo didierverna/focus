@@ -29,8 +29,7 @@
 (in-package :net.didierverna.focus)
 (in-readtable :net.didierverna.focus)
 
-(net.didierverna.asdf-flv:make-variable-file-local '*format-table*)
-(net.didierverna.asdf-flv:make-variable-file-local '*compile*)
+(net.didierverna.asdf-flv:set-file-local-variables *format-table* *compile*)
 
 (defmacro in-format-table (table-or-name)
   "Set the current format table to TABLE-OR-NAME in the current file.
