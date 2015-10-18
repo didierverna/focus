@@ -110,7 +110,14 @@ Common Lisp
 @c Features
 @macro featindex{name}
 @cindex Feature, @t{:\name\}
-@cindex @t{:\name\}
+@cindex @t{:\name\}, feature
+@end macro
+
+@c Extensions
+@macro extindex{name}
+@featindex{net.didierverna.focus.\name\}
+@cindex Extension, @t{\name\}
+@cindex @t{\name\}, extension
 @end macro
 
 
