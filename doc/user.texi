@@ -140,14 +140,14 @@ Common Lisp
 
 @c Constant variables
 @macro cvindex{var}
-@vindex \var\
-@vindex @r{Constant, }\var\
+@vindex +\var\+@r{, constant}
+@vindex @r{Constant, }+\var\+
 @end macro
 
 @c Parameter variables
 @macro pvindex{var}
-@vindex \var\
-@vindex @r{Parameter, }\var\
+@vindex *\var\*@r{, parameter}
+@vindex @r{Parameter, }*\var\*
 @end macro
 
 
@@ -156,19 +156,19 @@ Common Lisp
 
 @c Packages
 @macro pkgindex{name}
-@tpindex \name\
+@tpindex \name\@r{, package}
 @tpindex @r{Package, }\name\
 @end macro
 
 @c Systems
 @macro sysindex{name}
-@tpindex \name\
+@tpindex \name\@r{, system}
 @tpindex @r{System, }\name\
 @end macro
 
 @c Errors
 @macro errindex{name}
-@tpindex \name\
+@tpindex \name\@r{, error}
 @tpindex @r{Error, }\name\
 @end macro
 
@@ -1008,24 +1008,24 @@ returned value is a fixnum. Otherwise, it is a string.
 A @focus{} version is characterized by 4 elements as described below.
 @itemize
 @item
-@vindex *release-major-level*
+@vindex *release-major-level*@r{, parameter}
 @vindex @r{Parameter, }*release-major-level*
 A major version number stored in the parameter
 @code{*release-major-level*}.
 @item
-@vindex *release-minor-level*
+@vindex *release-minor-level*@r{, parameter}
 @vindex @r{Parameter, }*release-minor-level*
 A minor version number, stored in the parameter
 @code{*release-minor-level*}.
 @item
-@vindex *release-status*
+@vindex *release-status*@r{, parameter}
 @vindex @r{Parameter, }*release-status*
 A release status stored in the parameter
 @code{*release-status*}. The status of a release can be @code{:alpha},
 @code{:beta}, @code{:rc} (standing for ``release candidate'') or
 @code{:patchlevel}. These are in effect 4 levels of expected stability.
 @item
-@vindex *release-status-level*
+@vindex *release-status-level*@r{, parameter}
 @vindex @r{Parameter, }*release-status-level*
 A status-specific version number stored in the parameter
 @code{*release-status-level*}. Status levels start at 1 (alpha 1, beta 1
@@ -1033,7 +1033,7 @@ and release candidate 1) except for stable versions, in which case patch
 levels start at 0 (@eg{} 2.4.0).
 @end itemize
 
-@pvindex{*release-name*}
+@pvindex{release-name}
 In addition to that, each version of @focus{} (in the sense
 @emph{major.minor}, regardless of the status) has a name, stored in the
 parameter @code{*release-name*}. The general naming theme for @focus{}
