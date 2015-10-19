@@ -480,8 +480,8 @@ Let's examine this program step-by-step now.
 
 @cindex Package, nicknames
 @findex nickname-package
-@sysindex{net.didierverna.focus}@c
-@pkgindex{net.didierverna.focus}@c
+@sysindex{net.didierverna.focus}
+@pkgindex{net.didierverna.focus}
 First, we put ourselves in the @cl{} user package, and load @focus{}
 from its ASDF system @samp{net.didierverna.focus}. @focus{} lives in a
 package also named @samp{net.didierverna.focus}, that we nickname to
@@ -586,13 +586,13 @@ a whole lot crazier. With @focus{}, you can not only create your own
 cryptic format directives, but you can also completely mess up the
 standard ones, which is where the fun really begins.
 
-@pkgindex{net.didierverna.focus}@c
+@pkgindex{net.didierverna.focus}
 First of all, @focus{} itself resides in a package called
 @t{net.didierverna.focus}. You can automatically nickname this package
 with the following function.
 @cindex Package, nicknames
 @defun nickname-package &optional NICKNAME
-@foindex{nickname-package, nickname}@c
+@foindex{nickname-package, nickname}
 Add @var{NICKNAME} (@code{:focus} by default) to the
 @code{:net.didierverna.focus} package.
 @end defun
@@ -624,7 +624,7 @@ readtable: it describes how @focus{} is to interpret your custom format
 strings in order to translate them into standard ones.  Creating a
 format table is done by calling the function @code{make-format-table}.
 
-@foindex{make-format-table, initially}@c
+@foindex{make-format-table, initially}
 @defun make-format-table &optional (INITIALLY :standard)
 Create and return a new format table.@*
 @end defun
@@ -686,8 +686,8 @@ if you prefer) is done with the @code{unregister-format-table} function.
 @defun register-format-table TABLE NAME &optional FORCE
 Register @var{TABLE} under @var{NAME} (a symbol) and return it.
 @end defun
-@foindex{register-format-table,force}@c
-@errindex{table-collison}@c
+@foindex{register-format-table,force}
+@errindex{table-collison}
 If a table is already registered under that name, @focus{} throws a
 @code{table-collision} error, unless the optional @var{FORCE} argument
 is non-@code{nil}.
@@ -771,7 +771,7 @@ Set a ~@var{CHAR} directive in @var{TABLE}.
 @cindex Format Table, current
 @cindex Format Table Designator
 @cindex Designator, format table
-@fkindex{set-format-directive,table}@c
+@fkindex{set-format-directive,table}
 @var{TABLE} is the format table to modify. It defaults to the current
 format table, and may otherwise be specified by passing a table
 designator as value to the @code{:table} keyword argument.
@@ -792,8 +792,8 @@ ones. This means that you can create a completely new directive, freely
 override a standard directive with a new meaning, alias a standard
 directive to a new character, anything you want.
 
-@fkindex{set-format-directive,force}@c
-@errindex{table-directive-collision}@c
+@fkindex{set-format-directive,force}
+@errindex{table-directive-collision}
 If such a directive is already set in @var{TABLE}, @focus{} throws a
 @code{table-directive-collision} error, unless you explicitely pass a
 non-@code{nil} value to the @code{:force} keyword argument.
@@ -803,7 +803,7 @@ non-@code{nil} value to the @code{:force} keyword argument.
 @cindex Directive Casing
 @cindex Casing, directive
 @findex make-format-table
-@foindex{make-format-table,initially}@c
+@foindex{make-format-table,initially}
 In the @cl{} standard, the case of a directive character is ignored. On
 the contrary, case @emph{does} matter to @focus{}. A format table
 contains separate entries for upcase and downcase characters (when
@@ -815,7 +815,7 @@ By default, the behavior of @code{set-format-directive} conforms to that
 of the standard however: when you set a new directive character that has
 both an upcase and a downcase version, both versions get the definition.
 
-@fkindex{set-format-directive,both-case}@c
+@fkindex{set-format-directive,both-case}
 You can change this behavior by passing a @code{nil} value to the
 @code{:both-case} keyword argument, hence distinguishing between case
 versions. As an example, consider the case@footnote{so to speak@dots{}}
@@ -839,8 +839,8 @@ them with a custom formatter.
 @subsubsection Standard Directives
 @cindex Standard Directive
 @cindex Directive, standard
-@fkindex{set-format-directive,standard}@c
-@foindex{make-format-table,initially}@c
+@fkindex{set-format-directive,standard}
+@foindex{make-format-table,initially}
 In order to use a standard directive, use the @code{:standard} keyword
 with the corresponding character as value. For instance, calling
 @samp{(set-format-directive #\Y :standard #\S)} will result in making
@@ -887,8 +887,8 @@ possible to match a @code{#\/} with a @code{#\!}, in any order.
 @cindex Formatter, custom
 @cindex Function Designator
 @cindex Designator, function
-@fkindex{set-format-directive,standard}@c
-@fkindex{set-format-directive,function}@c
+@fkindex{set-format-directive,standard}
+@fkindex{set-format-directive,function}
 In order to associate a directive character with a custom formatter
 function, use the @code{:function} keyword instead of the
 @code{:standard} one (@pxref{Quick Start} for an example). It is
@@ -902,8 +902,8 @@ standard @code{~/} ones.
 @node Directive Removal, , Directive Definition, Modifying Format Tables
 @subsection Directive Removal
 @findex set-format-directive
-@fkindex{set-format-directive,standard}@c
-@fkindex{set-format-directive,function}@c
+@fkindex{set-format-directive,standard}
+@fkindex{set-format-directive,function}
 In order to remove a directive from a format table, simply call
 @code{set-format-directive} without any definition, that is, without
 using the @code{:standard} or @code{:function} keyword arguments. For
@@ -1099,8 +1099,8 @@ configuration and optional features.
 @node Configuration, Supported Platforms, Technical Notes, Technical Notes
 @section Configuration
 @cindex Configuration
-@sysindex{net.didierverna.focus.setup}@c
-@pkgindex{net.didierverna.focus.setup}@c
+@sysindex{net.didierverna.focus.setup}
+@pkgindex{net.didierverna.focus.setup}
 Some aspects of @focus{}'s behavior can be configured @emph{before} the
 library system is actually loaded. @focus{} stores its user-level
 configuration (along with some other setup parameters) in another ASDF
@@ -1139,7 +1139,7 @@ your (X)Emacs session. If you're interested to know how this process
 works, I have described it in the following blog entry:
 @uref{http://www.didierverna.net/blog/index.php?post/2011/07/20/One-more-indentation-hack}.
 @item :restricted
-@coindex{restricted}@c
+@coindex{restricted}
 @cindex Restricted Mode
 @sysindex{net.didierverna.focus.core}
 Some features of @focus{} require external functionality that may not be
