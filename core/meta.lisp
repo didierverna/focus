@@ -158,4 +158,4 @@ See CLINDENT for more information."
   (set-dispatch-macro-character #\# #\_ #'dummy-reader *readtable*)
   (set-dispatch-macro-character #\# #\$ #'dummy-reader *readtable*))
 
-;;; package.lisp ends here
+;;; meta.lisp ends here
