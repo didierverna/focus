@@ -94,9 +94,6 @@ install-www: dist
 	  && ln -fs attic/$(TARBALL) latest.tar.gz	\
 	  && ln -fs attic/$(SIGNATURE) latest.tar.gz.asc
 
-update-version:
-	cd doc && $(MAKE) $@
-
 gen:
 	@for i in $(SUBDIRS) ; do                 \
 	   echo "making $(TARGET) in $${i} ..." ; \
@@ -130,7 +127,6 @@ $(SIGNATURE): $(TARBALL)
 	install install-ref uninstall				\
 	clean distclean						\
 	tag tar gpg dist install-www				\
-	update-version						\
 	gen
 
 
