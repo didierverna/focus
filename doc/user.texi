@@ -1096,7 +1096,7 @@ configuration and optional features.
 @c -------------
 @c Configuration
 @c -------------
-@node Configuration, Supported Platforms, Technical Notes, Technical Notes
+@node Configuration, Optional Features, Technical Notes, Technical Notes
 @section Configuration
 @cindex Configuration
 @sysindex{net.didierverna.focus.setup}
@@ -1197,7 +1197,7 @@ will fail if @code{asdf-flv} isn't available.
 @c ----------------------
 @c Supported Platforms
 @c ----------------------
-@node Supported Platforms, , Configuration, Technical Notes
+@node Supported Platforms, , Optional Features, Technical Notes
 @section Supported Platforms
 
 @focus{} is an ASDF 3 library. It doesn't have any system, platform or
