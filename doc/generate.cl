@@ -107,21 +107,21 @@ for a more human-readable guide to using @focus{}."
 (if (and (second sb-ext:*posix-argv*)
 	 (string= (second sb-ext:*posix-argv*) "--web"))
     (declt:declt :net.didierverna.focus
-		 :library-name "FoCus"
+		 :library "FoCus"
 		 :texi-file "webreference.texi"
 		 :info-file "focus-webreference" ; but we don't care
 		 :introduction +introduction+
 		 :version (net.didierverna.focus:version :long)
 		 :license :bsd
-		 :copyright-date "2015")
+		 :copyright "2015")
     (declt:declt :net.didierverna.focus
-		 :library-name "FoCus"
+		 :library "FoCus"
 		 :texi-file "reference.texi"
 		 :info-file "focus-reference"
 		 :introduction +introduction+
 		 :version (net.didierverna.focus:version :long)
 		 :license :bsd
-		 :copyright-date "2015"
+		 :copyright "2015"
 		 :hyperlinks t))
 
 (uiop:quit)
