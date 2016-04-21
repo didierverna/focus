@@ -20,7 +20,7 @@ needed.  After unpacking somewhere in the ASDF 3 source registry, please
 perform the following steps, in order.
 
   1. Edit ‘make/config.make’ to your specific needs.
-  2. Type ‘make’ to compile the documentation (user manual and lpossibly
+  2. Type ‘make’ to compile the documentation (user manual and possibly
      reference manual).  By default, the documentation is built in info,
      PDF and HTML formats.  If you want other formats (DVI and
      PostScript are available), type ‘make all-formats’.  You can also

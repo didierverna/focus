@@ -373,7 +373,7 @@ perform the following steps, in order.
 Edit @file{make/config.make} to your specific needs.
 @item
 Type @command{make} to compile the documentation (user manual and
-lpossibly reference manual). By default, the documentation is built in
+possibly reference manual). By default, the documentation is built in
 info, PDF and HTML formats. If you want other formats (DVI and
 PostScript are available), type @command{make all-formats}. You can also
 type individually @command{make dvi} and/or @command{make ps} in order
@@ -401,7 +401,7 @@ In this chapter, we assume that you have properly installed @focus{}
 (@pxref{Installation}), and we build a short example to get you started.
 
 Suppose you're writing a ``quotation'' library which outputs a lot of
-quotations, enclosed in (back)quotes like this: @samp{it's raining cats
+quotations, enclosed in (back)quotes like this: @samp{it is raining cats
 and dogs}. If you're doing this very often, a pattern will quickly
 arise: @verb{|(format t "`~A'" quotation)|}, which you could abstract
 away with a custom formatting function called @code{quotation-formatter}
