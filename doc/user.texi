@@ -2,7 +2,7 @@
 
 @c user.texi --- User manual
 
-@c Copyright (C) 2015 Didier Verna
+@c Copyright (C) 2015, 2016 Didier Verna
 
 @c Author: Didier Verna <didier@didierverna.net>
 
