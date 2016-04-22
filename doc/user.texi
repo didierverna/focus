@@ -41,7 +41,7 @@
 @c Settings
 @c ====================================================================
 @set VERSION 1.0 beta 1 "Kokyu Ho"
-@set COPYRIGHT_DATE 2015
+@set COPYRIGHT_DATE 2015, 2016
 @setchapternewpage odd
 @documentdescription
 The FoCus User Manual for version @value{VERSION}.
