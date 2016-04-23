@@ -33,15 +33,13 @@ include $(TOP_DIR)/make/include.make
 ifeq ($(LISP),CLISP)
   include $(TOP_DIR)/make/clisp.make
 endif
-ifneq ($(SBCL_PATH),)
-  include declt.make
-endif
 include $(TOP_DIR)/make/version.make
 
 INFO_DIR        := $(PREFIX)/share/info
-DOC_DIR		:= $(SHARE)/doc
+DOC_DIR	:= $(SHARE)/doc
 PROJECT_DOC_DIR := $(DOC_DIR)/$(PROJECT)
 TEXI_MAN	:= user.texi # enduser.texi
+TEXI_REF	:= reference.texi
 TEXI_FILES      := $(TEXI_MAN) $(TEXI_REF)
 
 INFO_FILES     := $(TEXI_FILES:%.texi=$(PROJECT)-%.info)
@@ -50,8 +48,6 @@ ALL_INFO_FILES := $(INFO_FILES:%.info=%.info*)
 DVI_FILES      := $(TEXI_FILES:%.texi=%.dvi)
 PS_FILES       := $(TEXI_FILES:%.texi=%.ps)
 HTML_DIRS      := $(TEXI_FILES:%.texi=%)
-
-INFO_REF       := $(PROJECT)-reference.info
 
 
 all: info pdf html
@@ -75,30 +71,18 @@ install: $(INFO_FILES)
 	  install-info --info-dir="$(INFO_DIR)" $$i;			\
 	done
 	$(MAKE) install-at LOCATION="$(PROJECT_DOC_DIR)"
+	install -d -m 755 "$(PROJECT_DOC_DIR)/reference"
+	install -m 644 reference/* "$(PROJECT_DOC_DIR)/reference/"
 	-for i in $(DVI_FILES) $(PS_FILES); do				\
-	  test -f $$i && install -m 644 $$i "$(PROJECT_DOC_DIR)";	\
-	done
-	-if test -f $(INFO_REF); then					\
-	  install -m 644 $(INFO_REF)* "$(INFO_DIR)/" ;			\
-	  install-info --info-dir="$(INFO_DIR)" $(INFO_REF) ;		\
-	fi
-	-if test -f reference.pdf ; then				\
-	  install -m 644 reference.pdf "$(PROJECT_DOC_DIR)/" ;		\
-	fi
-	-if test -f reference ; then					\
-	  install -d -m 755 "$(PROJECT_DOC_DIR)/reference" ;		\
-	  install -m 644 reference/* "$(PROJECT_DOC_DIR)/reference/" ;	\
-	fi
-	-for i in reference.dvi reference.ps; do			\
 	  test -f $$i && install -m 644 $$i "$(PROJECT_DOC_DIR)";	\
 	done
 
 uninstall:
 	-rm -fr "$(PROJECT_DOC_DIR)"
-	for i in $(INFO_FILES) $(INFO_REF); do				\
+	for i in $(INFO_FILES); do					\
 	  install-info --remove --info-dir="$(INFO_DIR)" $$i;		\
 	done
-	cd "$(INFO_DIR)" && rm -f $(ALL_INFO_FILES) $(INFO_REF)*
+	cd "$(INFO_DIR)" && rm -f $(ALL_INFO_FILES)
 
 info: $(INFO_FILES)
 
@@ -151,7 +135,7 @@ clean:
 	-rm *.tmp *.fn* *.vr* *.ky* *.tp* *.cp* *.pg *.toc *.aux *.log *~
 
 distclean: clean
-	-rm -fr declt.make webreference* $(TEXI_REF)			\
+	-rm -fr webreference* $(TEXI_REF)				\
 		$(HTML_DIRS)						\
 		$(ALL_INFO_FILES) $(PDF_FILES) $(DVI_FILES) $(PS_FILES)
 #               splash.eps
@@ -164,9 +148,6 @@ install-www: webref
 	install -m 644 webreference.pdf "$(W3DIR)/reference.pdf"
 	install -d -m 755 "$(W3DIR)/reference"
 	install -m 644 webreference/* "$(W3DIR)/reference/"
-
-declt.make: $(TOP_DIR)/make/config.make
-	$(SBCL_PATH) $(SBCL_LOAD) ./declt.cl
 
 .PHONY: all webref all-formats		\
 	install-at install uninstall	\
