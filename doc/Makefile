@@ -60,6 +60,8 @@ HTML_DIRS := $(HTML_MAN) $(HTML_REF)
 DVI_FILES := $(FILES:%=%.dvi)
 PS_FILES  := $(FILES:%=%.ps)
 
+CSS := https://sirgazil.bitbucket.org/static/docs/css/texinfo/tip/document.css
+
 
 all: info pdf html
 
@@ -134,7 +136,7 @@ $(PROJECT)-%.info: %.texi
 	$(TEXI2DVI) -p $<
 
 $(HTML_DIRS) webreference: %: %.texi
-	$(MAKEINFO) --html -o $@ $<
+	$(MAKEINFO) --css-ref=$(CSS) --html -o $@ $<
 	touch $@
 
 %.dvi: %.texi

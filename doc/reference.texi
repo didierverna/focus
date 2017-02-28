@@ -21,8 +21,8 @@
 
 @c Commentary:
 
-@c Generated automatically by Declt version 2.0 patchlevel 1 "Benjamin Sisko"
-@c on Sat Apr 23 11:43:23 2016 GMT+0.
+@c Generated automatically by Declt version 2.1 "Jonathan Archer"
+@c on Tue Feb 28 12:32:00 2017 GMT+1.
 
 
 @c ====================================================================
@@ -251,7 +251,7 @@ except that this permission notice may be translated as well.
 
 @page
 @quotation
-This manual was generated automatically by Declt 2.0 patchlevel 1 "Benjamin Sisko" on Sat Apr 23 11:43:23 2016 GMT+0.
+This manual was generated automatically by Declt 2.1 "Jonathan Archer" on Tue Feb 28 12:32:00 2017 GMT+1.
 @end quotation
 @vskip 0pt plus 1filll
 @insertcopying
@@ -273,8 +273,8 @@ This manual was generated automatically by Declt 2.0 patchlevel 1 "Benjamin Sisk
 @node Top, Copying, (dir), (dir)
 @top The FoCus Reference Manual
 This is the FoCus Reference Manual, version 1.0 "Kokyu Ho",
-generated automatically by Declt version 2.0 patchlevel 1 "Benjamin Sisko"
-on Sat Apr 23 11:43:23 2016 GMT+0.
+generated automatically by Declt version 2.1 "Jonathan Archer"
+on Tue Feb 28 12:32:00 2017 GMT+1.
 
 @menu
 * Copying:: The BSD License
@@ -394,19 +394,19 @@ for a more human-readable guide to using @focus{}.
 The main system appears first, followed by any subsystem dependency.
 
 @menu
-* The net.didierverna.focus system::
-* The net.didierverna.focus.flv system::
-* The net.didierverna.focus.core system::
-* The net.didierverna.focus.setup system::
+* The net.didierverna.focus system: The net <dot> didierverna <dot> focus system.
+* The net.didierverna.focus.flv system: The net <dot> didierverna <dot> focus <dot> flv system.
+* The net.didierverna.focus.core system: The net <dot> didierverna <dot> focus <dot> core system.
+* The net.didierverna.focus.setup system: The net <dot> didierverna <dot> focus <dot> setup system.
 @end menu
 
 
 @c --------------------------------
 @c The net.didierverna.focus system
 @c --------------------------------
-@node The net.didierverna.focus system, The net.didierverna.focus.flv system, Systems, Systems
+@node The net <dot> didierverna <dot> focus system, The net <dot> didierverna <dot> focus <dot> flv system, Systems, Systems
 @section @t{net.didierverna.focus}
-@anchor{go to the net.didierverna.focus system}@c
+@anchor{go to the net <dot> didierverna <dot> focus system}@c
 @systemindex{net.didierverna.focus}@c
 @table @strong
 @item Long Name
@@ -435,16 +435,16 @@ ultimately translates into regular FORMAT calls.
 @item Dependencies
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus.setup system, , @t{net.didierverna.focus.setup}} (system)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup system, , @t{net.didierverna.focus.setup}} (system)
 @item
-@ref{go to the net.didierverna.focus.core system, , @t{net.didierverna.focus.core}} (system)
+@ref{go to the net <dot> didierverna <dot> focus <dot> core system, , @t{net.didierverna.focus.core}} (system)
 @item
-@ref{go to the net.didierverna.focus.flv system, , @t{net.didierverna.focus.flv}} (system)
+@ref{go to the net <dot> didierverna <dot> focus <dot> flv system, , @t{net.didierverna.focus.flv}} (system)
  (for feature @t{net.didierverna.focus.flv})
 @end itemize
-@item Definition file
-@ref{go to the net.didierverna.focus.asd file, , @t{net.didierverna.focus.asd}} (Lisp file)
-@item Source Directory
+@item Source
+@ref{go to the net <dot> didierverna <dot> focus <dot> asd file, , @t{net.didierverna.focus.asd}} (Lisp file)
+@item Directory
 @url{file:///Users/didier/src/common-lisp/focus/, ignore, @t{/Users/didier/src/common-lisp/focus/}}
 @end table
 
@@ -452,9 +452,9 @@ ultimately translates into regular FORMAT calls.
 @c ------------------------------------
 @c The net.didierverna.focus.flv system
 @c ------------------------------------
-@node The net.didierverna.focus.flv system, The net.didierverna.focus.core system, The net.didierverna.focus system, Systems
+@node The net <dot> didierverna <dot> focus <dot> flv system, The net <dot> didierverna <dot> focus <dot> core system, The net <dot> didierverna <dot> focus system, Systems
 @section @t{net.didierverna.focus.flv}
-@anchor{go to the net.didierverna.focus.flv system}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> flv system}@c
 @systemindex{net.didierverna.focus.flv}@c
 @table @strong
 @item Long Name
@@ -480,25 +480,25 @@ is only available when *FORMAT-TABLE* can be made file-local.
 @item Dependencies
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus.core system, , @t{net.didierverna.focus.core}} (system)
+@ref{go to the net <dot> didierverna <dot> focus <dot> core system, , @t{net.didierverna.focus.core}} (system)
 @item
 @t{net.didierverna.asdf-flv}
 @end itemize
-@item Definition file
-@ref{go to the net.didierverna.focus.flv.asd file, , @t{net.didierverna.focus.flv.asd}} (Lisp file)
-@item Source Directory
+@item Source
+@ref{go to the net <dot> didierverna <dot> focus <dot> flv <dot> asd file, , @t{net.didierverna.focus.flv.asd}} (Lisp file)
+@item Directory
 @url{file:///Users/didier/src/common-lisp/focus/flv/, ignore, @t{/Users/didier/src/common-lisp/focus/flv/}}
 @item Component
-@ref{go to the flv/flv.lisp file, , @t{flv}} (Lisp file)
+@ref{go to the flv/flv <dot> lisp file, , @t{flv}} (Lisp file)
 @end table
 
 
 @c -------------------------------------
 @c The net.didierverna.focus.core system
 @c -------------------------------------
-@node The net.didierverna.focus.core system, The net.didierverna.focus.setup system, The net.didierverna.focus.flv system, Systems
+@node The net <dot> didierverna <dot> focus <dot> core system, The net <dot> didierverna <dot> focus <dot> setup system, The net <dot> didierverna <dot> focus <dot> flv system, Systems
 @section @t{net.didierverna.focus.core}
-@anchor{go to the net.didierverna.focus.core system}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> core system}@c
 @systemindex{net.didierverna.focus.core}@c
 @table @strong
 @item Long Name
@@ -522,15 +522,15 @@ net.didierverna.focus system.
 @item Version
 1.0
 @item Dependency
-@ref{go to the net.didierverna.focus.setup system, , @t{net.didierverna.focus.setup}} (system)
-@item Definition file
-@ref{go to the net.didierverna.focus.core.asd file, , @t{net.didierverna.focus.core.asd}} (Lisp file)
-@item Source Directory
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup system, , @t{net.didierverna.focus.setup}} (system)
+@item Source
+@ref{go to the net <dot> didierverna <dot> focus <dot> core <dot> asd file, , @t{net.didierverna.focus.core.asd}} (Lisp file)
+@item Directory
 @url{file:///Users/didier/src/common-lisp/focus/core/, ignore, @t{/Users/didier/src/common-lisp/focus/core/}}
 @item Components
 @itemize @bullet
 @item
-@ref{go to the core/meta.lisp file, , @t{meta}} (Lisp file)
+@ref{go to the core/meta <dot> lisp file, , @t{meta}} (Lisp file)
 @item
 @ref{go to the core/src/ module, , @t{src}} (module)
 @end itemize
@@ -540,9 +540,9 @@ net.didierverna.focus system.
 @c --------------------------------------
 @c The net.didierverna.focus.setup system
 @c --------------------------------------
-@node The net.didierverna.focus.setup system, , The net.didierverna.focus.core system, Systems
+@node The net <dot> didierverna <dot> focus <dot> setup system, , The net <dot> didierverna <dot> focus <dot> core system, Systems
 @section @t{net.didierverna.focus.setup}
-@anchor{go to the net.didierverna.focus.setup system}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup system}@c
 @systemindex{net.didierverna.focus.setup}@c
 @table @strong
 @item Long Name
@@ -564,12 +564,12 @@ FoCus's preload setup library
 FoCus's setup library provides support for various preload configuration
 parameters. For a more complete description of FoCus, see the
 net.didierverna.focus system.
-@item Definition file
-@ref{go to the net.didierverna.focus.setup.asd file, , @t{net.didierverna.focus.setup.asd}} (Lisp file)
-@item Source Directory
+@item Source
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <dot> asd file, , @t{net.didierverna.focus.setup.asd}} (Lisp file)
+@item Directory
 @url{file:///Users/didier/src/common-lisp/focus/setup/, ignore, @t{/Users/didier/src/common-lisp/focus/setup/}}
 @item Component
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @end table
 
 
@@ -595,23 +595,23 @@ Modules are listed depth-first from the system components tree.
 @moduleindex{core/src/}@c
 @table @strong
 @item Dependency
-@ref{go to the core/meta.lisp file, , @t{meta}} (Lisp file)
+@ref{go to the core/meta <dot> lisp file, , @t{meta}} (Lisp file)
 @item Parent
-@ref{go to the net.didierverna.focus.core system, , @t{net.didierverna.focus.core}} (system)
+@ref{go to the net <dot> didierverna <dot> focus <dot> core system, , @t{net.didierverna.focus.core}} (system)
 @item Location
 @url{file:///Users/didier/src/common-lisp/focus/core/src/, ignore, @t{core/src/}}
 @item Components
 @itemize @bullet
 @item
-@ref{go to the core/src/util.lisp file, , @t{util}} (Lisp file)
+@ref{go to the core/src/util <dot> lisp file, , @t{util}} (Lisp file)
 @item
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @item
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @item
-@ref{go to the core/src/string.lisp file, , @t{string}} (Lisp file)
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
 @item
-@ref{go to the core/src/wrapper.lisp file, , @t{wrapper}} (Lisp file)
+@ref{go to the core/src/wrapper <dot> lisp file, , @t{wrapper}} (Lisp file)
 @end itemize
 @end table
 
@@ -636,102 +636,110 @@ components trees.
 @node Lisp files, , Files, Files
 @section Lisp
 @menu
-* The net.didierverna.focus.asd file::
-* The net.didierverna.focus.flv.asd file::
-* The net.didierverna.focus.core.asd file::
-* The net.didierverna.focus.setup.asd file::
-* The flv/flv.lisp file::
-* The core/meta.lisp file::
-* The core/src/util.lisp file::
-* The core/src/directive.lisp file::
-* The core/src/table.lisp file::
-* The core/src/string.lisp file::
-* The core/src/wrapper.lisp file::
-* The setup/setup.lisp file::
+* The net.didierverna.focus.asd file: The net <dot> didierverna <dot> focus <dot> asd file.
+* The net.didierverna.focus.flv.asd file: The net <dot> didierverna <dot> focus <dot> flv <dot> asd file.
+* The net.didierverna.focus.core.asd file: The net <dot> didierverna <dot> focus <dot> core <dot> asd file.
+* The net.didierverna.focus.setup.asd file: The net <dot> didierverna <dot> focus <dot> setup <dot> asd file.
+* The flv/flv.lisp file: The flv/flv <dot> lisp file.
+* The core/meta.lisp file: The core/meta <dot> lisp file.
+* The core/src/util.lisp file: The core/src/util <dot> lisp file.
+* The core/src/directive.lisp file: The core/src/directive <dot> lisp file.
+* The core/src/table.lisp file: The core/src/table <dot> lisp file.
+* The core/src/string.lisp file: The core/src/string <dot> lisp file.
+* The core/src/wrapper.lisp file: The core/src/wrapper <dot> lisp file.
+* The setup/setup.lisp file: The setup/setup <dot> lisp file.
 @end menu
 
-@node The net.didierverna.focus.asd file, The net.didierverna.focus.flv.asd file, Lisp files, Lisp files
+@node The net <dot> didierverna <dot> focus <dot> asd file, The net <dot> didierverna <dot> focus <dot> flv <dot> asd file, Lisp files, Lisp files
 @subsection @t{net.didierverna.focus.asd}
-@anchor{go to the net.didierverna.focus.asd file}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> asd file}@c
 @lispfileindex{net.didierverna.focus.asd}@c
 @table @strong
 @item Location
 @url{file:///Users/didier/src/common-lisp/focus/net.didierverna.focus.asd, ignore, @t{net.didierverna.focus.asd}}
+@item Systems
+@ref{go to the net <dot> didierverna <dot> focus system, , @t{net.didierverna.focus}} (system)
 @end table
 
-@node The net.didierverna.focus.flv.asd file, The net.didierverna.focus.core.asd file, The net.didierverna.focus.asd file, Lisp files
+@node The net <dot> didierverna <dot> focus <dot> flv <dot> asd file, The net <dot> didierverna <dot> focus <dot> core <dot> asd file, The net <dot> didierverna <dot> focus <dot> asd file, Lisp files
 @subsection @t{net.didierverna.focus.flv.asd}
-@anchor{go to the net.didierverna.focus.flv.asd file}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> flv <dot> asd file}@c
 @lispfileindex{net.didierverna.focus.flv.asd}@c
 @table @strong
 @item Location
 @url{file:///Users/didier/src/common-lisp/focus/flv/net.didierverna.focus.flv.asd, ignore, @t{flv/net.didierverna.focus.flv.asd}}
+@item Systems
+@ref{go to the net <dot> didierverna <dot> focus <dot> flv system, , @t{net.didierverna.focus.flv}} (system)
 @end table
 
-@node The net.didierverna.focus.core.asd file, The net.didierverna.focus.setup.asd file, The net.didierverna.focus.flv.asd file, Lisp files
+@node The net <dot> didierverna <dot> focus <dot> core <dot> asd file, The net <dot> didierverna <dot> focus <dot> setup <dot> asd file, The net <dot> didierverna <dot> focus <dot> flv <dot> asd file, Lisp files
 @subsection @t{net.didierverna.focus.core.asd}
-@anchor{go to the net.didierverna.focus.core.asd file}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> core <dot> asd file}@c
 @lispfileindex{net.didierverna.focus.core.asd}@c
 @table @strong
 @item Location
 @url{file:///Users/didier/src/common-lisp/focus/core/net.didierverna.focus.core.asd, ignore, @t{core/net.didierverna.focus.core.asd}}
+@item Systems
+@ref{go to the net <dot> didierverna <dot> focus <dot> core system, , @t{net.didierverna.focus.core}} (system)
 @end table
 
-@node The net.didierverna.focus.setup.asd file, The flv/flv.lisp file, The net.didierverna.focus.core.asd file, Lisp files
+@node The net <dot> didierverna <dot> focus <dot> setup <dot> asd file, The flv/flv <dot> lisp file, The net <dot> didierverna <dot> focus <dot> core <dot> asd file, Lisp files
 @subsection @t{net.didierverna.focus.setup.asd}
-@anchor{go to the net.didierverna.focus.setup.asd file}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup <dot> asd file}@c
 @lispfileindex{net.didierverna.focus.setup.asd}@c
 @table @strong
 @item Location
 @url{file:///Users/didier/src/common-lisp/focus/setup/net.didierverna.focus.setup.asd, ignore, @t{setup/net.didierverna.focus.setup.asd}}
+@item Systems
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup system, , @t{net.didierverna.focus.setup}} (system)
 @end table
 
-@node The flv/flv.lisp file, The core/meta.lisp file, The net.didierverna.focus.setup.asd file, Lisp files
+@node The flv/flv <dot> lisp file, The core/meta <dot> lisp file, The net <dot> didierverna <dot> focus <dot> setup <dot> asd file, Lisp files
 @subsection @t{flv/flv.lisp}
-@anchor{go to the flv/flv.lisp file}@c
+@anchor{go to the flv/flv <dot> lisp file}@c
 @lispfileindex{flv/flv.lisp}@c
 @table @strong
 @item Parent
-@ref{go to the net.didierverna.focus.flv system, , @t{net.didierverna.focus.flv}} (system)
+@ref{go to the net <dot> didierverna <dot> focus <dot> flv system, , @t{net.didierverna.focus.flv}} (system)
 @item Location
 @url{file:///Users/didier/src/common-lisp/focus/flv/flv.lisp, ignore, @t{flv/flv.lisp}}
 @item Exported Definitions
-@ref{go to the net.didierverna.focus::in-format-table macro, , @t{in-format-table}} (macro)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> in-format-table macro, , @t{in-format-table}} (macro)
 @end table
 
-@node The core/meta.lisp file, The core/src/util.lisp file, The flv/flv.lisp file, Lisp files
+@node The core/meta <dot> lisp file, The core/src/util <dot> lisp file, The flv/flv <dot> lisp file, Lisp files
 @subsection @t{core/meta.lisp}
-@anchor{go to the core/meta.lisp file}@c
+@anchor{go to the core/meta <dot> lisp file}@c
 @lispfileindex{core/meta.lisp}@c
 @table @strong
 @item Parent
-@ref{go to the net.didierverna.focus.core system, , @t{net.didierverna.focus.core}} (system)
+@ref{go to the net <dot> didierverna <dot> focus <dot> core system, , @t{net.didierverna.focus.core}} (system)
 @item Location
 @url{file:///Users/didier/src/common-lisp/focus/core/meta.lisp, ignore, @t{core/meta.lisp}}
 @item Packages
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Exported Definitions
-@ref{go to the net.didierverna.focus::nickname-package function, , @t{nickname-package}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> nickname-package function, , @t{nickname-package}} (function)
 @item Internal Definitions
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::*readtable* special variable, , @t{*readtable*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> *readtable* special variable, , @t{*readtable*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus::clindent function, , @t{clindent}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> clindent function, , @t{clindent}} (function)
 @item
-@ref{go to the net.didierverna.focus::defindent macro, , @t{defindent}} (macro)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> defindent macro, , @t{defindent}} (macro)
 @item
-@ref{go to the net.didierverna.focus::i-reader function, , @t{i-reader}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> i-reader function, , @t{i-reader}} (function)
 @item
-@ref{go to the net.didierverna.focus::in-readtable macro, , @t{in-readtable}} (macro)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> in-readtable macro, , @t{in-readtable}} (macro)
 @item
-@ref{go to the net.didierverna.focus::tilde-reader function, , @t{tilde-reader}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> tilde-reader function, , @t{tilde-reader}} (function)
 @end itemize
 @end table
 
-@node The core/src/util.lisp file, The core/src/directive.lisp file, The core/meta.lisp file, Lisp files
+@node The core/src/util <dot> lisp file, The core/src/directive <dot> lisp file, The core/meta <dot> lisp file, Lisp files
 @subsection @t{core/src/util.lisp}
-@anchor{go to the core/src/util.lisp file}@c
+@anchor{go to the core/src/util <dot> lisp file}@c
 @lispfileindex{core/src/util.lisp}@c
 @table @strong
 @item Parent
@@ -741,19 +749,19 @@ components trees.
 @item Internal Definitions
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::focus-error condition, , @t{focus-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> focus-error condition, , @t{focus-error}} (condition)
 @item
-@ref{go to the net.didierverna.focus::other-case function, , @t{other-case}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> other-case function, , @t{other-case}} (function)
 @end itemize
 @end table
 
-@node The core/src/directive.lisp file, The core/src/table.lisp file, The core/src/util.lisp file, Lisp files
+@node The core/src/directive <dot> lisp file, The core/src/table <dot> lisp file, The core/src/util <dot> lisp file, Lisp files
 @subsection @t{core/src/directive.lisp}
-@anchor{go to the core/src/directive.lisp file}@c
+@anchor{go to the core/src/directive <dot> lisp file}@c
 @lispfileindex{core/src/directive.lisp}@c
 @table @strong
 @item Dependency
-@ref{go to the core/src/util.lisp file, , @t{util}} (Lisp file)
+@ref{go to the core/src/util <dot> lisp file, , @t{util}} (Lisp file)
 @item Parent
 @ref{go to the core/src/ module, , @t{src}} (module)
 @item Location
@@ -761,144 +769,152 @@ components trees.
 @item Internal Definitions
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::*standard-directives* special variable, , @t{*standard-directives*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> *standard-directives* special variable, , @t{*standard-directives*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus::copy-format-directive function, , @t{copy-format-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-format-directive function, , @t{copy-format-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::copy-function-directive function, , @t{copy-function-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-function-directive function, , @t{copy-function-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::copy-standard-closing-directive function, , @t{copy-standard-closing-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-standard-closing-directive function, , @t{copy-standard-closing-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::copy-standard-delimiting-directive function, , @t{copy-standard-delimiting-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-standard-delimiting-directive function, , @t{copy-standard-delimiting-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::copy-standard-directive function, , @t{copy-standard-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-standard-directive function, , @t{copy-standard-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::copy-standard-opening-directive function, , @t{copy-standard-opening-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-standard-opening-directive function, , @t{copy-standard-opening-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::directive-character function, , @t{directive-character}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-character function, , @t{directive-character}} (function)
 @item
-@ref{go to the net.didierverna.focus::directive-closing-character function, , @t{directive-closing-character}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-closing-character function, , @t{directive-closing-character}} (function)
 @item
-@ref{go to the net.didierverna.focus::directive-function-name function, , @t{directive-function-name}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-function-name function, , @t{directive-function-name}} (function)
 @item
-@ref{go to the net.didierverna.focus::(setf directive-function-name) function, , @t{(setf directive-function-name)}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> (setf directive-function-name) function, , @t{(setf directive-function-name)}} (function)
 @item
-@ref{go to the net.didierverna.focus::directive-opening-character function, , @t{directive-opening-character}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-opening-character function, , @t{directive-opening-character}} (function)
 @item
-@ref{go to the net.didierverna.focus::find-standard-directive function, , @t{find-standard-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> find-standard-directive function, , @t{find-standard-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::format-directive structure, , @t{format-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-directive structure, , @t{format-directive}} (structure)
 @item
-@ref{go to the net.didierverna.focus::format-directive-p function, , @t{format-directive-p}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-directive-p function, , @t{format-directive-p}} (function)
 @item
-@ref{go to the net.didierverna.focus::function-directive structure, , @t{function-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> function-directive structure, , @t{function-directive}} (structure)
 @item
-@ref{go to the net.didierverna.focus::function-directive-p function, , @t{function-directive-p}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> function-directive-p function, , @t{function-directive-p}} (function)
 @item
-@ref{go to the net.didierverna.focus::make-format-directive function, , @t{make-format-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-format-directive function, , @t{make-format-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::make-function-directive function, , @t{make-function-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-function-directive function, , @t{make-function-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::make-standard-closing-directive function, , @t{make-standard-closing-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-standard-closing-directive function, , @t{make-standard-closing-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::make-standard-delimiting-directive function, , @t{make-standard-delimiting-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-standard-delimiting-directive function, , @t{make-standard-delimiting-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::make-standard-directive function, , @t{make-standard-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-standard-directive function, , @t{make-standard-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::make-standard-opening-directive function, , @t{make-standard-opening-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-standard-opening-directive function, , @t{make-standard-opening-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::nonstandard-directive-character condition, , @t{nonstandard-directive-character}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> nonstandard-directive-character nonstandard-directive-character method, , @t{nonstandard-directive-character}} (method)
 @item
-@ref{go to the net.didierverna.focus::standard-closing-directive structure, , @t{standard-closing-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> nonstandard-directive-character condition, , @t{nonstandard-directive-character}} (condition)
 @item
-@ref{go to the net.didierverna.focus::standard-closing-directive-p function, , @t{standard-closing-directive-p}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-closing-directive structure, , @t{standard-closing-directive}} (structure)
 @item
-@ref{go to the net.didierverna.focus::standard-delimiting-directive structure, , @t{standard-delimiting-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-closing-directive-p function, , @t{standard-closing-directive-p}} (function)
 @item
-@ref{go to the net.didierverna.focus::standard-delimiting-directive-p function, , @t{standard-delimiting-directive-p}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-delimiting-directive structure, , @t{standard-delimiting-directive}} (structure)
 @item
-@ref{go to the net.didierverna.focus::standard-directive structure, , @t{standard-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-delimiting-directive-p function, , @t{standard-delimiting-directive-p}} (function)
 @item
-@ref{go to the net.didierverna.focus::standard-directive-lookup-error condition, , @t{standard-directive-lookup-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive structure, , @t{standard-directive}} (structure)
 @item
-@ref{go to the net.didierverna.focus::standard-directive-p function, , @t{standard-directive-p}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-lookup-error condition, , @t{standard-directive-lookup-error}} (condition)
 @item
-@ref{go to the net.didierverna.focus::standard-opening-directive structure, , @t{standard-opening-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-p function, , @t{standard-directive-p}} (function)
 @item
-@ref{go to the net.didierverna.focus::standard-opening-directive-p function, , @t{standard-opening-directive-p}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-opening-directive structure, , @t{standard-opening-directive}} (structure)
+@item
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-opening-directive-p function, , @t{standard-opening-directive-p}} (function)
 @end itemize
 @end table
 
-@node The core/src/table.lisp file, The core/src/string.lisp file, The core/src/directive.lisp file, Lisp files
+@node The core/src/table <dot> lisp file, The core/src/string <dot> lisp file, The core/src/directive <dot> lisp file, Lisp files
 @subsection @t{core/src/table.lisp}
-@anchor{go to the core/src/table.lisp file}@c
+@anchor{go to the core/src/table <dot> lisp file}@c
 @lispfileindex{core/src/table.lisp}@c
 @table @strong
 @item Dependency
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @item Parent
 @ref{go to the core/src/ module, , @t{src}} (module)
 @item Location
 @url{file:///Users/didier/src/common-lisp/focus/core/src/table.lisp, ignore, @t{core/src/table.lisp}}
 @item Packages
-@ref{go to the net.didierverna.focus.user-functions package, , @t{net.didierverna.focus.user-functions}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> user-functions package, , @t{net.didierverna.focus.user-functions}}
 @item Exported Definitions
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::*format-table* special variable, , @t{*format-table*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> *format-table* special variable, , @t{*format-table*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus::make-format-table function, , @t{make-format-table}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-format-table function, , @t{make-format-table}} (function)
 @item
-@ref{go to the net.didierverna.focus::register-format-table function, , @t{register-format-table}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> register-format-table function, , @t{register-format-table}} (function)
 @item
-@ref{go to the net.didierverna.focus::set-format-directive function, , @t{set-format-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> set-format-directive function, , @t{set-format-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::unregister-format-table function, , @t{unregister-format-table}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> unregister-format-table function, , @t{unregister-format-table}} (function)
 @item
-@ref{go to the net.didierverna.focus::with-format-table macro, , @t{with-format-table}} (macro)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> with-format-table macro, , @t{with-format-table}} (macro)
 @end itemize
 @item Internal Definitions
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::%make-format-table function, , @t{%make-format-table}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> %make-format-table function, , @t{%make-format-table}} (function)
 @item
-@ref{go to the net.didierverna.focus::copy-format-table function, , @t{copy-format-table}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-format-table function, , @t{copy-format-table}} (function)
 @item
-@ref{go to the net.didierverna.focus::find-table function, , @t{find-table}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> find-table function, , @t{find-table}} (function)
 @item
-@ref{go to the net.didierverna.focus::format-table structure, , @t{format-table}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-table structure, , @t{format-table}} (structure)
 @item
-@ref{go to the net.didierverna.focus::format-table-error condition, , @t{format-table-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-table-error condition, , @t{format-table-error}} (condition)
 @item
-@ref{go to the net.didierverna.focus::format-table-p function, , @t{format-table-p}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-table-p function, , @t{format-table-p}} (function)
 @item
-@ref{go to the net.didierverna.focus::lookup-table function, , @t{lookup-table}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> lookup-table function, , @t{lookup-table}} (function)
 @item
-@ref{go to the net.didierverna.focus::missing-table condition, , @t{missing-table}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-table condition, , @t{missing-table}} (condition)
 @item
-@ref{go to the net.didierverna.focus::table-collision condition, , @t{table-collision}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> name table-lookup-error method, , @t{name}} (method)
 @item
-@ref{go to the net.didierverna.focus::table-directive-collision condition, , @t{table-directive-collision}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table format-table-error method, , @t{table}} (method)
 @item
-@ref{go to the net.didierverna.focus::table-directive-error condition, , @t{table-directive-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-character table-directive-error method, , @t{table-character}} (method)
 @item
-@ref{go to the net.didierverna.focus::table-lookup-error condition, , @t{table-lookup-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-collision condition, , @t{table-collision}} (condition)
 @item
-@ref{go to the net.didierverna.focus::table-mappings function, , @t{table-mappings}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-directive-collision condition, , @t{table-directive-collision}} (condition)
 @item
-@ref{go to the net.didierverna.focus::(setf table-mappings) function, , @t{(setf table-mappings)}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-directive-error condition, , @t{table-directive-error}} (condition)
 @item
-@ref{go to the net.didierverna.focus::table-name function, , @t{table-name}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-lookup-error condition, , @t{table-lookup-error}} (condition)
+@item
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-mappings function, , @t{table-mappings}} (function)
+@item
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> (setf table-mappings) function, , @t{(setf table-mappings)}} (function)
+@item
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-name function, , @t{table-name}} (function)
 @end itemize
 @end table
 
-@node The core/src/string.lisp file, The core/src/wrapper.lisp file, The core/src/table.lisp file, Lisp files
+@node The core/src/string <dot> lisp file, The core/src/wrapper <dot> lisp file, The core/src/table <dot> lisp file, Lisp files
 @subsection @t{core/src/string.lisp}
-@anchor{go to the core/src/string.lisp file}@c
+@anchor{go to the core/src/string <dot> lisp file}@c
 @lispfileindex{core/src/string.lisp}@c
 @table @strong
 @item Dependency
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @item Parent
 @ref{go to the core/src/ module, , @t{src}} (module)
 @item Location
@@ -906,43 +922,53 @@ components trees.
 @item Internal Definitions
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::directive-body-position function, , @t{directive-body-position}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> delimiter missing-delimiter method, , @t{delimiter}} (method)
 @item
-@ref{go to the net.didierverna.focus::format-string-error condition, , @t{format-string-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-body-position function, , @t{directive-body-position}} (function)
 @item
-@ref{go to the net.didierverna.focus::missing-delimiter condition, , @t{missing-delimiter}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string format-string-error method, , @t{format-string}} (method)
 @item
-@ref{go to the net.didierverna.focus::missing-string-directive condition, , @t{missing-string-directive}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string-error condition, , @t{format-string-error}} (condition)
 @item
-@ref{go to the net.didierverna.focus::missing-table-directive condition, , @t{missing-table-directive}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-delimiter condition, , @t{missing-delimiter}} (condition)
 @item
-@ref{go to the net.didierverna.focus::next-directive-position function, , @t{next-directive-position}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-string-directive condition, , @t{missing-string-directive}} (condition)
 @item
-@ref{go to the net.didierverna.focus::spurious-modifier condition, , @t{spurious-modifier}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-table-directive condition, , @t{missing-table-directive}} (condition)
 @item
-@ref{go to the net.didierverna.focus::spurious-parameter condition, , @t{spurious-parameter}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> modifier spurious-modifier method, , @t{modifier}} (method)
 @item
-@ref{go to the net.didierverna.focus::standard-directive function, , @t{standard-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> next-directive-position function, , @t{next-directive-position}} (function)
 @item
-@ref{go to the net.didierverna.focus::standard-directive-body generic function, , @t{standard-directive-body}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> spurious-modifier condition, , @t{spurious-modifier}} (condition)
 @item
-@ref{go to the net.didierverna.focus::standard-directive-body t t standard-directive method, , @t{standard-directive-body}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> spurious-parameter condition, , @t{spurious-parameter}} (condition)
 @item
-@ref{go to the net.didierverna.focus::standard-directive-body t t standard-delimiting-directive method, , @t{standard-directive-body}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive function, , @t{standard-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::standard-directive-body t t function-directive method, , @t{standard-directive-body}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body generic function, , @t{standard-directive-body}} (generic function)
 @item
-@ref{go to the net.didierverna.focus::standard-format-string function, , @t{standard-format-string}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body t t standard-directive method, , @t{standard-directive-body}} (method)
+@item
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body t t standard-delimiting-directive method, , @t{standard-directive-body}} (method)
+@item
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body t t function-directive method, , @t{standard-directive-body}} (method)
+@item
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-format-string function, , @t{standard-format-string}} (function)
+@item
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> string-position format-string-error method, , @t{string-position}} (method)
+@item
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table missing-table-directive method, , @t{table}} (method)
 @end itemize
 @end table
 
-@node The core/src/wrapper.lisp file, The setup/setup.lisp file, The core/src/string.lisp file, Lisp files
+@node The core/src/wrapper <dot> lisp file, The setup/setup <dot> lisp file, The core/src/string <dot> lisp file, Lisp files
 @subsection @t{core/src/wrapper.lisp}
-@anchor{go to the core/src/wrapper.lisp file}@c
+@anchor{go to the core/src/wrapper <dot> lisp file}@c
 @lispfileindex{core/src/wrapper.lisp}@c
 @table @strong
 @item Dependency
-@ref{go to the core/src/string.lisp file, , @t{string}} (Lisp file)
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
 @item Parent
 @ref{go to the core/src/ module, , @t{src}} (module)
 @item Location
@@ -950,56 +976,56 @@ components trees.
 @item Exported Definitions
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::*compile* special variable, , @t{*compile*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> *compile* special variable, , @t{*compile*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus::format macro, , @t{format}} (macro)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format macro, , @t{format}} (macro)
 @item
-@ref{go to the net.didierverna.focus::formatter macro, , @t{formatter}} (macro)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> formatter macro, , @t{formatter}} (macro)
 @end itemize
 @end table
 
-@node The setup/setup.lisp file, , The core/src/wrapper.lisp file, Lisp files
+@node The setup/setup <dot> lisp file, , The core/src/wrapper <dot> lisp file, Lisp files
 @subsection @t{setup/setup.lisp}
-@anchor{go to the setup/setup.lisp file}@c
+@anchor{go to the setup/setup <dot> lisp file}@c
 @lispfileindex{setup/setup.lisp}@c
 @table @strong
 @item Parent
-@ref{go to the net.didierverna.focus.setup system, , @t{net.didierverna.focus.setup}} (system)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup system, , @t{net.didierverna.focus.setup}} (system)
 @item Location
 @url{file:///Users/didier/src/common-lisp/focus/setup/setup.lisp, ignore, @t{setup/setup.lisp}}
 @item Packages
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item Exported Definitions
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus.setup::*release-major-level* special variable, , @t{*release-major-level*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-major-level* special variable, , @t{*release-major-level*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus.setup::*release-minor-level* special variable, , @t{*release-minor-level*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-minor-level* special variable, , @t{*release-minor-level*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus.setup::*release-name* special variable, , @t{*release-name*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-name* special variable, , @t{*release-name*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus.setup::*release-status* special variable, , @t{*release-status*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-status* special variable, , @t{*release-status*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus.setup::*release-status-level* special variable, , @t{*release-status-level*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-status-level* special variable, , @t{*release-status-level*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus.setup::configuration function, , @t{configuration}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> configuration function, , @t{configuration}} (function)
 @item
-@ref{go to the net.didierverna.focus.setup::configure function, , @t{configure}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> configure function, , @t{configure}} (function)
 @item
-@ref{go to the net.didierverna.focus.setup::setup-flv function, , @t{setup-flv}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> setup-flv function, , @t{setup-flv}} (function)
 @item
-@ref{go to the net.didierverna.focus.setup::version function, , @t{version}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> version function, , @t{version}} (function)
 @end itemize
 @item Internal Definitions
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus.setup::%version function, , @t{%version}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> %version function, , @t{%version}} (function)
 @item
-@ref{go to the net.didierverna.focus.setup::*configuration* special variable, , @t{*configuration*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *configuration* special variable, , @t{*configuration*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus.setup::release-status-number function, , @t{release-status-number}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> release-status-number function, , @t{release-status-number}} (function)
 @item
-@ref{go to the net.didierverna.focus.setup::restrict-because function, , @t{restrict-because}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> restrict-because function, , @t{restrict-because}} (function)
 @end itemize
 @end table
 
@@ -1013,231 +1039,231 @@ components trees.
 Packages are listed by definition order.
 
 @menu
-* The net.didierverna.focus package::
-* The net.didierverna.focus.user-functions package::
-* The net.didierverna.focus.setup package::
+* The net.didierverna.focus package: The net <dot> didierverna <dot> focus package.
+* The net.didierverna.focus.user-functions package: The net <dot> didierverna <dot> focus <dot> user-functions package.
+* The net.didierverna.focus.setup package: The net <dot> didierverna <dot> focus <dot> setup package.
 @end menu
 
 
 @c ---------------------------------
 @c The net.didierverna.focus package
 @c ---------------------------------
-@node The net.didierverna.focus package, The net.didierverna.focus.user-functions package, Packages, Packages
+@node The net <dot> didierverna <dot> focus package, The net <dot> didierverna <dot> focus <dot> user-functions package, Packages, Packages
 @section @t{net.didierverna.focus}
-@anchor{go to the net.didierverna.focus package}@c
+@anchor{go to the net <dot> didierverna <dot> focus package}@c
 @packageindex{net.didierverna.focus}@c
 The FoCus package.
 @table @strong
 @item Source
-@ref{go to the core/meta.lisp file, , @t{meta}} (Lisp file)
+@ref{go to the core/meta <dot> lisp file, , @t{meta}} (Lisp file)
 @item Use List
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item
 @t{common-lisp}
 @end itemize
 @item Exported Definitions
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::*compile* special variable, , @t{*compile*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> *compile* special variable, , @t{*compile*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus::*format-table* special variable, , @t{*format-table*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> *format-table* special variable, , @t{*format-table*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus::format macro, , @t{format}} (macro)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format macro, , @t{format}} (macro)
 @item
-@ref{go to the net.didierverna.focus::formatter macro, , @t{formatter}} (macro)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> formatter macro, , @t{formatter}} (macro)
 @item
-@ref{go to the net.didierverna.focus::in-format-table macro, , @t{in-format-table}} (macro)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> in-format-table macro, , @t{in-format-table}} (macro)
 @item
-@ref{go to the net.didierverna.focus::make-format-table function, , @t{make-format-table}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-format-table function, , @t{make-format-table}} (function)
 @item
-@ref{go to the net.didierverna.focus::nickname-package function, , @t{nickname-package}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> nickname-package function, , @t{nickname-package}} (function)
 @item
-@ref{go to the net.didierverna.focus::register-format-table function, , @t{register-format-table}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> register-format-table function, , @t{register-format-table}} (function)
 @item
-@ref{go to the net.didierverna.focus::set-format-directive function, , @t{set-format-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> set-format-directive function, , @t{set-format-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::unregister-format-table function, , @t{unregister-format-table}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> unregister-format-table function, , @t{unregister-format-table}} (function)
 @item
-@ref{go to the net.didierverna.focus::with-format-table macro, , @t{with-format-table}} (macro)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> with-format-table macro, , @t{with-format-table}} (macro)
 @end itemize
 @item Internal Definitions
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::%make-format-table function, , @t{%make-format-table}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> %make-format-table function, , @t{%make-format-table}} (function)
 @item
-@ref{go to the net.didierverna.focus::*readtable* special variable, , @t{*readtable*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> *readtable* special variable, , @t{*readtable*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus::*standard-directives* special variable, , @t{*standard-directives*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> *standard-directives* special variable, , @t{*standard-directives*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus::clindent function, , @t{clindent}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> clindent function, , @t{clindent}} (function)
 @item
-@ref{go to the net.didierverna.focus::copy-format-directive function, , @t{copy-format-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-format-directive function, , @t{copy-format-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::copy-format-table function, , @t{copy-format-table}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-format-table function, , @t{copy-format-table}} (function)
 @item
-@ref{go to the net.didierverna.focus::copy-function-directive function, , @t{copy-function-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-function-directive function, , @t{copy-function-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::copy-standard-closing-directive function, , @t{copy-standard-closing-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-standard-closing-directive function, , @t{copy-standard-closing-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::copy-standard-delimiting-directive function, , @t{copy-standard-delimiting-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-standard-delimiting-directive function, , @t{copy-standard-delimiting-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::copy-standard-directive function, , @t{copy-standard-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-standard-directive function, , @t{copy-standard-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::copy-standard-opening-directive function, , @t{copy-standard-opening-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-standard-opening-directive function, , @t{copy-standard-opening-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::defindent macro, , @t{defindent}} (macro)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> defindent macro, , @t{defindent}} (macro)
 @item
-@ref{go to the net.didierverna.focus::delimiter generic function, , @t{delimiter}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> delimiter generic function, , @t{delimiter}} (generic function)
 @item
-@ref{go to the net.didierverna.focus::delimiter missing-delimiter method, , @t{delimiter}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> delimiter missing-delimiter method, , @t{delimiter}} (method)
 @item
-@ref{go to the net.didierverna.focus::directive-body-position function, , @t{directive-body-position}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-body-position function, , @t{directive-body-position}} (function)
 @item
-@ref{go to the net.didierverna.focus::directive-character function, , @t{directive-character}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-character function, , @t{directive-character}} (function)
 @item
-@ref{go to the net.didierverna.focus::directive-closing-character function, , @t{directive-closing-character}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-closing-character function, , @t{directive-closing-character}} (function)
 @item
-@ref{go to the net.didierverna.focus::directive-function-name function, , @t{directive-function-name}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-function-name function, , @t{directive-function-name}} (function)
 @item
-@ref{go to the net.didierverna.focus::(setf directive-function-name) function, , @t{(setf directive-function-name)}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> (setf directive-function-name) function, , @t{(setf directive-function-name)}} (function)
 @item
-@ref{go to the net.didierverna.focus::directive-opening-character function, , @t{directive-opening-character}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-opening-character function, , @t{directive-opening-character}} (function)
 @item
-@ref{go to the net.didierverna.focus::find-standard-directive function, , @t{find-standard-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> find-standard-directive function, , @t{find-standard-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::find-table function, , @t{find-table}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> find-table function, , @t{find-table}} (function)
 @item
-@ref{go to the net.didierverna.focus::focus-error condition, , @t{focus-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> focus-error condition, , @t{focus-error}} (condition)
 @item
-@ref{go to the net.didierverna.focus::format-directive structure, , @t{format-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-directive structure, , @t{format-directive}} (structure)
 @item
-@ref{go to the net.didierverna.focus::format-directive-p function, , @t{format-directive-p}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-directive-p function, , @t{format-directive-p}} (function)
 @item
-@ref{go to the net.didierverna.focus::format-string generic function, , @t{format-string}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string generic function, , @t{format-string}} (generic function)
 @item
-@ref{go to the net.didierverna.focus::format-string format-string-error method, , @t{format-string}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string format-string-error method, , @t{format-string}} (method)
 @item
-@ref{go to the net.didierverna.focus::format-string-error condition, , @t{format-string-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string-error condition, , @t{format-string-error}} (condition)
 @item
-@ref{go to the net.didierverna.focus::format-table structure, , @t{format-table}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-table structure, , @t{format-table}} (structure)
 @item
-@ref{go to the net.didierverna.focus::format-table-error condition, , @t{format-table-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-table-error condition, , @t{format-table-error}} (condition)
 @item
-@ref{go to the net.didierverna.focus::format-table-p function, , @t{format-table-p}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-table-p function, , @t{format-table-p}} (function)
 @item
-@ref{go to the net.didierverna.focus::function-directive structure, , @t{function-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> function-directive structure, , @t{function-directive}} (structure)
 @item
-@ref{go to the net.didierverna.focus::function-directive-p function, , @t{function-directive-p}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> function-directive-p function, , @t{function-directive-p}} (function)
 @item
-@ref{go to the net.didierverna.focus::i-reader function, , @t{i-reader}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> i-reader function, , @t{i-reader}} (function)
 @item
-@ref{go to the net.didierverna.focus::in-readtable macro, , @t{in-readtable}} (macro)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> in-readtable macro, , @t{in-readtable}} (macro)
 @item
-@ref{go to the net.didierverna.focus::lookup-table function, , @t{lookup-table}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> lookup-table function, , @t{lookup-table}} (function)
 @item
-@ref{go to the net.didierverna.focus::make-format-directive function, , @t{make-format-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-format-directive function, , @t{make-format-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::make-function-directive function, , @t{make-function-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-function-directive function, , @t{make-function-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::make-standard-closing-directive function, , @t{make-standard-closing-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-standard-closing-directive function, , @t{make-standard-closing-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::make-standard-delimiting-directive function, , @t{make-standard-delimiting-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-standard-delimiting-directive function, , @t{make-standard-delimiting-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::make-standard-directive function, , @t{make-standard-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-standard-directive function, , @t{make-standard-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::make-standard-opening-directive function, , @t{make-standard-opening-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-standard-opening-directive function, , @t{make-standard-opening-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::missing-delimiter condition, , @t{missing-delimiter}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-delimiter condition, , @t{missing-delimiter}} (condition)
 @item
-@ref{go to the net.didierverna.focus::missing-string-directive condition, , @t{missing-string-directive}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-string-directive condition, , @t{missing-string-directive}} (condition)
 @item
-@ref{go to the net.didierverna.focus::missing-table condition, , @t{missing-table}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-table condition, , @t{missing-table}} (condition)
 @item
-@ref{go to the net.didierverna.focus::missing-table-directive condition, , @t{missing-table-directive}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-table-directive condition, , @t{missing-table-directive}} (condition)
 @item
-@ref{go to the net.didierverna.focus::modifier generic function, , @t{modifier}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> modifier generic function, , @t{modifier}} (generic function)
 @item
-@ref{go to the net.didierverna.focus::modifier spurious-modifier method, , @t{modifier}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> modifier spurious-modifier method, , @t{modifier}} (method)
 @item
-@ref{go to the net.didierverna.focus::name generic function, , @t{name}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> name generic function, , @t{name}} (generic function)
 @item
-@ref{go to the net.didierverna.focus::name table-lookup-error method, , @t{name}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> name table-lookup-error method, , @t{name}} (method)
 @item
-@ref{go to the net.didierverna.focus::next-directive-position function, , @t{next-directive-position}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> next-directive-position function, , @t{next-directive-position}} (function)
 @item
-@ref{go to the net.didierverna.focus::nonstandard-directive-character generic function, , @t{nonstandard-directive-character}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> nonstandard-directive-character generic function, , @t{nonstandard-directive-character}} (generic function)
 @item
-@ref{go to the net.didierverna.focus::nonstandard-directive-character nonstandard-directive-character method, , @t{nonstandard-directive-character}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> nonstandard-directive-character nonstandard-directive-character method, , @t{nonstandard-directive-character}} (method)
 @item
-@ref{go to the net.didierverna.focus::nonstandard-directive-character condition, , @t{nonstandard-directive-character}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> nonstandard-directive-character condition, , @t{nonstandard-directive-character}} (condition)
 @item
-@ref{go to the net.didierverna.focus::other-case function, , @t{other-case}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> other-case function, , @t{other-case}} (function)
 @item
-@ref{go to the net.didierverna.focus::spurious-modifier condition, , @t{spurious-modifier}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> spurious-modifier condition, , @t{spurious-modifier}} (condition)
 @item
-@ref{go to the net.didierverna.focus::spurious-parameter condition, , @t{spurious-parameter}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> spurious-parameter condition, , @t{spurious-parameter}} (condition)
 @item
-@ref{go to the net.didierverna.focus::standard-closing-directive structure, , @t{standard-closing-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-closing-directive structure, , @t{standard-closing-directive}} (structure)
 @item
-@ref{go to the net.didierverna.focus::standard-closing-directive-p function, , @t{standard-closing-directive-p}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-closing-directive-p function, , @t{standard-closing-directive-p}} (function)
 @item
-@ref{go to the net.didierverna.focus::standard-delimiting-directive structure, , @t{standard-delimiting-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-delimiting-directive structure, , @t{standard-delimiting-directive}} (structure)
 @item
-@ref{go to the net.didierverna.focus::standard-delimiting-directive-p function, , @t{standard-delimiting-directive-p}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-delimiting-directive-p function, , @t{standard-delimiting-directive-p}} (function)
 @item
-@ref{go to the net.didierverna.focus::standard-directive function, , @t{standard-directive}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive function, , @t{standard-directive}} (function)
 @item
-@ref{go to the net.didierverna.focus::standard-directive structure, , @t{standard-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive structure, , @t{standard-directive}} (structure)
 @item
-@ref{go to the net.didierverna.focus::standard-directive-body generic function, , @t{standard-directive-body}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body generic function, , @t{standard-directive-body}} (generic function)
 @item
-@ref{go to the net.didierverna.focus::standard-directive-body t t standard-directive method, , @t{standard-directive-body}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body t t standard-directive method, , @t{standard-directive-body}} (method)
 @item
-@ref{go to the net.didierverna.focus::standard-directive-body t t standard-delimiting-directive method, , @t{standard-directive-body}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body t t standard-delimiting-directive method, , @t{standard-directive-body}} (method)
 @item
-@ref{go to the net.didierverna.focus::standard-directive-body t t function-directive method, , @t{standard-directive-body}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body t t function-directive method, , @t{standard-directive-body}} (method)
 @item
-@ref{go to the net.didierverna.focus::standard-directive-lookup-error condition, , @t{standard-directive-lookup-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-lookup-error condition, , @t{standard-directive-lookup-error}} (condition)
 @item
-@ref{go to the net.didierverna.focus::standard-directive-p function, , @t{standard-directive-p}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-p function, , @t{standard-directive-p}} (function)
 @item
-@ref{go to the net.didierverna.focus::standard-format-string function, , @t{standard-format-string}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-format-string function, , @t{standard-format-string}} (function)
 @item
-@ref{go to the net.didierverna.focus::standard-opening-directive structure, , @t{standard-opening-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-opening-directive structure, , @t{standard-opening-directive}} (structure)
 @item
-@ref{go to the net.didierverna.focus::standard-opening-directive-p function, , @t{standard-opening-directive-p}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-opening-directive-p function, , @t{standard-opening-directive-p}} (function)
 @item
-@ref{go to the net.didierverna.focus::string-position generic function, , @t{string-position}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> string-position generic function, , @t{string-position}} (generic function)
 @item
-@ref{go to the net.didierverna.focus::string-position format-string-error method, , @t{string-position}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> string-position format-string-error method, , @t{string-position}} (method)
 @item
-@ref{go to the net.didierverna.focus::table generic function, , @t{table}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table generic function, , @t{table}} (generic function)
 @item
-@ref{go to the net.didierverna.focus::table missing-table-directive method, , @t{table}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table missing-table-directive method, , @t{table}} (method)
 @item
-@ref{go to the net.didierverna.focus::table format-table-error method, , @t{table}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table format-table-error method, , @t{table}} (method)
 @item
-@ref{go to the net.didierverna.focus::table-character generic function, , @t{table-character}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-character generic function, , @t{table-character}} (generic function)
 @item
-@ref{go to the net.didierverna.focus::table-character table-directive-error method, , @t{table-character}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-character table-directive-error method, , @t{table-character}} (method)
 @item
-@ref{go to the net.didierverna.focus::table-collision condition, , @t{table-collision}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-collision condition, , @t{table-collision}} (condition)
 @item
-@ref{go to the net.didierverna.focus::table-directive-collision condition, , @t{table-directive-collision}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-directive-collision condition, , @t{table-directive-collision}} (condition)
 @item
-@ref{go to the net.didierverna.focus::table-directive-error condition, , @t{table-directive-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-directive-error condition, , @t{table-directive-error}} (condition)
 @item
-@ref{go to the net.didierverna.focus::table-lookup-error condition, , @t{table-lookup-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-lookup-error condition, , @t{table-lookup-error}} (condition)
 @item
-@ref{go to the net.didierverna.focus::table-mappings function, , @t{table-mappings}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-mappings function, , @t{table-mappings}} (function)
 @item
-@ref{go to the net.didierverna.focus::(setf table-mappings) function, , @t{(setf table-mappings)}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> (setf table-mappings) function, , @t{(setf table-mappings)}} (function)
 @item
-@ref{go to the net.didierverna.focus::table-name function, , @t{table-name}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-name function, , @t{table-name}} (function)
 @item
-@ref{go to the net.didierverna.focus::tilde-reader function, , @t{tilde-reader}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> tilde-reader function, , @t{tilde-reader}} (function)
 @end itemize
 @end table
 
@@ -1245,65 +1271,65 @@ The FoCus package.
 @c ------------------------------------------------
 @c The net.didierverna.focus.user-functions package
 @c ------------------------------------------------
-@node The net.didierverna.focus.user-functions package, The net.didierverna.focus.setup package, The net.didierverna.focus package, Packages
+@node The net <dot> didierverna <dot> focus <dot> user-functions package, The net <dot> didierverna <dot> focus <dot> setup package, The net <dot> didierverna <dot> focus package, Packages
 @section @t{net.didierverna.focus.user-functions}
-@anchor{go to the net.didierverna.focus.user-functions package}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> user-functions package}@c
 @packageindex{net.didierverna.focus.user-functions}@c
 The FoCus user functions package.@*
 This package is used to store anonymous user functions (as provided to
 SET-FORMAT-DIRECTIVE) under gentemp'ed names.
 @table @strong
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @end table
 
 
 @c ---------------------------------------
 @c The net.didierverna.focus.setup package
 @c ---------------------------------------
-@node The net.didierverna.focus.setup package, , The net.didierverna.focus.user-functions package, Packages
+@node The net <dot> didierverna <dot> focus <dot> setup package, , The net <dot> didierverna <dot> focus <dot> user-functions package, Packages
 @section @t{net.didierverna.focus.setup}
-@anchor{go to the net.didierverna.focus.setup package}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup package}@c
 @packageindex{net.didierverna.focus.setup}@c
 Format Customizations, setup.
 @table @strong
 @item Source
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @item Use List
 @t{common-lisp}
 @item Used By List
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Exported Definitions
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus.setup::*release-major-level* special variable, , @t{*release-major-level*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-major-level* special variable, , @t{*release-major-level*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus.setup::*release-minor-level* special variable, , @t{*release-minor-level*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-minor-level* special variable, , @t{*release-minor-level*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus.setup::*release-name* special variable, , @t{*release-name*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-name* special variable, , @t{*release-name*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus.setup::*release-status* special variable, , @t{*release-status*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-status* special variable, , @t{*release-status*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus.setup::*release-status-level* special variable, , @t{*release-status-level*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-status-level* special variable, , @t{*release-status-level*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus.setup::configuration function, , @t{configuration}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> configuration function, , @t{configuration}} (function)
 @item
-@ref{go to the net.didierverna.focus.setup::configure function, , @t{configure}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> configure function, , @t{configure}} (function)
 @item
-@ref{go to the net.didierverna.focus.setup::setup-flv function, , @t{setup-flv}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> setup-flv function, , @t{setup-flv}} (function)
 @item
-@ref{go to the net.didierverna.focus.setup::version function, , @t{version}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> version function, , @t{version}} (function)
 @end itemize
 @item Internal Definitions
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus.setup::%version function, , @t{%version}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> %version function, , @t{%version}} (function)
 @item
-@ref{go to the net.didierverna.focus.setup::*configuration* special variable, , @t{*configuration*}} (special variable)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *configuration* special variable, , @t{*configuration*}} (special variable)
 @item
-@ref{go to the net.didierverna.focus.setup::release-status-number function, , @t{release-status-number}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> release-status-number function, , @t{release-status-number}} (function)
 @item
-@ref{go to the net.didierverna.focus.setup::restrict-because function, , @t{restrict-because}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> restrict-because function, , @t{restrict-because}} (function)
 @end itemize
 @end table
 
@@ -1337,7 +1363,7 @@ lexicographic order.
 @node Exported special variables, Exported macros, Exported definitions, Exported definitions
 @subsection Special variables
 @defvr {Special Variable} *compile*
-@anchor{go to the net.didierverna.focus::*compile* special variable}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> *compile* special variable}@c
 @specialsubindex{*compile*}@c
 Whether to compile to standard format calls.@*
 If non-nil, the translation to standard format strings occurs at@*
@@ -1345,83 +1371,83 @@ compile-time (hence, the current format table must also be known at
 compile-time). Otherwise (the default), the translation occurs at run-time.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/wrapper.lisp file, , @t{wrapper}} (Lisp file)
+@ref{go to the core/src/wrapper <dot> lisp file, , @t{wrapper}} (Lisp file)
 @end table
 @end defvr
 @defvr {Special Variable} *format-table*
-@anchor{go to the net.didierverna.focus::*format-table* special variable}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> *format-table* special variable}@c
 @specialsubindex{*format-table*}@c
 The current format table.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @end table
 @end defvr
 @defvr {Special Variable} *release-major-level*
-@anchor{go to the net.didierverna.focus.setup::*release-major-level* special variable}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-major-level* special variable}@c
 @specialsubindex{*release-major-level*}@c
 The major level of this release.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item Source
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @end table
 @end defvr
 @defvr {Special Variable} *release-minor-level*
-@anchor{go to the net.didierverna.focus.setup::*release-minor-level* special variable}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-minor-level* special variable}@c
 @specialsubindex{*release-minor-level*}@c
 The minor level of this release.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item Source
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @end table
 @end defvr
 @defvr {Special Variable} *release-name*
-@anchor{go to the net.didierverna.focus.setup::*release-name* special variable}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-name* special variable}@c
 @specialsubindex{*release-name*}@c
 The name of this release.@*
 The general naming theme for FoCus is "Aïkido movements".
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item Source
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @end table
 @end defvr
 @defvr {Special Variable} *release-status*
-@anchor{go to the net.didierverna.focus.setup::*release-status* special variable}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-status* special variable}@c
 @specialsubindex{*release-status*}@c
 The status of this release.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item Source
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @end table
 @end defvr
 @defvr {Special Variable} *release-status-level*
-@anchor{go to the net.didierverna.focus.setup::*release-status-level* special variable}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *release-status-level* special variable}@c
 @specialsubindex{*release-status-level*}@c
 The status level of this release.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item Source
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @end table
 @end defvr
 
 @node Exported macros, Exported functions, Exported special variables, Exported definitions
 @subsection Macros
 @deffn {Macro} format DESTINATION FORMAT-CONTROL &rest ARGS
-@anchor{go to the net.didierverna.focus::format macro}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> format macro}@c
 @macrosubindex{format}@c
 Wrapper around the standard FORMAT function.@*
 When FORMAT-CONTROL is a string, it is interpreted according to the current
@@ -1429,112 +1455,112 @@ format table. Such translation may occur at compile or run time, according to
 the value of *COMPILE*.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/wrapper.lisp file, , @t{wrapper}} (Lisp file)
+@ref{go to the core/src/wrapper <dot> lisp file, , @t{wrapper}} (Lisp file)
 @end table
 @end deffn
 @deffn {Macro} formatter FORMAT-STRING
-@anchor{go to the net.didierverna.focus::formatter macro}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> formatter macro}@c
 @macrosubindex{formatter}@c
 Wrapper around the standard FORMATTER macro.@*
 FORMAT-STRING is interpreted according to the current (compile-time) format
 table.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/wrapper.lisp file, , @t{wrapper}} (Lisp file)
+@ref{go to the core/src/wrapper <dot> lisp file, , @t{wrapper}} (Lisp file)
 @end table
 @end deffn
 @deffn {Macro} in-format-table TABLE-OR-NAME
-@anchor{go to the net.didierverna.focus::in-format-table macro}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> in-format-table macro}@c
 @macrosubindex{in-format-table}@c
 Set the current format table to TABLE-OR-NAME in the current file.@*
 This macro behaves like IN-PACKAGE or IN-READTABLE and also sets *COMPILE* to
 t, so as to enable compile-time behavior in FoCus.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the flv/flv.lisp file, , @t{flv}} (Lisp file)
+@ref{go to the flv/flv <dot> lisp file, , @t{flv}} (Lisp file)
 @end table
 @end deffn
 @deffn {Macro} with-format-table TABLE-OR-NAME &body BODY
-@anchor{go to the net.didierverna.focus::with-format-table macro}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> with-format-table macro}@c
 @macrosubindex{with-format-table}@c
 Execute BODY with the current format table bound to TABLE-OR-NAME.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @end table
 @end deffn
 
 @node Exported functions, , Exported macros, Exported definitions
 @subsection Functions
 @deffn {Function} configuration KEY
-@anchor{go to the net.didierverna.focus.setup::configuration function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> configuration function}@c
 @functionsubindex{configuration}@c
 Return KEY's value in the current FoCus configuration.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item Source
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} configure KEY VALUE
-@anchor{go to the net.didierverna.focus.setup::configure function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> configure function}@c
 @functionsubindex{configure}@c
 Set KEY to VALUE in the current FoCus configuration.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item Source
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} make-format-table &optional INITIALLY &aux TABLE MAPPINGS
-@anchor{go to the net.didierverna.focus::make-format-table function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-format-table function}@c
 @functionsubindex{make-format-table}@c
 Create and return a new format table.@*
 The table may be INITIALLY :standard (the default), :standard-upcase,
 :standard-downcase or :blank.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} nickname-package &optional NICKNAME
-@anchor{go to the net.didierverna.focus::nickname-package function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> nickname-package function}@c
 @functionsubindex{nickname-package}@c
 Add NICKNAME (:FOCUS by default) to the :NET.DIDIERVERNA.FOCUS package.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/meta.lisp file, , @t{meta}} (Lisp file)
+@ref{go to the core/meta <dot> lisp file, , @t{meta}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} register-format-table TABLE NAME &optional FORCE
-@anchor{go to the net.didierverna.focus::register-format-table function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> register-format-table function}@c
 @functionsubindex{register-format-table}@c
 Register TABLE under NAME (a symbol) and return it.@*
 FORCE means overwrite an already existing registration under that@*
 name. Otherwise (the default), throw a TABLE-COLLISION error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} set-format-directive CHAR &key STANDARD (FUNCTION FUNCTION-OR-NAME) BOTH-CASE FORCE (TABLE TABLE-OR-NAME) &aux TABLE
-@anchor{go to the net.didierverna.focus::set-format-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> set-format-directive function}@c
 @functionsubindex{set-format-directive}@c
 Set a ~CHAR directive in TABLE.@*
 - TABLE (the current format table by default) may be a table or a table name.
@@ -1550,36 +1576,36 @@ The operation to perform is as follows:@*
 - Otherwise, remove the ~CHAR directive from TABLE.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} setup-flv 
-@anchor{go to the net.didierverna.focus.setup::setup-flv function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> setup-flv function}@c
 @functionsubindex{setup-flv}@c
 Autodetect support for file-local variables.@*
 Update FoCus configuration and *FEATURES* accordingly.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item Source
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} unregister-format-table NAME
-@anchor{go to the net.didierverna.focus::unregister-format-table function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> unregister-format-table function}@c
 @functionsubindex{unregister-format-table}@c
 Unregister NAMEd table.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} version &optional TYPE
-@anchor{go to the net.didierverna.focus.setup::version function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> version function}@c
 @functionsubindex{version}@c
 Return the current version of FoCus.@*
 TYPE can be one of :number, :short or :long.@*
@@ -1597,9 +1623,9 @@ A long version is something like@*
 the short version, a patchlevel of 0 is ignored in the output.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item Source
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @end table
 @end deffn
 
@@ -1621,7 +1647,7 @@ the short version, a patchlevel of 0 is ignored in the output.
 @node Internal special variables, Internal macros, Internal definitions, Internal definitions
 @subsection Special variables
 @defvr {Special Variable} *configuration*
-@anchor{go to the net.didierverna.focus.setup::*configuration* special variable}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> *configuration* special variable}@c
 @specialsubindex{*configuration*}@c
 The FoCus configuration settings.@*
 This variable contains a property list of configuration options.@*
@@ -1631,85 +1657,85 @@ Current options are:@*
 See section A.1 of the user manual for more information.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item Source
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @end table
 @end defvr
 @defvr {Special Variable} *readtable*
-@anchor{go to the net.didierverna.focus::*readtable* special variable}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> *readtable* special variable}@c
 @specialsubindex{*readtable*}@c
 The FoCus readtable.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/meta.lisp file, , @t{meta}} (Lisp file)
+@ref{go to the core/meta <dot> lisp file, , @t{meta}} (Lisp file)
 @end table
 @end defvr
 @defvr {Special Variable} *standard-directives*
-@anchor{go to the net.didierverna.focus::*standard-directives* special variable}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> *standard-directives* special variable}@c
 @specialsubindex{*standard-directives*}@c
 The list of standard format directives.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end defvr
 
 @node Internal macros, Internal functions, Internal special variables, Internal definitions
 @subsection Macros
 @deffn {Macro} defindent SYMBOL INDENT
-@anchor{go to the net.didierverna.focus::defindent macro}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> defindent macro}@c
 @macrosubindex{defindent}@c
 Set SYMBOL's indentation to INDENT in (X)Emacs.@*
 SYMBOL and INDENT need not be quoted.@*
 See CLINDENT for more information.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/meta.lisp file, , @t{meta}} (Lisp file)
+@ref{go to the core/meta <dot> lisp file, , @t{meta}} (Lisp file)
 @end table
 @end deffn
 @deffn {Macro} in-readtable NAME
-@anchor{go to the net.didierverna.focus::in-readtable macro}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> in-readtable macro}@c
 @macrosubindex{in-readtable}@c
 Set the current readtable to the value of NAME::*READTABLE*.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/meta.lisp file, , @t{meta}} (Lisp file)
+@ref{go to the core/meta <dot> lisp file, , @t{meta}} (Lisp file)
 @end table
 @end deffn
 
 @node Internal functions, Internal generic functions, Internal macros, Internal definitions
 @subsection Functions
 @deffn {Function} %make-format-table &key (MAPPINGS MAPPINGS)
-@anchor{go to the net.didierverna.focus::%make-format-table function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> %make-format-table function}@c
 @functionsubindex{%make-format-table}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} %version TYPE MAJOR MINOR STATUS LEVEL NAME
-@anchor{go to the net.didierverna.focus.setup::%version function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> %version function}@c
 @functionsubindex{%version}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item Source
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} clindent SYMBOL INDENT
-@anchor{go to the net.didierverna.focus::clindent function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> clindent function}@c
 @functionsubindex{clindent}@c
 Set SYMBOL's indentation to INDENT in (X)Emacs.@*
 This function sets SYMBOL's common-lisp-indent-function property.@*
@@ -1717,339 +1743,339 @@ If INDENT is a symbol, use its indentation definition.@*
 Otherwise, INDENT is considered as an indentation definition.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/meta.lisp file, , @t{meta}} (Lisp file)
+@ref{go to the core/meta <dot> lisp file, , @t{meta}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} copy-format-directive INSTANCE
-@anchor{go to the net.didierverna.focus::copy-format-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-format-directive function}@c
 @functionsubindex{copy-format-directive}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} copy-format-table INSTANCE
-@anchor{go to the net.didierverna.focus::copy-format-table function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-format-table function}@c
 @functionsubindex{copy-format-table}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} copy-function-directive INSTANCE
-@anchor{go to the net.didierverna.focus::copy-function-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-function-directive function}@c
 @functionsubindex{copy-function-directive}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} copy-standard-closing-directive INSTANCE
-@anchor{go to the net.didierverna.focus::copy-standard-closing-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-standard-closing-directive function}@c
 @functionsubindex{copy-standard-closing-directive}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} copy-standard-delimiting-directive INSTANCE
-@anchor{go to the net.didierverna.focus::copy-standard-delimiting-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-standard-delimiting-directive function}@c
 @functionsubindex{copy-standard-delimiting-directive}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} copy-standard-directive INSTANCE
-@anchor{go to the net.didierverna.focus::copy-standard-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-standard-directive function}@c
 @functionsubindex{copy-standard-directive}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} copy-standard-opening-directive INSTANCE
-@anchor{go to the net.didierverna.focus::copy-standard-opening-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> copy-standard-opening-directive function}@c
 @functionsubindex{copy-standard-opening-directive}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} directive-body-position STRING START
-@anchor{go to the net.didierverna.focus::directive-body-position function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-body-position function}@c
 @functionsubindex{directive-body-position}@c
 Return a STRING's directive body position from START.@*
 START is the position of the tilde character, so this function essentially
 parses the directive arguments in order to skip them.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/string.lisp file, , @t{string}} (Lisp file)
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} directive-character INSTANCE
-@anchor{go to the net.didierverna.focus::directive-character function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-character function}@c
 @functionsubindex{directive-character}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} directive-closing-character INSTANCE
-@anchor{go to the net.didierverna.focus::directive-closing-character function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-closing-character function}@c
 @functionsubindex{directive-closing-character}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} directive-function-name INSTANCE
-@anchor{go to the net.didierverna.focus::directive-function-name function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-function-name function}@c
 @functionsubindex{directive-function-name}@c
 @deffnx {Function} (setf@ directive-function-name) VALUE INSTANCE
-@anchor{go to the net.didierverna.focus::(setf directive-function-name) function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> (setf directive-function-name) function}@c
 @functionsubindex{(setf directive-function-name)}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} directive-opening-character INSTANCE
-@anchor{go to the net.didierverna.focus::directive-opening-character function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-opening-character function}@c
 @functionsubindex{directive-opening-character}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} find-standard-directive CHARACTER &aux CHARACTER DIRECTIVE
-@anchor{go to the net.didierverna.focus::find-standard-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> find-standard-directive function}@c
 @functionsubindex{find-standard-directive}@c
 Return the standard directive corresponding to CHARACTER.@*
 Throw a NONSTANDARD-DIRECTIVE-CHARACTER error otherwise.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} find-table TABLE-OR-NAME
-@anchor{go to the net.didierverna.focus::find-table function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> find-table function}@c
 @functionsubindex{find-table}@c
 Return its table argument directly, or look it up by name.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} format-directive-p OBJECT
-@anchor{go to the net.didierverna.focus::format-directive-p function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-directive-p function}@c
 @functionsubindex{format-directive-p}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} format-table-p OBJECT
-@anchor{go to the net.didierverna.focus::format-table-p function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-table-p function}@c
 @functionsubindex{format-table-p}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} function-directive-p OBJECT
-@anchor{go to the net.didierverna.focus::function-directive-p function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> function-directive-p function}@c
 @functionsubindex{function-directive-p}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} i-reader STREAM SUBCHAR ARG
-@anchor{go to the net.didierverna.focus::i-reader function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> i-reader function}@c
 @functionsubindex{i-reader}@c
 Read an argument list for the DEFINDENT macro.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/meta.lisp file, , @t{meta}} (Lisp file)
+@ref{go to the core/meta <dot> lisp file, , @t{meta}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} lookup-table NAME &optional ERRORP &aux TABLE
-@anchor{go to the net.didierverna.focus::lookup-table function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> lookup-table function}@c
 @functionsubindex{lookup-table}@c
 Look for a format table registered under NAME.@*
 ERRORP (the default) means to throw a TABLE-NOT-REGISTERED error if no such
 table is found. Otherwise, just return nil.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} make-format-directive &key
-@anchor{go to the net.didierverna.focus::make-format-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-format-directive function}@c
 @functionsubindex{make-format-directive}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} make-function-directive &key (FUNCTION-NAME FUNCTION-NAME)
-@anchor{go to the net.didierverna.focus::make-function-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-function-directive function}@c
 @functionsubindex{make-function-directive}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} make-standard-closing-directive &key (CHARACTER CHARACTER) (OPENING-CHARACTER OPENING-CHARACTER)
-@anchor{go to the net.didierverna.focus::make-standard-closing-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-standard-closing-directive function}@c
 @functionsubindex{make-standard-closing-directive}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} make-standard-delimiting-directive &key (CHARACTER CHARACTER)
-@anchor{go to the net.didierverna.focus::make-standard-delimiting-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-standard-delimiting-directive function}@c
 @functionsubindex{make-standard-delimiting-directive}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} make-standard-directive &key (CHARACTER CHARACTER)
-@anchor{go to the net.didierverna.focus::make-standard-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-standard-directive function}@c
 @functionsubindex{make-standard-directive}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} make-standard-opening-directive &key (CHARACTER CHARACTER) (CLOSING-CHARACTER CLOSING-CHARACTER)
-@anchor{go to the net.didierverna.focus::make-standard-opening-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> make-standard-opening-directive function}@c
 @functionsubindex{make-standard-opening-directive}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} next-directive-position STRING START
-@anchor{go to the net.didierverna.focus::next-directive-position function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> next-directive-position function}@c
 @functionsubindex{next-directive-position}@c
 Return the next directive position in STRING from START, or nil.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/string.lisp file, , @t{string}} (Lisp file)
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} other-case CHAR
-@anchor{go to the net.didierverna.focus::other-case function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> other-case function}@c
 @functionsubindex{other-case}@c
 Return the other case version of CHAR if it exists.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/util.lisp file, , @t{util}} (Lisp file)
+@ref{go to the core/src/util <dot> lisp file, , @t{util}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} release-status-number RELEASE-STATUS
-@anchor{go to the net.didierverna.focus.setup::release-status-number function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> release-status-number function}@c
 @functionsubindex{release-status-number}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item Source
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} restrict-because REASON
-@anchor{go to the net.didierverna.focus.setup::restrict-because function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <dot> setup <colon>  <colon> restrict-because function}@c
 @functionsubindex{restrict-because}@c
 Put FoCus in restricted mode because of REASON.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus.setup package, , @t{net.didierverna.focus.setup}}
+@ref{go to the net <dot> didierverna <dot> focus <dot> setup package, , @t{net.didierverna.focus.setup}}
 @item Source
-@ref{go to the setup/setup.lisp file, , @t{setup}} (Lisp file)
+@ref{go to the setup/setup <dot> lisp file, , @t{setup}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} standard-closing-directive-p OBJECT
-@anchor{go to the net.didierverna.focus::standard-closing-directive-p function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-closing-directive-p function}@c
 @functionsubindex{standard-closing-directive-p}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} standard-delimiting-directive-p OBJECT
-@anchor{go to the net.didierverna.focus::standard-delimiting-directive-p function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-delimiting-directive-p function}@c
 @functionsubindex{standard-delimiting-directive-p}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} standard-directive STRING POSITION TABLE &aux BODY-POSITION DIRECTIVE
-@anchor{go to the net.didierverna.focus::standard-directive function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive function}@c
 @functionsubindex{standard-directive}@c
 Translate a STRING directive into a standard one.@*
 - POSITION is the position of the ~ character.@*
@@ -2063,23 +2089,23 @@ Note that the directive arguments are copied as-is. Only the directive's body
 actually involves a translation.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/string.lisp file, , @t{string}} (Lisp file)
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} standard-directive-p OBJECT
-@anchor{go to the net.didierverna.focus::standard-directive-p function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-p function}@c
 @functionsubindex{standard-directive-p}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} standard-format-string FORMAT-CONTROL &optional TABLE
-@anchor{go to the net.didierverna.focus::standard-format-string function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-format-string function}@c
 @functionsubindex{standard-format-string}@c
 Return the translation of FORMAT-CONTROL into a standard one.@*
 When FORMAT-CONTROL is a string, the translation is done according to format
@@ -2087,126 +2113,146 @@ TABLE (the current table by default). Otherwise, FORMAT-CONTROL is returned
 as-is.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/string.lisp file, , @t{string}} (Lisp file)
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} standard-opening-directive-p OBJECT
-@anchor{go to the net.didierverna.focus::standard-opening-directive-p function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-opening-directive-p function}@c
 @functionsubindex{standard-opening-directive-p}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} table-mappings INSTANCE
-@anchor{go to the net.didierverna.focus::table-mappings function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-mappings function}@c
 @functionsubindex{table-mappings}@c
 @deffnx {Function} (setf@ table-mappings) VALUE INSTANCE
-@anchor{go to the net.didierverna.focus::(setf table-mappings) function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> (setf table-mappings) function}@c
 @functionsubindex{(setf table-mappings)}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} table-name TABLE
-@anchor{go to the net.didierverna.focus::table-name function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-name function}@c
 @functionsubindex{table-name}@c
 Find TABLE's name if registered, return nil otherwise.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @end table
 @end deffn
 @deffn {Function} tilde-reader STREAM CHAR
-@anchor{go to the net.didierverna.focus::tilde-reader function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> tilde-reader function}@c
 @functionsubindex{tilde-reader}@c
 Read a series of ~"string" to be concatenated together.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/meta.lisp file, , @t{meta}} (Lisp file)
+@ref{go to the core/meta <dot> lisp file, , @t{meta}} (Lisp file)
 @end table
 @end deffn
 
 @node Internal generic functions, Internal conditions, Internal functions, Internal definitions
 @subsection Generic functions
 @deffn {Generic Function} delimiter CONDITION
-@anchor{go to the net.didierverna.focus::delimiter generic function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> delimiter generic function}@c
 @genericsubindex{delimiter}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Methods
 @deffn {Method} delimiter (CONDITION @t{missing-delimiter})
-@anchor{go to the net.didierverna.focus::delimiter missing-delimiter method}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> delimiter missing-delimiter method}@c
 @methodsubindex{delimiter}@c
+@table @strong
+@item Source
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
+@end table
 @end deffn
 @end table
 @end deffn
 @deffn {Generic Function} format-string CONDITION
-@anchor{go to the net.didierverna.focus::format-string generic function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string generic function}@c
 @genericsubindex{format-string}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Methods
 @deffn {Method} format-string (CONDITION @t{format-string-error})
-@anchor{go to the net.didierverna.focus::format-string format-string-error method}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string format-string-error method}@c
 @methodsubindex{format-string}@c
+@table @strong
+@item Source
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
+@end table
 @end deffn
 @end table
 @end deffn
 @deffn {Generic Function} modifier CONDITION
-@anchor{go to the net.didierverna.focus::modifier generic function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> modifier generic function}@c
 @genericsubindex{modifier}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Methods
 @deffn {Method} modifier (CONDITION @t{spurious-modifier})
-@anchor{go to the net.didierverna.focus::modifier spurious-modifier method}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> modifier spurious-modifier method}@c
 @methodsubindex{modifier}@c
+@table @strong
+@item Source
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
+@end table
 @end deffn
 @end table
 @end deffn
 @deffn {Generic Function} name CONDITION
-@anchor{go to the net.didierverna.focus::name generic function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> name generic function}@c
 @genericsubindex{name}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Methods
 @deffn {Method} name (CONDITION @t{table-lookup-error})
-@anchor{go to the net.didierverna.focus::name table-lookup-error method}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> name table-lookup-error method}@c
 @methodsubindex{name}@c
+@table @strong
+@item Source
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
+@end table
 @end deffn
 @end table
 @end deffn
 @deffn {Generic Function} nonstandard-directive-character CONDITION
-@anchor{go to the net.didierverna.focus::nonstandard-directive-character generic function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> nonstandard-directive-character generic function}@c
 @genericsubindex{nonstandard-directive-character}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Methods
 @deffn {Method} nonstandard-directive-character (CONDITION @t{nonstandard-directive-character})
-@anchor{go to the net.didierverna.focus::nonstandard-directive-character nonstandard-directive-character method}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> nonstandard-directive-character nonstandard-directive-character method}@c
 @methodsubindex{nonstandard-directive-character}@c
+@table @strong
+@item Source
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
+@end table
 @end deffn
 @end table
 @end deffn
 @deffn {Generic Function} standard-directive-body STRING POSITION DIRECTIVE
-@anchor{go to the net.didierverna.focus::standard-directive-body generic function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body generic function}@c
 @genericsubindex{standard-directive-body}@c
 Translate a STRING directive's body into a standard one.@*
 - POSITION is the position of the directive's body (i.e., past the ~ character
@@ -2218,67 +2264,83 @@ Return two values:@*
 - the STRING's remainder index.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/string.lisp file, , @t{string}} (Lisp file)
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
 @item Methods
 @deffn {Method} standard-directive-body STRING POSITION (DIRECTIVE @t{standard-directive})
-@anchor{go to the net.didierverna.focus::standard-directive-body t t standard-directive method}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body t t standard-directive method}@c
 @methodsubindex{standard-directive-body}@c
 Method for one-character and grouping standard directives.
 @end deffn
 @deffn {Method} standard-directive-body STRING POSITION (DIRECTIVE @t{standard-delimiting-directive})
-@anchor{go to the net.didierverna.focus::standard-directive-body t t standard-delimiting-directive method}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body t t standard-delimiting-directive method}@c
 @methodsubindex{standard-directive-body}@c
 Method for the / standard directive.
 @end deffn
 @deffn {Method} standard-directive-body STRING POSITION (DIRECTIVE @t{function-directive})
-@anchor{go to the net.didierverna.focus::standard-directive-body t t function-directive method}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body t t function-directive method}@c
 @methodsubindex{standard-directive-body}@c
 Method for function directives.
 @end deffn
 @end table
 @end deffn
 @deffn {Generic Function} string-position CONDITION
-@anchor{go to the net.didierverna.focus::string-position generic function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> string-position generic function}@c
 @genericsubindex{string-position}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Methods
 @deffn {Method} string-position (CONDITION @t{format-string-error})
-@anchor{go to the net.didierverna.focus::string-position format-string-error method}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> string-position format-string-error method}@c
 @methodsubindex{string-position}@c
+@table @strong
+@item Source
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
+@end table
 @end deffn
 @end table
 @end deffn
 @deffn {Generic Function} table CONDITION
-@anchor{go to the net.didierverna.focus::table generic function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> table generic function}@c
 @genericsubindex{table}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Methods
 @deffn {Method} table (CONDITION @t{missing-table-directive})
-@anchor{go to the net.didierverna.focus::table missing-table-directive method}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> table missing-table-directive method}@c
 @methodsubindex{table}@c
+@table @strong
+@item Source
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
+@end table
 @end deffn
 @deffn {Method} table (CONDITION @t{format-table-error})
-@anchor{go to the net.didierverna.focus::table format-table-error method}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> table format-table-error method}@c
 @methodsubindex{table}@c
+@table @strong
+@item Source
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
+@end table
 @end deffn
 @end table
 @end deffn
 @deffn {Generic Function} table-character CONDITION
-@anchor{go to the net.didierverna.focus::table-character generic function}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-character generic function}@c
 @genericsubindex{table-character}@c
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Methods
 @deffn {Method} table-character (CONDITION @t{table-directive-error})
-@anchor{go to the net.didierverna.focus::table-character table-directive-error method}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-character table-directive-error method}@c
 @methodsubindex{table-character}@c
+@table @strong
+@item Source
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
+@end table
 @end deffn
 @end table
 @end deffn
@@ -2286,59 +2348,59 @@ Method for function directives.
 @node Internal conditions, Internal structures, Internal generic functions, Internal definitions
 @subsection Conditions
 @deftp {Condition} focus-error 
-@anchor{go to the net.didierverna.focus::focus-error condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> focus-error condition}@c
 @conditionsubindex{focus-error}@c
 A FoCus error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/util.lisp file, , @t{util}} (Lisp file)
+@ref{go to the core/src/util <dot> lisp file, , @t{util}} (Lisp file)
 @item Direct superclasses
 @t{error}
 @item Direct subclasses
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::standard-directive-lookup-error condition, , @t{standard-directive-lookup-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-lookup-error condition, , @t{standard-directive-lookup-error}} (condition)
 @item
-@ref{go to the net.didierverna.focus::format-table-error condition, , @t{format-table-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-table-error condition, , @t{format-table-error}} (condition)
 @item
-@ref{go to the net.didierverna.focus::table-lookup-error condition, , @t{table-lookup-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-lookup-error condition, , @t{table-lookup-error}} (condition)
 @item
-@ref{go to the net.didierverna.focus::format-string-error condition, , @t{format-string-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string-error condition, , @t{format-string-error}} (condition)
 @end itemize
 @end table
 @end deftp
 @deftp {Condition} format-string-error 
-@anchor{go to the net.didierverna.focus::format-string-error condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string-error condition}@c
 @conditionsubindex{format-string-error}@c
 A format string error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/string.lisp file, , @t{string}} (Lisp file)
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::focus-error condition, , @t{focus-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> focus-error condition, , @t{focus-error}} (condition)
 @item Direct subclasses
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::missing-string-directive condition, , @t{missing-string-directive}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-string-directive condition, , @t{missing-string-directive}} (condition)
 @item
-@ref{go to the net.didierverna.focus::spurious-parameter condition, , @t{spurious-parameter}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> spurious-parameter condition, , @t{spurious-parameter}} (condition)
 @item
-@ref{go to the net.didierverna.focus::spurious-modifier condition, , @t{spurious-modifier}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> spurious-modifier condition, , @t{spurious-modifier}} (condition)
 @item
-@ref{go to the net.didierverna.focus::missing-delimiter condition, , @t{missing-delimiter}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-delimiter condition, , @t{missing-delimiter}} (condition)
 @item
-@ref{go to the net.didierverna.focus::missing-table-directive condition, , @t{missing-table-directive}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-table-directive condition, , @t{missing-table-directive}} (condition)
 @end itemize
 @item Direct methods
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::string-position format-string-error method, , @t{string-position}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> string-position format-string-error method, , @t{string-position}} (method)
 @item
-@ref{go to the net.didierverna.focus::format-string format-string-error method, , @t{format-string}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string format-string-error method, , @t{format-string}} (method)
 @end itemize
 @item Direct slots
 @defvr {Slot} string
@@ -2348,7 +2410,7 @@ The format string.
 @item Initargs
 @t{:string}
 @item Readers
-@ref{go to the net.didierverna.focus::format-string generic function, , @t{format-string}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string generic function, , @t{format-string}} (generic function)
 @end table
 @end defvr
 @defvr {Slot} position
@@ -2360,26 +2422,26 @@ The position at which the error occurs.
 @item Initform
 @t{'nil}
 @item Readers
-@ref{go to the net.didierverna.focus::string-position generic function, , @t{string-position}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> string-position generic function, , @t{string-position}} (generic function)
 @end table
 @end defvr
 @end table
 @end deftp
 @deftp {Condition} format-table-error 
-@anchor{go to the net.didierverna.focus::format-table-error condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-table-error condition}@c
 @conditionsubindex{format-table-error}@c
 A format table error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::focus-error condition, , @t{focus-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> focus-error condition, , @t{focus-error}} (condition)
 @item Direct subclasses
-@ref{go to the net.didierverna.focus::table-directive-error condition, , @t{table-directive-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-directive-error condition, , @t{table-directive-error}} (condition)
 @item Direct methods
-@ref{go to the net.didierverna.focus::table format-table-error method, , @t{table}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table format-table-error method, , @t{table}} (method)
 @item Direct slots
 @defvr {Slot} table
 @slotsubindex{table}@c
@@ -2388,24 +2450,24 @@ The format table.
 @item Initargs
 @t{:table}
 @item Readers
-@ref{go to the net.didierverna.focus::table generic function, , @t{table}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table generic function, , @t{table}} (generic function)
 @end table
 @end defvr
 @end table
 @end deftp
 @deftp {Condition} missing-delimiter 
-@anchor{go to the net.didierverna.focus::missing-delimiter condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-delimiter condition}@c
 @conditionsubindex{missing-delimiter}@c
 A missing delimiter error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/string.lisp file, , @t{string}} (Lisp file)
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::format-string-error condition, , @t{format-string-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string-error condition, , @t{format-string-error}} (condition)
 @item Direct methods
-@ref{go to the net.didierverna.focus::delimiter missing-delimiter method, , @t{delimiter}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> delimiter missing-delimiter method, , @t{delimiter}} (method)
 @item Direct slots
 @defvr {Slot} delimiter
 @slotsubindex{delimiter}@c
@@ -2414,50 +2476,50 @@ The delimiter character.
 @item Initargs
 @t{:delimiter}
 @item Readers
-@ref{go to the net.didierverna.focus::delimiter generic function, , @t{delimiter}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> delimiter generic function, , @t{delimiter}} (generic function)
 @end table
 @end defvr
 @end table
 @end deftp
 @deftp {Condition} missing-string-directive 
-@anchor{go to the net.didierverna.focus::missing-string-directive condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-string-directive condition}@c
 @conditionsubindex{missing-string-directive}@c
 A missing directive error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/string.lisp file, , @t{string}} (Lisp file)
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::format-string-error condition, , @t{format-string-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string-error condition, , @t{format-string-error}} (condition)
 @end table
 @end deftp
 @deftp {Condition} missing-table 
-@anchor{go to the net.didierverna.focus::missing-table condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-table condition}@c
 @conditionsubindex{missing-table}@c
 A missing format table error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::table-lookup-error condition, , @t{table-lookup-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-lookup-error condition, , @t{table-lookup-error}} (condition)
 @end table
 @end deftp
 @deftp {Condition} missing-table-directive 
-@anchor{go to the net.didierverna.focus::missing-table-directive condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-table-directive condition}@c
 @conditionsubindex{missing-table-directive}@c
 A missing table directive error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/string.lisp file, , @t{string}} (Lisp file)
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::format-string-error condition, , @t{format-string-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string-error condition, , @t{format-string-error}} (condition)
 @item Direct methods
-@ref{go to the net.didierverna.focus::table missing-table-directive method, , @t{table}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table missing-table-directive method, , @t{table}} (method)
 @item Direct slots
 @defvr {Slot} table
 @slotsubindex{table}@c
@@ -2466,24 +2528,24 @@ The format table.
 @item Initargs
 @t{:table}
 @item Readers
-@ref{go to the net.didierverna.focus::table generic function, , @t{table}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table generic function, , @t{table}} (generic function)
 @end table
 @end defvr
 @end table
 @end deftp
 @deftp {Condition} nonstandard-directive-character 
-@anchor{go to the net.didierverna.focus::nonstandard-directive-character condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> nonstandard-directive-character condition}@c
 @conditionsubindex{nonstandard-directive-character}@c
 A nonstandard directive character error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::standard-directive-lookup-error condition, , @t{standard-directive-lookup-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-lookup-error condition, , @t{standard-directive-lookup-error}} (condition)
 @item Direct methods
-@ref{go to the net.didierverna.focus::nonstandard-directive-character nonstandard-directive-character method, , @t{nonstandard-directive-character}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> nonstandard-directive-character nonstandard-directive-character method, , @t{nonstandard-directive-character}} (method)
 @item Direct slots
 @defvr {Slot} character
 @slotsubindex{character}@c
@@ -2492,24 +2554,24 @@ The character.
 @item Initargs
 @t{:character}
 @item Readers
-@ref{go to the net.didierverna.focus::nonstandard-directive-character generic function, , @t{nonstandard-directive-character}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> nonstandard-directive-character generic function, , @t{nonstandard-directive-character}} (generic function)
 @end table
 @end defvr
 @end table
 @end deftp
 @deftp {Condition} spurious-modifier 
-@anchor{go to the net.didierverna.focus::spurious-modifier condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> spurious-modifier condition}@c
 @conditionsubindex{spurious-modifier}@c
 A spurious modifier error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/string.lisp file, , @t{string}} (Lisp file)
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::format-string-error condition, , @t{format-string-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string-error condition, , @t{format-string-error}} (condition)
 @item Direct methods
-@ref{go to the net.didierverna.focus::modifier spurious-modifier method, , @t{modifier}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> modifier spurious-modifier method, , @t{modifier}} (method)
 @item Direct slots
 @defvr {Slot} modifier
 @slotsubindex{modifier}@c
@@ -2518,80 +2580,80 @@ The modifier character.
 @item Initargs
 @t{:modifier}
 @item Readers
-@ref{go to the net.didierverna.focus::modifier generic function, , @t{modifier}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> modifier generic function, , @t{modifier}} (generic function)
 @end table
 @end defvr
 @end table
 @end deftp
 @deftp {Condition} spurious-parameter 
-@anchor{go to the net.didierverna.focus::spurious-parameter condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> spurious-parameter condition}@c
 @conditionsubindex{spurious-parameter}@c
 A spurious parameter error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/string.lisp file, , @t{string}} (Lisp file)
+@ref{go to the core/src/string <dot> lisp file, , @t{string}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::format-string-error condition, , @t{format-string-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-string-error condition, , @t{format-string-error}} (condition)
 @end table
 @end deftp
 @deftp {Condition} standard-directive-lookup-error 
-@anchor{go to the net.didierverna.focus::standard-directive-lookup-error condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-lookup-error condition}@c
 @conditionsubindex{standard-directive-lookup-error}@c
 A standard directive lookup error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::focus-error condition, , @t{focus-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> focus-error condition, , @t{focus-error}} (condition)
 @item Direct subclasses
-@ref{go to the net.didierverna.focus::nonstandard-directive-character condition, , @t{nonstandard-directive-character}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> nonstandard-directive-character condition, , @t{nonstandard-directive-character}} (condition)
 @end table
 @end deftp
 @deftp {Condition} table-collision 
-@anchor{go to the net.didierverna.focus::table-collision condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-collision condition}@c
 @conditionsubindex{table-collision}@c
 A table collision error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::table-lookup-error condition, , @t{table-lookup-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-lookup-error condition, , @t{table-lookup-error}} (condition)
 @end table
 @end deftp
 @deftp {Condition} table-directive-collision 
-@anchor{go to the net.didierverna.focus::table-directive-collision condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-directive-collision condition}@c
 @conditionsubindex{table-directive-collision}@c
 A table directive collision error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::table-directive-error condition, , @t{table-directive-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-directive-error condition, , @t{table-directive-error}} (condition)
 @end table
 @end deftp
 @deftp {Condition} table-directive-error 
-@anchor{go to the net.didierverna.focus::table-directive-error condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-directive-error condition}@c
 @conditionsubindex{table-directive-error}@c
 A table directive error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::format-table-error condition, , @t{format-table-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-table-error condition, , @t{format-table-error}} (condition)
 @item Direct subclasses
-@ref{go to the net.didierverna.focus::table-directive-collision condition, , @t{table-directive-collision}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-directive-collision condition, , @t{table-directive-collision}} (condition)
 @item Direct methods
-@ref{go to the net.didierverna.focus::table-character table-directive-error method, , @t{table-character}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-character table-directive-error method, , @t{table-character}} (method)
 @item Direct slots
 @defvr {Slot} character
 @slotsubindex{character}@c
@@ -2600,31 +2662,31 @@ The directive character.
 @item Initargs
 @t{:character}
 @item Readers
-@ref{go to the net.didierverna.focus::table-character generic function, , @t{table-character}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-character generic function, , @t{table-character}} (generic function)
 @end table
 @end defvr
 @end table
 @end deftp
 @deftp {Condition} table-lookup-error 
-@anchor{go to the net.didierverna.focus::table-lookup-error condition}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-lookup-error condition}@c
 @conditionsubindex{table-lookup-error}@c
 A format table lookup error.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::focus-error condition, , @t{focus-error}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> focus-error condition, , @t{focus-error}} (condition)
 @item Direct subclasses
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::missing-table condition, , @t{missing-table}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> missing-table condition, , @t{missing-table}} (condition)
 @item
-@ref{go to the net.didierverna.focus::table-collision condition, , @t{table-collision}} (condition)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-collision condition, , @t{table-collision}} (condition)
 @end itemize
 @item Direct methods
-@ref{go to the net.didierverna.focus::name table-lookup-error method, , @t{name}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> name table-lookup-error method, , @t{name}} (method)
 @item Direct slots
 @defvr {Slot} name
 @slotsubindex{name}@c
@@ -2633,7 +2695,7 @@ The looked up name.
 @item Initargs
 @t{:name}
 @item Readers
-@ref{go to the net.didierverna.focus::name generic function, , @t{name}} (generic function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> name generic function, , @t{name}} (generic function)
 @end table
 @end defvr
 @end table
@@ -2642,35 +2704,35 @@ The looked up name.
 @node Internal structures, , Internal conditions, Internal definitions
 @subsection Structures
 @deftp {Structure} format-directive 
-@anchor{go to the net.didierverna.focus::format-directive structure}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-directive structure}@c
 @structuresubindex{format-directive}@c
 Base structure for format directives.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @item Direct superclasses
 @t{structure-object}
 @item Direct subclasses
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::standard-directive structure, , @t{standard-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive structure, , @t{standard-directive}} (structure)
 @item
-@ref{go to the net.didierverna.focus::function-directive structure, , @t{function-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> function-directive structure, , @t{function-directive}} (structure)
 @end itemize
 @end table
 @end deftp
 @deftp {Structure} format-table 
-@anchor{go to the net.didierverna.focus::format-table structure}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-table structure}@c
 @structuresubindex{format-table}@c
 Structure for format tables.@*
 This structure holds the MAPPINGS from characters to directives.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/table.lisp file, , @t{table}} (Lisp file)
+@ref{go to the core/src/table <dot> lisp file, , @t{table}} (Lisp file)
 @item Direct superclasses
 @t{structure-object}
 @item Direct methods
@@ -2684,27 +2746,27 @@ This structure holds the MAPPINGS from characters to directives.
 @item Initform
 @t{(make-hash-table)}
 @item Readers
-@ref{go to the net.didierverna.focus::table-mappings function, , @t{table-mappings}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> table-mappings function, , @t{table-mappings}} (function)
 @item Writers
-@ref{go to the net.didierverna.focus::(setf table-mappings) function, , @t{(setf table-mappings)}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> (setf table-mappings) function, , @t{(setf table-mappings)}} (function)
 @end table
 @end defvr
 @end table
 @end deftp
 @deftp {Structure} function-directive 
-@anchor{go to the net.didierverna.focus::function-directive structure}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> function-directive structure}@c
 @structuresubindex{function-directive}@c
 Structure for user-defined function directives.@*
 This structure holds the associated function name.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::format-directive structure, , @t{format-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-directive structure, , @t{format-directive}} (structure)
 @item Direct methods
-@ref{go to the net.didierverna.focus::standard-directive-body t t function-directive method, , @t{standard-directive-body}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body t t function-directive method, , @t{standard-directive-body}} (method)
 @item Direct slots
 @defvr {Slot} function-name
 @slotsubindex{function-name}@c
@@ -2712,25 +2774,25 @@ This structure holds the associated function name.
 @item Type
 @t{symbol}
 @item Readers
-@ref{go to the net.didierverna.focus::directive-function-name function, , @t{directive-function-name}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-function-name function, , @t{directive-function-name}} (function)
 @item Writers
-@ref{go to the net.didierverna.focus::(setf directive-function-name) function, , @t{(setf directive-function-name)}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> (setf directive-function-name) function, , @t{(setf directive-function-name)}} (function)
 @end table
 @end defvr
 @end table
 @end deftp
 @deftp {Structure} standard-closing-directive 
-@anchor{go to the net.didierverna.focus::standard-closing-directive structure}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-closing-directive structure}@c
 @structuresubindex{standard-closing-directive}@c
 Structure for standard closing directives.@*
 This structure holds the corresponding (upcase) opening character.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::standard-directive structure, , @t{standard-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive structure, , @t{standard-directive}} (structure)
 @item Direct slots
 @defvr {Slot} opening-character
 @slotsubindex{opening-character}@c
@@ -2738,7 +2800,7 @@ This structure holds the corresponding (upcase) opening character.
 @item Type
 @t{character}
 @item Readers
-@ref{go to the net.didierverna.focus::directive-opening-character function, , @t{directive-opening-character}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-opening-character function, , @t{directive-opening-character}} (function)
 @item Writers
 @t{(setf directive-opening-character)}
 @end table
@@ -2746,43 +2808,43 @@ This structure holds the corresponding (upcase) opening character.
 @end table
 @end deftp
 @deftp {Structure} standard-delimiting-directive 
-@anchor{go to the net.didierverna.focus::standard-delimiting-directive structure}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-delimiting-directive structure}@c
 @structuresubindex{standard-delimiting-directive}@c
 Structure for standard delimiting directives.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::standard-directive structure, , @t{standard-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive structure, , @t{standard-directive}} (structure)
 @item Direct methods
-@ref{go to the net.didierverna.focus::standard-directive-body t t standard-delimiting-directive method, , @t{standard-directive-body}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body t t standard-delimiting-directive method, , @t{standard-directive-body}} (method)
 @end table
 @end deftp
 @deftp {Structure} standard-directive 
-@anchor{go to the net.didierverna.focus::standard-directive structure}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive structure}@c
 @structuresubindex{standard-directive}@c
 Base structure for standard directives.@*
 This structure holds the (upcase) directive character.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::format-directive structure, , @t{format-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> format-directive structure, , @t{format-directive}} (structure)
 @item Direct subclasses
 @itemize @bullet
 @item
-@ref{go to the net.didierverna.focus::standard-delimiting-directive structure, , @t{standard-delimiting-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-delimiting-directive structure, , @t{standard-delimiting-directive}} (structure)
 @item
-@ref{go to the net.didierverna.focus::standard-opening-directive structure, , @t{standard-opening-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-opening-directive structure, , @t{standard-opening-directive}} (structure)
 @item
-@ref{go to the net.didierverna.focus::standard-closing-directive structure, , @t{standard-closing-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-closing-directive structure, , @t{standard-closing-directive}} (structure)
 @end itemize
 @item Direct methods
-@ref{go to the net.didierverna.focus::standard-directive-body t t standard-directive method, , @t{standard-directive-body}} (method)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive-body t t standard-directive method, , @t{standard-directive-body}} (method)
 @item Direct slots
 @defvr {Slot} character
 @slotsubindex{character}@c
@@ -2790,7 +2852,7 @@ This structure holds the (upcase) directive character.
 @item Type
 @t{character}
 @item Readers
-@ref{go to the net.didierverna.focus::directive-character function, , @t{directive-character}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-character function, , @t{directive-character}} (function)
 @item Writers
 @t{(setf directive-character)}
 @end table
@@ -2798,17 +2860,17 @@ This structure holds the (upcase) directive character.
 @end table
 @end deftp
 @deftp {Structure} standard-opening-directive 
-@anchor{go to the net.didierverna.focus::standard-opening-directive structure}@c
+@anchor{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-opening-directive structure}@c
 @structuresubindex{standard-opening-directive}@c
 Structure for standard opening directives.@*
 This structure holds the corresponding (upcase) closing character.
 @table @strong
 @item Package
-@ref{go to the net.didierverna.focus package, , @t{net.didierverna.focus}}
+@ref{go to the net <dot> didierverna <dot> focus package, , @t{net.didierverna.focus}}
 @item Source
-@ref{go to the core/src/directive.lisp file, , @t{directive}} (Lisp file)
+@ref{go to the core/src/directive <dot> lisp file, , @t{directive}} (Lisp file)
 @item Direct superclasses
-@ref{go to the net.didierverna.focus::standard-directive structure, , @t{standard-directive}} (structure)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> standard-directive structure, , @t{standard-directive}} (structure)
 @item Direct slots
 @defvr {Slot} closing-character
 @slotsubindex{closing-character}@c
@@ -2816,7 +2878,7 @@ This structure holds the corresponding (upcase) closing character.
 @item Type
 @t{character}
 @item Readers
-@ref{go to the net.didierverna.focus::directive-closing-character function, , @t{directive-closing-character}} (function)
+@ref{go to the net <dot> didierverna <dot> focus <colon>  <colon> directive-closing-character function, , @t{directive-closing-character}} (function)
 @item Writers
 @t{(setf directive-closing-character)}
 @end table
